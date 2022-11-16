@@ -16,18 +16,22 @@
 
     font-size: 40px;
     font-weight: 600;
+    overflow: hidden;
 
 }
 
 .hero-desc {
 
     font-size: 16px;
+    overflow: hidden;
+    display: inline-block;
 
 }
 
 .ind-char {
 
-    display: inline-block;
     overflow: hidden;
+    float: left;
+    white-space: pre;
 
 }

@@ -6,8 +6,8 @@ const Home = () => {
     return (
 
         <>
-        <Header/>
-        <Hero title={"It's nice to meet you."} desc={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do \n eiusmod tempor incididunt ut labore et dolore magna aliqua.`}/>
+            <Header/>
+            <Hero title={"It's nice to meet you."} desc={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do \n eiusmod tempor incididunt ut labore et dolore magna aliqua.`}/>
         </>
 
     );
