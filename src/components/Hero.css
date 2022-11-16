@@ -1,0 +1,33 @@
+.hero {
+
+    width: 100%;
+    min-height: 600px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 32px;
+    box-sizing: border-box;
+
+}
+
+.hero-title {
+
+    font-size: 40px;
+    font-weight: 600;
+
+}
+
+.hero-desc {
+
+    font-size: 16px;
+
+}
+
+.ind-char {
+
+    display: inline-block;
+    overflow: hidden;
+
+}
