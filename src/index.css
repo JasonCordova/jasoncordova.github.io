@@ -1,13 +1,75 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+
+  --landing: #ffffff;
+  --landing-text: #000000;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  font-family: Elza;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--landing);
+  min-height: 9000px;
+}
+
+.landing {
+  width: 100%;
+  padding: 32px;
+  box-sizing: border-box;
+  background-color: var(--landing);
+  color: var(--landing-text);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--landing-text);
+}
+
+.elza {
+  font-family: inherit;
+}
+
+.miller {
+  font-family: miller-headline, serif;
+  font-style: italic;
+  letter-spacing: 0rem;
+  font-size: 1.15em;
+}
+
+.message-edge {
+  position: absolute;
+  bottom: -2px;
+  width: 50px;
+  right: 0px;
+  fill: #0472ff;
+}
+
+.message {
+    position: relative;
+}
+
+.message-content {
+  background-color: #0472FF;
+  border-radius: 36px;
+  position: relative;
+  padding: 1em 1em;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-right: 24px;
 }

@@ -1,0 +1,27 @@
+.fish {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: left 5s ease-in-out, top 5s ease-in-out;
+    z-index: 1;
+}
+
+.fish-img {
+    width: 100%;
+    transition: transform .5s ease-out;
+    filter: drop-shadow(0px -4px 4px rgba(0, 0, 0, 0.15));
+}
+
+.fish-rotator {
+    width: 100%;
+    transition: transform 2s ease-out;
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    opacity: 0.5;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 0;
+}
