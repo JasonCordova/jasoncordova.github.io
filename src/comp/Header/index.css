@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    padding: 1.5em;
+    padding: 1em;
     box-sizing: border-box;
     background-color: #F6F7F7;
     box-shadow: 0px 1px 2px #00000040;
@@ -13,8 +13,8 @@
 }
 
 .header-img {
-    width: 5em;
-    height: 5em;
+    width: 4em;
+    height: 4em;
     border-radius: 100%;
     background-color: rgb(102, 102, 102);
 }
