@@ -8,9 +8,9 @@ const FishTank = () => {
 
     return (
 
-        <div className="message">
+        <div className="message fishtank">
 
-            <div className="message-content fishtank">
+            <div className="message-content">
 
                 <Fish type={"tropical"}></Fish>
                 <Fish type={"tropical"}></Fish>
