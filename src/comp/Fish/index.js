@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
 
 const minSize = 8;
 const maxSize = 15;
-const maxDegree = 20;
+const maxDegree = 30;
 
 const maxTransitionSpeed = 8;
 const minTransitionSpeed = 3;

@@ -4,7 +4,7 @@ const Message = (props) => {
 
     return (
 
-        <div className="message">
+        <div className="message clipped">
 
             <div className="message-content">
                 {props.message}
