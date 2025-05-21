@@ -13,8 +13,8 @@ const minTransitionSpeed = 3; // Goes off seconds
 const minDelay = 30; // Goes off 100 ms
 const maxDelay = 80; // Goes off 100 ms
 
-const minBubbleDelay = 30; // Goes off 100 ms
-const maxBubbleDelay = 90; // Goes off 100 ms
+const minBubbleDelay = 20; // Goes off 100 ms
+const maxBubbleDelay = 80; // Goes off 100 ms
 
 const Fish = forwardRef((props, ref) => {
 

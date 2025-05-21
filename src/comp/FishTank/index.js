@@ -1,7 +1,7 @@
 import Fish from '../Fish';
 import Statue from '../../assets/statue.webp';
 import Coral from '../../assets/coral.webp';
-import BubbleSprite from '../../assets/bubble.webp';
+import BubbleSprite from '../../assets/bubbles.webp';
 import './index.css';
 
 import { useRef, useState, useEffect } from 'react';
