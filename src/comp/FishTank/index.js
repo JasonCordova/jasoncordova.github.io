@@ -9,7 +9,7 @@ import { useRef, useState, useEffect } from 'react';
 const Bubble = ({ top, left, onExit }) => {
   const bubbleRef = useRef(null);
   const [topPosition, setTopPosition] = useState(top);
-  const speed = useRef(0.05 + Math.random() * 0.1); // Slightly randomized speed
+  const speed = useRef(0.1 + Math.random() * 0.1); // Slightly randomized speed
   const shouldExit = useRef(false);
 
   useEffect(() => {
@@ -62,7 +62,42 @@ const Bubble = ({ top, left, onExit }) => {
 const FishTank = () => {
 
     const fishTankRef = useRef(null);
+    const previousMouse = useRef({x: null, y: null});
+    const THRESHOLD = 20;
+    const bubbleCounter = useRef(0);
     const [bubbles, setBubbles] = useState([]);
+
+    const handleMouseMove = (e) => {
+
+      const tankBox = fishTankRef.current.getBoundingClientRect();
+      const tankTop = tankBox.top;
+      const tankBottom = tankBox.bottom;
+      const tankLeft = tankBox.left;
+      const tankRight = tankBox.right;
+
+      const xPercentage = (e.clientX - tankLeft) / (tankRight - tankLeft) * 100;
+      const yPercentage = (e.clientY - tankTop) / (tankBottom - tankTop) * 100;
+      
+      if (previousMouse.x === null && previousMouse.y === null){
+
+        createBubble(xPercentage, yPercentage);
+        previousMouse.current.x = xPercentage;
+        previousMouse.current.y = yPercentage;
+
+      } else {
+        const distance = Math.sqrt(
+          Math.pow(xPercentage - previousMouse.current.x, 2) + 
+          Math.pow(yPercentage - previousMouse.current.y, 2)
+        );
+        
+        if (distance > THRESHOLD) {
+          createBubble(xPercentage, yPercentage);
+          previousMouse.current.x = xPercentage;
+          previousMouse.current.y = yPercentage;
+        }
+      }
+
+    }
 
     const handleBubbleExit = (id) => {
         setBubbles(prev => prev.filter(bubble => bubble.id !== id));
@@ -71,7 +106,7 @@ const FishTank = () => {
     const createBubble = (x, y) => {
         setBubbles(prev => [
             ...prev,
-            { id: Date.now(), x, y }
+            { id: `${bubbleCounter.current++}`, x, y}
         ]);
     };
 
@@ -79,10 +114,12 @@ const FishTank = () => {
 
         <div id="fishtank" className="message">
 
-            <div ref={fishTankRef} className="message-content">
+            <div ref={fishTankRef} className="message-content" onMouseMove={handleMouseMove}>
 
                 <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
                 <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
+                <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
+                <Fish ref={fishTankRef} type={""} onBlowBubble={createBubble}></Fish>
                 <Fish ref={fishTankRef} type={""} onBlowBubble={createBubble}></Fish>
                 <Fish ref={fishTankRef} type={""} onBlowBubble={createBubble}></Fish>
 
