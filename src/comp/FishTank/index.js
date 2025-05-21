@@ -118,8 +118,6 @@ const FishTank = () => {
 
                 <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
                 <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
-                <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
-                <Fish ref={fishTankRef} type={""} onBlowBubble={createBubble}></Fish>
                 <Fish ref={fishTankRef} type={""} onBlowBubble={createBubble}></Fish>
                 <Fish ref={fishTankRef} type={""} onBlowBubble={createBubble}></Fish>
 
