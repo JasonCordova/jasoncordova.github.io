@@ -1,24 +1,30 @@
 import FishSprite from '../../assets/fish.webp';
 import TropicalFishSprite from '../../assets/tropical_fish.webp';
 import './index.css';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, forwardRef } from 'react';
 
 const minSize = 8;
 const maxSize = 15;
 const maxDegree = 30;
 
-const maxTransitionSpeed = 8;
-const minTransitionSpeed = 3;
+const maxTransitionSpeed = 8; // Goes off seconds
+const minTransitionSpeed = 3; // Goes off seconds
 
-const minDelay = 30;
-const maxDelay = 80;
+const minDelay = 30; // Goes off 100 ms
+const maxDelay = 80; // Goes off 100 ms
 
-const Fish = (props) => {
+const minBubbleDelay = 30; // Goes off 100 ms
+const maxBubbleDelay = 90; // Goes off 100 ms
 
+const Fish = forwardRef((props, ref) => {
+
+    // ref refers to the passed in fishtTankRef from FishTank component
     const FishImage = useRef(null);
     const FishRotator = useRef(null);
     const FishElement = useRef(null);
     const IntervalRef = useRef(null);
+    const BubbleIntervalRef = useRef(null);
+    const FishMouth = useRef(null);
 
     const position = useRef({
 
@@ -28,16 +34,27 @@ const Fish = (props) => {
 
     });
 
-    const spitBubbles = () => {
+    const blowBubbles = () => {
 
+        var newRandomBubbleDelay = Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 100;
 
+        var fishMouthRect = FishMouth.current.getBoundingClientRect();
+        var fishTank = ref.current;
+        var fishTankRect = fishTank.getBoundingClientRect();
+
+        const positionX = ((fishMouthRect.left - fishTankRect.left) / fishTankRect.width) * 100;
+        const positionY = ((fishMouthRect.top - fishTankRect.top) / fishTankRect.height) * 100;    
+
+        props.onBlowBubble(positionX, positionY);
+
+        if (BubbleIntervalRef.current) clearInterval(BubbleIntervalRef.current);
+        BubbleIntervalRef.current = setInterval(blowBubbles, newRandomBubbleDelay);
 
     }
 
     const updatePosition = () => {
     
         var randomDelay = Math.round(Math.random() * (maxDelay - minDelay) + minDelay) * 100;
-        console.log("New Delay: " + randomDelay);
         var randomTransition = Math.round(Math.random() * (maxTransitionSpeed - minTransitionSpeed) + minTransitionSpeed);
         var randomX = Math.round(Math.random() * 76 + 12);
         var randomY = Math.round(Math.random() * 74 + 13);
@@ -75,10 +92,13 @@ const Fish = (props) => {
 
         updatePosition();
         const initialTimer = setTimeout(() => {updatePosition();}, 0);
+        BubbleIntervalRef.current = setInterval(blowBubbles, Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 100);
 
         return () => {
             clearTimeout(initialTimer);
             if (IntervalRef.current) clearInterval(IntervalRef.current);
+            if (BubbleIntervalRef.current) clearInterval(BubbleIntervalRef.current);
+            
         }
 
     }, []); 
@@ -87,12 +107,13 @@ const Fish = (props) => {
 
         <div className="fish" ref={FishElement}>
             <div className="fish-rotator" ref={FishRotator}>
+                <div ref={FishMouth} className="fish-mouth"></div>
                 <img className="fish-img" alt="Fish" ref={FishImage} src={props.type === "tropical" ? TropicalFishSprite : FishSprite}/>
             </div>
         </div>
 
     )
 
-}
+});
 
 export default Fish;

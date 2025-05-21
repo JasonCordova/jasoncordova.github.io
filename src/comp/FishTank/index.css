@@ -65,14 +65,14 @@
 }
 
 
-.fishtank {
+#fishtank {
 
     width: 100%;
     max-width: 560px;
 
 }
 
-.fishtank .message-content {
+#fishtank .message-content {
     aspect-ratio: 16/9;
 }
 
