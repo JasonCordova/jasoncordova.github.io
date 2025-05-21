@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.e360b291.css",
-    "main.js": "/static/js/main.b3195254.js",
+    "main.css": "/static/css/main.ffc84c05.css",
+    "main.js": "/static/js/main.e0461c35.js",
     "static/media/coral.webp": "/static/media/coral.f76c962ac4b853b662f9.webp",
-    "static/media/herb.webp": "/static/media/herb.73eb57e0366d12ce2ed0.webp",
     "static/media/headshot.webp": "/static/media/headshot.2a7050e453b76cc90fd8.webp",
     "static/media/tropical_fish.webp": "/static/media/tropical_fish.c42690b514d4bd44b76e.webp",
     "static/media/statue.webp": "/static/media/statue.af5b99011be80c0b8a2c.webp",
     "static/media/fish.webp": "/static/media/fish.0f5865b9a82289784f1d.webp",
+    "static/media/bubble.webp": "/static/media/bubble.9e20ca0c9cb49f2030f2.webp",
     "index.html": "/index.html",
-    "main.e360b291.css.map": "/static/css/main.e360b291.css.map",
-    "main.b3195254.js.map": "/static/js/main.b3195254.js.map"
+    "main.ffc84c05.css.map": "/static/css/main.ffc84c05.css.map",
+    "main.e0461c35.js.map": "/static/js/main.e0461c35.js.map"
   },
   "entrypoints": [
-    "static/css/main.e360b291.css",
-    "static/js/main.b3195254.js"
+    "static/css/main.ffc84c05.css",
+    "static/js/main.e0461c35.js"
   ]
 }
