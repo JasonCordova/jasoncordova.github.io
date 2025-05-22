@@ -48,12 +48,26 @@ const Fish = forwardRef((props, ref) => {
 
         if (!document.hidden){
             props.onBlowBubble(positionX, positionY);
-            props.onBlowBubble(positionX + Math.round(Math.random() * 6 + 0), positionY - (Math.random() * (4) + 1));
-            props.onBlowBubble(positionX + Math.round(Math.random() * 6 + 0), positionY- (Math.random() * (6) + 1));
+            props.onBlowBubble(positionX + Math.round(Math.random() * position.current.facingRight ? 1 : -1 *  3 + 0), positionY + 2);
+            props.onBlowBubble(positionX + Math.round(Math.random() * position.current.facingRight ? 1 : -1 *  3 + 0), positionY + 4);
         }
 
         if (BubbleIntervalRef.current) clearInterval(BubbleIntervalRef.current);
         BubbleIntervalRef.current = setInterval(blowBubbles, newRandomBubbleDelay);
+
+    }
+
+    const lookAt = (x, y) => {
+
+        position.current.facingRight = x > position.current.prevX;
+
+        const xDifference = x - position.current.prevX;
+        const yDifference = position.current.prevY - y;
+        var angle = (Math.floor(Math.atan2(yDifference, xDifference) * 180 / Math.PI) * -1) % maxDegree;
+        FishRotator.current.style.transform = `
+            rotateY(${position.current.facingRight ? 0 : 180}deg)
+            rotateZ(${angle}deg)
+        `;
 
     }
 
@@ -113,7 +127,7 @@ const Fish = forwardRef((props, ref) => {
         <div className="fish" ref={FishElement}>
             <div className="fish-rotator" ref={FishRotator}>
                 <div ref={FishMouth} className="fish-mouth"></div>
-                <img className="fish-img" alt="Fish" ref={FishImage} src={props.type === "tropical" ? TropicalFishSprite : FishSprite}/>
+                <img draggable="false" className="fish-img" alt="Fish" ref={FishImage} src={props.type === "tropical" ? TropicalFishSprite : FishSprite}/>
             </div>
         </div>
 
