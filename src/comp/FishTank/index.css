@@ -64,6 +64,21 @@
   }
 }
 
+@keyframes bubbleSway {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-1px);
+  }
+}
+
 
 #fishtank {
 
@@ -72,8 +87,26 @@
 
 }
 
+
+
+.bubble-holder {
+  width: 2%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  z-index: 1;
+  animation: bubble .5s ease-in;
+  transform: translate(-50%, -50%);
+}
+
+.bubble {
+  width: 100%;
+  animation: bubbleSway 2s infinite ease-in-out;
+}
+
+
 #fishtank .message-content {
     aspect-ratio: 16/9;
+    padding: 1em;
 }
 
 .statue {

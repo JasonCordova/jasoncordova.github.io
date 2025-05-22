@@ -13,8 +13,8 @@ const minTransitionSpeed = 3; // Goes off seconds
 const minDelay = 30; // Goes off 100 ms
 const maxDelay = 80; // Goes off 100 ms
 
-const minBubbleDelay = 20; // Goes off 100 ms
-const maxBubbleDelay = 80; // Goes off 100 ms
+const minBubbleDelay = 1; // Goes off 1000 ms
+const maxBubbleDelay = 15; // Goes off 1000 ms
 
 const Fish = forwardRef((props, ref) => {
 
@@ -36,7 +36,8 @@ const Fish = forwardRef((props, ref) => {
 
     const blowBubbles = () => {
 
-        var newRandomBubbleDelay = Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 100;
+        var newRandomBubbleDelay = Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 1000;
+        console.log(newRandomBubbleDelay);
 
         var fishMouthRect = FishMouth.current.getBoundingClientRect();
         var fishTank = ref.current;
@@ -45,7 +46,11 @@ const Fish = forwardRef((props, ref) => {
         const positionX = ((fishMouthRect.left - fishTankRect.left) / fishTankRect.width) * 100;
         const positionY = ((fishMouthRect.top - fishTankRect.top) / fishTankRect.height) * 100;    
 
-        props.onBlowBubble(positionX, positionY);
+        if (!document.hidden){
+            props.onBlowBubble(positionX, positionY);
+            props.onBlowBubble(positionX + Math.round(Math.random() * 6 + 0), positionY - (Math.random() * (4) + 1));
+            props.onBlowBubble(positionX + Math.round(Math.random() * 6 + 0), positionY- (Math.random() * (6) + 1));
+        }
 
         if (BubbleIntervalRef.current) clearInterval(BubbleIntervalRef.current);
         BubbleIntervalRef.current = setInterval(blowBubbles, newRandomBubbleDelay);
@@ -92,7 +97,7 @@ const Fish = forwardRef((props, ref) => {
 
         updatePosition();
         const initialTimer = setTimeout(() => {updatePosition();}, 0);
-        BubbleIntervalRef.current = setInterval(blowBubbles, Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 100);
+        BubbleIntervalRef.current = setInterval(blowBubbles, Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 1000);
 
         return () => {
             clearTimeout(initialTimer);

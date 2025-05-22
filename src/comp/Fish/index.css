@@ -61,16 +61,6 @@
     transition: transform 2s ease-out;
 }
 
-.bubble {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  z-index: 1;
-  animation: bubble .5s ease-in;
-  transform: translate(-50%, -50%);
-  
-}
-
 .fish-mouth {
   position: absolute;
   top: calc(50% - 0px);

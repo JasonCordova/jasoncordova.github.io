@@ -1,7 +1,7 @@
 import Fish from '../Fish';
 import Statue from '../../assets/statue.webp';
 import Coral from '../../assets/coral.webp';
-import BubbleSprite from '../../assets/bubbles.webp';
+import BubbleSprite from '../../assets/bubble.webp';
 import './index.css';
 
 import { useRef, useState, useEffect } from 'react';
@@ -9,6 +9,7 @@ import { useRef, useState, useEffect } from 'react';
 const Bubble = ({ top, left, onExit }) => {
   const bubbleRef = useRef(null);
   const [topPosition, setTopPosition] = useState(top);
+  const size = useRef(Math.random() * (4 - 1.5) + 1.5);
   const speed = useRef(0.1 + Math.random() * 0.1); // Slightly randomized speed
   const shouldExit = useRef(false);
 
@@ -53,7 +54,9 @@ const Bubble = ({ top, left, onExit }) => {
 
   return (
 
-    <img src={BubbleSprite} ref={bubbleRef} className="bubble" style={{ position: 'absolute', top: `${topPosition}%`, left: `${left}%`}}/>
+    <div ref={bubbleRef} className="bubble-holder" style={{ width: `${size.current}%`, position: 'absolute', top: `${topPosition}%`, left: `${left}%`}}>
+      <img src={BubbleSprite} className="bubble"/>
+    </div>
 
   );
 
@@ -69,33 +72,33 @@ const FishTank = () => {
 
     const handleMouseMove = (e) => {
 
-      const tankBox = fishTankRef.current.getBoundingClientRect();
-      const tankTop = tankBox.top;
-      const tankBottom = tankBox.bottom;
-      const tankLeft = tankBox.left;
-      const tankRight = tankBox.right;
+      // const tankBox = fishTankRef.current.getBoundingClientRect();
+      // const tankTop = tankBox.top;
+      // const tankBottom = tankBox.bottom;
+      // const tankLeft = tankBox.left;
+      // const tankRight = tankBox.right;
 
-      const xPercentage = (e.clientX - tankLeft) / (tankRight - tankLeft) * 100;
-      const yPercentage = (e.clientY - tankTop) / (tankBottom - tankTop) * 100;
+      // const xPercentage = (e.clientX - tankLeft) / (tankRight - tankLeft) * 100;
+      // const yPercentage = (e.clientY - tankTop) / (tankBottom - tankTop) * 100;
       
-      if (previousMouse.x === null && previousMouse.y === null){
+      // if (previousMouse.x === null && previousMouse.y === null){
 
-        createBubble(xPercentage, yPercentage);
-        previousMouse.current.x = xPercentage;
-        previousMouse.current.y = yPercentage;
+      //   createBubble(xPercentage, yPercentage);
+      //   previousMouse.current.x = xPercentage;
+      //   previousMouse.current.y = yPercentage;
 
-      } else {
-        const distance = Math.sqrt(
-          Math.pow(xPercentage - previousMouse.current.x, 2) + 
-          Math.pow(yPercentage - previousMouse.current.y, 2)
-        );
+      // } else {
+      //   const distance = Math.sqrt(
+      //     Math.pow(xPercentage - previousMouse.current.x, 2) + 
+      //     Math.pow(yPercentage - previousMouse.current.y, 2)
+      //   );
         
-        if (distance > THRESHOLD) {
-          createBubble(xPercentage, yPercentage);
-          previousMouse.current.x = xPercentage;
-          previousMouse.current.y = yPercentage;
-        }
-      }
+      //   if (distance > THRESHOLD) {
+      //     createBubble(xPercentage, yPercentage);
+      //     previousMouse.current.x = xPercentage;
+      //     previousMouse.current.y = yPercentage;
+      //   }
+      // }
 
     }
 
