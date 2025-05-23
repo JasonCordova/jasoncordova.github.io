@@ -19,6 +19,10 @@ body {
   background: var(--landing);
 }
 
+img {
+  user-select: none;
+}
+
 .landing {
   width: 100%;
   padding: 1em;
@@ -61,6 +65,16 @@ body {
 
 .message {
     position: relative;
+}
+
+.test {
+  
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background-color: red;
+  z-index: 5;
+
 }
 
 .message-content {

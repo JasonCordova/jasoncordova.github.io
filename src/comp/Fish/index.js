@@ -5,7 +5,7 @@ import { useEffect, useRef, forwardRef } from 'react';
 
 const minSize = 8;
 const maxSize = 15;
-const maxDegree = 30;
+const maxDegree = 40;
 
 const maxTransitionSpeed = 8; // Goes off seconds
 const minTransitionSpeed = 3; // Goes off seconds
@@ -13,8 +13,8 @@ const minTransitionSpeed = 3; // Goes off seconds
 const minDelay = 30; // Goes off 100 ms
 const maxDelay = 80; // Goes off 100 ms
 
-const minBubbleDelay = 1; // Goes off 1000 ms
-const maxBubbleDelay = 15; // Goes off 1000 ms
+const minBubbleDelay = 30; // Goes off 100 ms
+const maxBubbleDelay = 150; // Goes off 100 ms
 
 const Fish = forwardRef((props, ref) => {
 
@@ -24,6 +24,7 @@ const Fish = forwardRef((props, ref) => {
     const FishElement = useRef(null);
     const IntervalRef = useRef(null);
     const BubbleIntervalRef = useRef(null);
+    const FocusState = useRef(false);
     const FishMouth = useRef(null);
 
     const position = useRef({
@@ -34,11 +35,56 @@ const Fish = forwardRef((props, ref) => {
 
     });
 
+    const handleMouseEnter = (e) => {
+
+        FocusState.current = true; stopMoving(); 
+        var tankBounding = ref.current.getBoundingClientRect();
+        var x = ((e.clientX - tankBounding.left) / tankBounding.width) * 100;
+        var y = ((e.clientY - tankBounding.top) / tankBounding.height) * 100;
+        lookAt(x, y);
+
+    }
+    const handleMouseLeave = () => {
+        FocusState.current = false;
+        if (!IntervalRef.current) { // Only restart if no interval exists
+            updatePosition();
+        }
+    }
+
+    const handleMouseMove = (e) => {
+
+        var tankBounding = ref.current.getBoundingClientRect();
+
+        var x = ((e.clientX - tankBounding.left) / tankBounding.width) * 100;
+        var y = ((e.clientY - tankBounding.top) / tankBounding.height) * 100;
+        lookAt(x, y);
+
+    }
+
+    const stopMoving = () => {
+
+        if (IntervalRef.current){
+            clearInterval(IntervalRef.current);
+            IntervalRef.current = null;
+        }
+
+        var fishBounding = FishElement.current.getBoundingClientRect();
+        var tankBounding = ref.current.getBoundingClientRect();
+
+        var currentX = (((fishBounding.left + fishBounding.width/2) - tankBounding.left) / tankBounding.width) * 100;
+        var currentY = (((fishBounding.top + fishBounding.height/2) - tankBounding.top) / tankBounding.height) * 100;
+
+        position.current.prevX = currentX;
+        position.current.prevY = currentY;
+
+        FishElement.current.style.top = `${currentY}%`;
+        FishElement.current.style.left = `${currentX}%`;
+
+    }
+
     const blowBubbles = () => {
 
-        var newRandomBubbleDelay = Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 1000;
-        console.log(newRandomBubbleDelay);
-
+        var newRandomBubbleDelay = Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 100;
         var fishMouthRect = FishMouth.current.getBoundingClientRect();
         var fishTank = ref.current;
         var fishTankRect = fishTank.getBoundingClientRect();
@@ -48,8 +94,8 @@ const Fish = forwardRef((props, ref) => {
 
         if (!document.hidden){
             props.onBlowBubble(positionX, positionY);
-            props.onBlowBubble(positionX + Math.round(Math.random() * position.current.facingRight ? 1 : -1 *  3 + 0), positionY + 2);
-            props.onBlowBubble(positionX + Math.round(Math.random() * position.current.facingRight ? 1 : -1 *  3 + 0), positionY + 4);
+            props.onBlowBubble(positionX + (Math.random() * position.current.facingRight ? 1 : -1 *  1 + 0), positionY + 2);
+            props.onBlowBubble(positionX + (Math.random() * position.current.facingRight ? 1 : -1 *  1 + 0), positionY + 4);
         }
 
         if (BubbleIntervalRef.current) clearInterval(BubbleIntervalRef.current);
@@ -63,7 +109,14 @@ const Fish = forwardRef((props, ref) => {
 
         const xDifference = x - position.current.prevX;
         const yDifference = position.current.prevY - y;
-        var angle = (Math.floor(Math.atan2(yDifference, xDifference) * 180 / Math.PI) * -1) % maxDegree;
+        var angle = (Math.floor(Math.atan2(yDifference, xDifference) * 180 / Math.PI) * -1);
+
+        if (angle > 90) angle -= 180;
+        else if (angle < -90) angle += 180;
+        
+        angle = Math.min(Math.max(angle, -maxDegree), maxDegree);
+        if (!position.current.facingRight) angle *= -1;
+
         FishRotator.current.style.transform = `
             rotateY(${position.current.facingRight ? 0 : 180}deg)
             rotateZ(${angle}deg)
@@ -72,6 +125,11 @@ const Fish = forwardRef((props, ref) => {
     }
 
     const updatePosition = () => {
+
+        if (IntervalRef.current) {
+            clearInterval(IntervalRef.current);
+            IntervalRef.current = null;
+        }
     
         var randomDelay = Math.round(Math.random() * (maxDelay - minDelay) + minDelay) * 100;
         var randomTransition = Math.round(Math.random() * (maxTransitionSpeed - minTransitionSpeed) + minTransitionSpeed);
@@ -84,7 +142,14 @@ const Fish = forwardRef((props, ref) => {
             
             const xDifference = randomX - position.current.prevX;
             const yDifference = position.current.prevY - randomY;
-            var angle = (Math.floor(Math.atan2(yDifference, xDifference) * 180 / Math.PI) * -1) % maxDegree;
+            var angle = (Math.floor(Math.atan2(yDifference, xDifference) * 180 / Math.PI) * -1);
+
+            if (angle > 90) angle -= 180;
+            else if (angle < -90) angle += 180;
+            
+            angle = Math.min(Math.max(angle, -maxDegree), maxDegree);
+            if (!position.current.facingRight) angle *= -1;
+
             FishRotator.current.style.transform = `
                 rotateY(${position.current.facingRight ? 0 : 180}deg)
                 rotateZ(${angle}deg)
@@ -99,8 +164,9 @@ const Fish = forwardRef((props, ref) => {
         position.current.prevX = randomX;
         position.current.prevY = randomY;
 
-        if (IntervalRef.current) clearInterval(IntervalRef.current);
-        IntervalRef.current = setInterval(updatePosition, randomDelay);
+        if (!FocusState.current) {
+            IntervalRef.current = setInterval(updatePosition, randomDelay);
+        }
 
     }
 
@@ -110,13 +176,20 @@ const Fish = forwardRef((props, ref) => {
         FishElement.current.style.width = `${randomSize}%`;
 
         updatePosition();
-        const initialTimer = setTimeout(() => {updatePosition();}, 0);
-        BubbleIntervalRef.current = setInterval(blowBubbles, Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 1000);
+        const initialTimer = setTimeout(() => {updatePosition();}, 10);
+        BubbleIntervalRef.current = setInterval(blowBubbles, Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 100);
+
+        ref.current.addEventListener("mouseenter", handleMouseEnter);
+        ref.current.addEventListener("mousemove", handleMouseMove);
+        ref.current.addEventListener("mouseleave", handleMouseLeave);
 
         return () => {
             clearTimeout(initialTimer);
             if (IntervalRef.current) clearInterval(IntervalRef.current);
             if (BubbleIntervalRef.current) clearInterval(BubbleIntervalRef.current);
+            ref.current.removeEventListener("mouseenter", handleMouseEnter);
+            ref.current.removeEventListener("mousemove", handleMouseMove);
+            ref.current.removeEventListener("mouseleave", handleMouseLeave);
             
         }
 
@@ -124,7 +197,7 @@ const Fish = forwardRef((props, ref) => {
 
     return (
 
-        <div className="fish" ref={FishElement}>
+        <div className="fish" ref={FishElement} onClick={() => {blowBubbles();}}>
             <div className="fish-rotator" ref={FishRotator}>
                 <div ref={FishMouth} className="fish-mouth"></div>
                 <img draggable="false" className="fish-img" alt="Fish" ref={FishImage} src={props.type === "tropical" ? TropicalFishSprite : FishSprite}/>

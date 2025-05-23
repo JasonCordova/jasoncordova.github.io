@@ -55,7 +55,7 @@ const Bubble = ({ top, left, onExit }) => {
   return (
 
     <div ref={bubbleRef} className="bubble-holder" style={{ width: `${size.current}%`, position: 'absolute', top: `${topPosition}%`, left: `${left}%`}}>
-      <img draggable="false" src={BubbleSprite} className="bubble"/>
+      <img draggable="false" src={BubbleSprite} className="bubble" alt="Bubble"/>
     </div>
 
   );
@@ -65,42 +65,8 @@ const Bubble = ({ top, left, onExit }) => {
 const FishTank = () => {
 
     const fishTankRef = useRef(null);
-    const previousMouse = useRef({x: null, y: null});
-    const THRESHOLD = 20;
     const bubbleCounter = useRef(0);
     const [bubbles, setBubbles] = useState([]);
-
-    const handleMouseMove = (e) => {
-
-      // const tankBox = fishTankRef.current.getBoundingClientRect();
-      // const tankTop = tankBox.top;
-      // const tankBottom = tankBox.bottom;
-      // const tankLeft = tankBox.left;
-      // const tankRight = tankBox.right;
-
-      // const xPercentage = (e.clientX - tankLeft) / (tankRight - tankLeft) * 100;
-      // const yPercentage = (e.clientY - tankTop) / (tankBottom - tankTop) * 100;
-      
-      // if (previousMouse.x === null && previousMouse.y === null){
-
-      //   createBubble(xPercentage, yPercentage);
-      //   previousMouse.current.x = xPercentage;
-      //   previousMouse.current.y = yPercentage;
-
-      // } else {
-      //   const distance = Math.sqrt(
-      //     Math.pow(xPercentage - previousMouse.current.x, 2) + 
-      //     Math.pow(yPercentage - previousMouse.current.y, 2)
-      //   );
-        
-      //   if (distance > THRESHOLD) {
-      //     createBubble(xPercentage, yPercentage);
-      //     previousMouse.current.x = xPercentage;
-      //     previousMouse.current.y = yPercentage;
-      //   }
-      // }
-
-    }
 
     const handleBubbleExit = (id) => {
         setBubbles(prev => prev.filter(bubble => bubble.id !== id));
@@ -117,7 +83,7 @@ const FishTank = () => {
 
         <div id="fishtank" className="message">
 
-            <div ref={fishTankRef} className="message-content" onMouseMove={handleMouseMove}>
+            <div ref={fishTankRef} className="message-content">
 
                 <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
                 <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>

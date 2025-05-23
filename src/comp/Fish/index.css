@@ -45,6 +45,8 @@
     position: absolute;
     transform: translate(-50%, -50%);
     z-index: 2;
+    cursor: pointer;
+    user-select: none;
 }
 
 .fish-img {
@@ -52,13 +54,13 @@
     transition: transform .5s ease-out;
     animation: 
       swimming 1s infinite ease-in-out,
-      flapping .8s infinite ease-out;
+      flapping 1.25s infinite ease-in-out;
     transform-origin: center center;
 }
 
 .fish-rotator {
     width: 100%;
-    transition: transform 2s ease-out;
+    transition: transform 1s ease;
 }
 
 .fish-mouth {
