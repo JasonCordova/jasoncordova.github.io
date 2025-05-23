@@ -27,7 +27,8 @@ function App() {
 
       <div className="landing">
 
-        <Message message="Hey, this is Jason. Let's stay connected!"/>
+        <Message message="Hey, my name is Jason!"/>
+        <Message message="I graduated with a Bachelors in Computer Science from the New Jersey Institute of Technoloy (NJIT)."/>
         <FishTank></FishTank>
 
       </div>

@@ -31,7 +31,7 @@ img {
   color: var(--landing-text);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
   align-items: flex-end;
 }
 
@@ -56,15 +56,17 @@ img {
 
 .message-edge {
   position: absolute;
-  bottom: -11px;
-  width: 50px;
+  bottom: -7px;
+  width: 32px;
   right: 0px;
   margin-right: 0px;
   fill: #0472ff;
+  transform: translateX(-3px);
 }
 
 .message {
     position: relative;
+    max-width: 32em;
 }
 
 .test {
@@ -79,13 +81,13 @@ img {
 
 .message-content {
   background-color: #0472FF;
-  border-radius: 2em;
+  border-radius: 1.5em;
   position: relative;
   padding: 1em 1.25em 0.75em;
-  margin-right: 24px;
+  margin-right: 18px;
   color: white;
-  font-size: 1.25em;
-  line-height: 1em;
+  font-size: 1.1em;
+  line-height: 1.5em;
   font-weight: 400;
   z-index: 1;
   overflow: hidden;
