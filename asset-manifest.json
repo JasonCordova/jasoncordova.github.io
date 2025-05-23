@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.12891e3c.css",
-    "main.js": "/static/js/main.218d464a.js",
+    "main.css": "/static/css/main.0ad396ca.css",
+    "main.js": "/static/js/main.d9906e08.js",
     "static/media/coral.webp": "/static/media/coral.f76c962ac4b853b662f9.webp",
     "static/media/headshot.webp": "/static/media/headshot.2a7050e453b76cc90fd8.webp",
     "static/media/tropical_fish.webp": "/static/media/tropical_fish.c42690b514d4bd44b76e.webp",
@@ -9,11 +9,11 @@
     "static/media/fish.webp": "/static/media/fish.0f5865b9a82289784f1d.webp",
     "static/media/bubble.webp": "/static/media/bubble.9e20ca0c9cb49f2030f2.webp",
     "index.html": "/index.html",
-    "main.12891e3c.css.map": "/static/css/main.12891e3c.css.map",
-    "main.218d464a.js.map": "/static/js/main.218d464a.js.map"
+    "main.0ad396ca.css.map": "/static/css/main.0ad396ca.css.map",
+    "main.d9906e08.js.map": "/static/js/main.d9906e08.js.map"
   },
   "entrypoints": [
-    "static/css/main.12891e3c.css",
-    "static/js/main.218d464a.js"
+    "static/css/main.0ad396ca.css",
+    "static/js/main.d9906e08.js"
   ]
 }
