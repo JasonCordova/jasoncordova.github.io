@@ -27,9 +27,13 @@ function App() {
 
       <div className="landing">
 
-        <Message message="yoooo"/>
-        <Message message="thanks 4 stopping by, feel free to look around"/>
-        <FishTank></FishTank>
+        <div className="container">
+
+          <Message message="yoooo"/>
+          <Message message="thanks 4 stopping by, feel free to look around"/>
+          <FishTank></FishTank>
+
+        </div>
 
       </div>
 
