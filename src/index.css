@@ -66,7 +66,8 @@ img {
 
 .message {
     position: relative;
-    max-width: 30em;
+    max-width: 20em;
+    font-size: 1em;
 }
 
 .test {
@@ -81,13 +82,13 @@ img {
 
 .message-content {
   background-color: #0472FF;
-  border-radius: 1.5em;
+  border-radius: 1em;
   position: relative;
-  padding: 0.6em 0.8em 0.4em;
+  padding: 0.7em 1em 0.4em;
   margin-right: 18px;
   color: white;
   font-size: 1.1em;
-  line-height: 1.25em;
+  line-height: 1.2em;
   font-weight: 400;
   z-index: 1;
   overflow: hidden;
