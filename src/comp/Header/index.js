@@ -7,12 +7,6 @@ const Header = () => {
 
         <div className="header">
 
-            <div className="header-contact-info">
-
-                <img className="header-img" src={headerImage}></img>
-                <div className="header-name">Jason</div>
-
-            </div>
 
         </div>
 
