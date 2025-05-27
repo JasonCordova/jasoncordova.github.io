@@ -1,0 +1,14 @@
+.message-image {
+
+    position: relative;
+    max-width: 8em;
+    margin-right: 1em;
+    background-color: var(--receiver);
+    border-radius: 1em;
+    position: relative;
+    color: white;
+    z-index: 1;
+    overflow: hidden;
+    word-break: break-word;
+
+}
