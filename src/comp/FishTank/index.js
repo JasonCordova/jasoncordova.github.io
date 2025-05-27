@@ -81,7 +81,7 @@ const FishTank = () => {
 
     return (
 
-        <div id="fishtank" className="message">
+        <div id="fishtank" className="message sender">
 
             <div ref={fishTankRef} className="message-content">
 

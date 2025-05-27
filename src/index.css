@@ -1,14 +1,21 @@
+ @keyframes wave-emoji {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(14deg); }
+  30% { transform: rotate(-8deg); }
+  45% { transform: rotate(14deg); }
+  60% { transform: rotate(-4deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
 :root {
 
   --landing: #ffffff;
+  --header-color: #2d2d2d;
   --landing-text: #000000;
+  --sender: #0d85ff;
+  --receiver: #26252a;
 
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 body {
@@ -23,6 +30,14 @@ img {
   user-select: none;
 }
 
+a {color: inherit; text-decoration: none;}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .landing {
   width: 100%;
   padding: 1em;
@@ -32,23 +47,27 @@ img {
   display: flex;
   flex-direction: column;
   gap: 0.25em;
-  font-size: 1em;
+  font-size: 2em;
   align-items: flex-end;
 }
 
 .message-edge {
   position: absolute;
-  bottom: -7px;
-  width: 32px;
-  right: 0px;
+  bottom: 0px;
+  height: 1.5em;
+  right: 0em;
   margin-right: 0px;
-  fill: #0472ff;
-  transform: translateX(-3px);
+  fill: var(--receiver);
+  transform: translateX(48%);
+}
+
+.message.sender .message-edge {
+  fill: var(--sender);
 }
 
 .message {
     position: relative;
-    max-width: 20em;
+    max-width: 22em;
 }
 
 .test {
@@ -61,12 +80,18 @@ img {
 
 }
 
+.emoji {
+  display: inline-block;
+  height: 1em;
+  transform-origin: 50% 100%;
+  animation: wave-emoji infinite 2s ease-in-out;
+}
+
 .message-content {
-  background-color: #0472FF;
+  background-color: var(--receiver);
   border-radius: 1.2em;
   position: relative;
   padding: 0.6em 1em 0.4em;
-  margin-right: 18px;
   color: white;
   font-size: 1.25em;
   line-height: 1.25em;
@@ -74,8 +99,20 @@ img {
   z-index: 1;
   overflow: hidden;
   word-break: break-word;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.message:not(:last-child) .message-edge {
+.message.sender .message-content {
+  background-color: var(--sender);
+  color: white;
+}
+
+.message.receiver:not(:last-child) .message-edge {
+  display: none;
+}
+
+.message.sender:not(:last-child) .message-edge {
   display: none;
 }

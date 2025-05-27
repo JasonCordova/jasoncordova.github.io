@@ -27,9 +27,8 @@ function App() {
 
       <div className="landing">
 
-        <Message message="yoooo"/>
-        <Message message="thanks 4 stopping by, feel free to look around"/>
-        <FishTank></FishTank>
+        <Message type="sender" message="Hey, this is Jason&nbsp;" emoji="wave"/>
+        <Message type="sender" message="I'm a Software Engineer located in the New York Metro area"/>
 
       </div>
 

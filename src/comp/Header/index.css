@@ -1,0 +1,24 @@
+.logo {
+    height: 20px;
+    fill: inherit;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+    color: var(--header-color);
+    fill: var(--header-color);
+}
+
+.nav {
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.nav a {
+    padding: 0em 0.5em;
+}
