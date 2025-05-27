@@ -27,9 +27,8 @@ function App() {
 
       <div className="landing">
 
-        <Message type="image"/>
         <Message type="sender" message="Hey, this is Jason" emoji="wave"/>
-        <Message type="sender" message="I'm a Software Engineer located in the New York Metro area"/>
+        <Message type="sender" message="I'm a Software Engineer based in the NY Metro area"/>
 
       </div>
 

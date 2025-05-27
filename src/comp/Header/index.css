@@ -16,22 +16,25 @@
 }
 
 .header {
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    padding: var(--body-padding);
     box-sizing: border-box;
-    color: var(--header-color);
-    fill: var(--header-color);
+    color: var(--header-text-color);
+    fill: var(--header-text-color);
+    background-color: var(--header-bg-color);
+    border-bottom: 1px solid #B3B3B3;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    padding: 0px 1em;
 }
 
 .nav {
-    font-weight: 500;
-    font-size: 1em;
+    font-weight: 400;
+    font-size: 1.1em;
 }
 
 .nav a {
-    padding: 0em 0.5em;
+    padding: 0em 1em;
 }
