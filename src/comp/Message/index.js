@@ -8,14 +8,7 @@ const Message = (props) => {
 
         <div className={`message clipped ${props.type === "receiver" ? "" : "sender"}`}>
 
-            {props.type === "image" ? 
-
-                <>
-                
-                    <img className="message-image" src={headshot} alt="Photo of Jason"></img>
-
-                </>
-
+            {props.type === "image" ? <img className="message-image" src={headshot} alt="Jason"></img>
             :
 
                 <>

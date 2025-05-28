@@ -136,6 +136,7 @@ a {color: inherit; text-decoration: none;}
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 1em;
 }
 
 .short-desc {
@@ -149,9 +150,38 @@ a {color: inherit; text-decoration: none;}
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 1em;
+  fill: var(--landing-text);
 }
 
+
 .landing-socials a svg {
-  height: 3em;
-  fill: var(--landing-text);
+  height: 2.5em;
+  fill: inherit;
+  transition: fill .15s ease-out;
+}
+
+.landing-socials a {display: flex;}
+
+.njit {
+  transition: color .15s ease-out;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.njit:hover {
+  color: #EF3122;
+}
+
+.resume:hover {
+  fill: #459af1;
+}
+
+.github:hover {
+  fill: #171515;
+}
+
+.linkedin:hover {
+  fill: #0A66C2;
 }
