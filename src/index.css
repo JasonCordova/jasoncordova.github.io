@@ -116,7 +116,7 @@ a {color: inherit; text-decoration: none;}
     flex-direction: column;
     gap: 0.25em;
     align-items: flex-end;
-    font-size: 3VW;
+    font-size: 3vw;
     overflow: hidden;
     position: absolute;
     top: 50%;
@@ -184,4 +184,36 @@ a {color: inherit; text-decoration: none;}
 
 .linkedin:hover {
   fill: #0A66C2;
+}
+
+@media (max-width: 1400px) {
+  /* styles for ≤1400px */
+}
+
+/* Large devices (≤1200px) */
+@media (max-width: 1200px) {
+  /* styles for ≤1200px */
+}
+
+/* Medium devices (≤992px) */
+@media (max-width: 992px) {
+  /* styles for ≤992px */
+  .chat {
+    font-size: 4vw;
+  }
+}
+
+/* Small devices (≤768px) */
+@media (max-width: 768px) {
+  /* styles for ≤768px */
+}
+
+/* Extra small devices (≤576px) */
+@media (max-width: 576px) {
+  /* styles for ≤576px */
+
+  .chat {
+    font-size: 4.5vw;
+  }
+
 }
