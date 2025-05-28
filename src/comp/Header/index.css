@@ -2,7 +2,7 @@
     width: 2.5em;
     height: 2.5em;
     background: linear-gradient(180deg, #99DBFB, #6DCDF7);
-    border-radius: 100%;
+    border-radius: 64px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -13,6 +13,7 @@
     font-size: 1.5em;
     padding-top: 0.3125em;
     box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 .header {
@@ -21,20 +22,21 @@
     box-sizing: border-box;
     color: var(--header-text-color);
     fill: var(--header-text-color);
-    background-color: var(--header-bg-color);
-    border-bottom: 1px solid #B3B3B3;
-    height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px 1em;
+    padding: var(--body-padding);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 99999;
 }
 
 .nav {
-    font-weight: 400;
-    font-size: 1.1em;
+    font-weight: 500;
+    font-size: 1em;
 }
 
 .nav a {
-    padding: 0em 1em;
+    padding: 0em 0.75em;
 }
