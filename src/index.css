@@ -210,6 +210,7 @@ a {color: inherit; text-decoration: none;}
 
 /* Extra small devices (≤576px) */
 @media (max-width: 576px) {
+  
   /* styles for ≤576px */
 
   .chat {
