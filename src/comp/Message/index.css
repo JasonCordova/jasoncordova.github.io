@@ -1,3 +1,14 @@
+@keyframes scaleAnimationBounce {
+    0%   { transform: scale(0); }
+    60%  { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes scaleAnimationLinear {
+    0%   { transform: translate(-50%, -50%) scale(0); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
 .message-image {
 
     position: relative;
@@ -11,4 +22,52 @@
     overflow: hidden;
     word-break: break-word;
 
+}
+
+.message-reaction {
+    width: 2.75em;
+    height: 2.75em;
+    background-color: var(--receiver);
+    border-radius: 3em;
+    position: absolute;
+    top: 0%;
+    left: 0px;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 2;
+    border: 0.125em solid white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    animation: scaleAnimationLinear 0.33s ease-out 0.5s forwards;
+}
+
+.reaction-emoji {
+    display: flex;
+    width: 50%;
+    transform: scale(0);
+    animation: scaleAnimationBounce 0.4s ease-out 0.7s forwards;
+}
+
+.react-bubble1 {
+    width: 0.9em;
+    height: 0.9em;
+    background-color: var(--receiver);
+    border-radius: 3em;
+    position: absolute;
+    bottom: -10%;
+    left: 3%;
+    z-index: -1;
+}
+
+.react-bubble2 {
+    width: 0.4em;
+    height: 0.4em;
+    background-color: var(--receiver);
+    border-radius: 3em;
+    position: absolute;
+    bottom: -25%;
+    left: -5%;
+    transform: translateX(0%);
+    z-index: -1;
 }

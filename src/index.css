@@ -14,7 +14,7 @@
   --header-text-color: #676767;
   --landing-text: #88888A;
   --sender: #0d85ff;
-  --receiver: #26252a;
+  --receiver: #EAE8EB;
   --body-padding: 2em;
 
 }
@@ -117,7 +117,6 @@ a {color: inherit; text-decoration: none;}
     gap: 0.25em;
     align-items: flex-end;
     font-size: 3vw;
-    overflow: hidden;
     position: absolute;
     top: 50%;
     transform: translate(0%, -50%);
@@ -208,7 +207,7 @@ a {color: inherit; text-decoration: none;}
   /* styles for ≤768px */
 
   .chat {
-    font-size: 4.7vw;
+    font-size: 4.5vw;
   }
 }
 
@@ -216,21 +215,19 @@ a {color: inherit; text-decoration: none;}
 @media (max-width: 700px) {
   /* styles for ≤700px */
 
+  .chat {
+    font-size: 4.4vw;
+  }
+
   .short-desc {
-    font-size: 1.5em;
-    max-width: 19em;
-    line-height: 1.25em;
+
     text-align: center;
   }
 
   .landing-content {
-    width: 100%;
-    display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 1em;
   }
 
 }
@@ -241,7 +238,7 @@ a {color: inherit; text-decoration: none;}
   /* styles for ≤576px */
 
   .chat {
-    font-size: 4.5vw;
+    font-size: 4.3vw;
   }
 
 }

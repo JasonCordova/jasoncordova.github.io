@@ -1,5 +1,6 @@
 import wave from '../../assets/wave.webp';
 import headshot from '../../assets/headshot.webp';
+import heart from '../../assets/heart.webp';
 import './index.css';
 
 const Message = (props) => {
@@ -7,6 +8,12 @@ const Message = (props) => {
     return (
 
         <div className={`message clipped ${props.type === "receiver" ? "" : "sender"}`}>
+
+            <div className="message-reaction">
+                <img className="reaction-emoji" src={heart} alt='Heart Emoji'></img>
+                <div className="react-bubble1"></div>
+                <div className="react-bubble2"></div>
+            </div>
 
             {props.type === "image" ? <img className="message-image" src={headshot} alt="Jason"></img>
             :
