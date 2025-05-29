@@ -40,6 +40,7 @@
     justify-content: center;
     align-items: center;
     animation: scaleAnimationLinear 0.33s ease-out 0.5s forwards;
+    cursor: pointer;
 }
 
 .reaction-emoji {

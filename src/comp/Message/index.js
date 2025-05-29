@@ -2,24 +2,37 @@ import wave from '../../assets/wave.webp';
 import headshot from '../../assets/headshot.webp';
 import heart from '../../assets/heart.webp';
 import sunglasses from '../../assets/sunglasses.webp';
-import thumbs_up from '../../assets/thumbs_up.webp';
 import handshake from '../../assets/handshake.webp';
 import cowboy from '../../assets/cowboy.webp';
+import fire from '../../assets/fire.webp';
 import './index.css';
 
-import {useRef, useEffect} from 'react';
+import {useRef, useState, useEffect} from 'react';
 
 const Message = (props) => {
 
-    const emojis = useRef([sunglasses, heart, thumbs_up, handshake, cowboy]);
-    useEffect(() => {console.log(Math.floor(Math.random() * emojis.current.length))});
+    const emojis = useRef([sunglasses, heart, fire, handshake, cowboy]);
+    const emojiRef = useRef(null);
+    const [index, setIndex] = useState(Math.floor(Math.random() * emojis.current.length));
+
+    const handleClick = () => {
+
+        const element = emojiRef.current;
+        const originalDelay = window.getComputedStyle(element).animationDelay;
+
+        element.style.animation = 'none';
+        void element.offsetWidth;
+        element.style.animation = '';
+        element.style.animationDelay = index === 0 ? originalDelay : '0s';
+
+    }
 
     return (
 
-        <div className={`message clipped ${props.type === "receiver" ? "" : "sender"}`}>
+        <div className={`message clipped ${props.type === "receiver" ? "" : "sender"}`} onClick={() => {setIndex((index + 1) % emojis.current.length); handleClick();}}>
 
             <div className="message-reaction">
-                <img className="reaction-emoji" src={emojis.current[Math.floor(Math.random() * emojis.current.length)]} alt='Heart Emoji'></img>
+                <img ref={emojiRef} className="reaction-emoji" src={emojis.current[index]} alt='Heart Emoji'></img>
                 <div className="react-bubble1"></div>
                 <div className="react-bubble2"></div>
             </div>

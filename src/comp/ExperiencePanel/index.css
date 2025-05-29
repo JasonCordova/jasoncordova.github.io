@@ -1,0 +1,7 @@
+.experience {
+    width: 100%;
+    padding: 2em var(--body-padding);
+    box-sizing: border-box;
+    background-color: #121212;
+    color: white;
+}

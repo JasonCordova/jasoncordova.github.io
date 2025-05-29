@@ -48,7 +48,7 @@ a {color: inherit; text-decoration: none;}
     align-items: flex-end;
     justify-content: flex-end;
     padding: var(--body-padding);
-    min-height: 100svh;
+    min-height: max(100svh, 550px);
     position: relative;
 }
 
@@ -69,6 +69,8 @@ a {color: inherit; text-decoration: none;}
 .message {
     position: relative;
     margin-right: 0.8em;
+    cursor: pointer;
+    user-select: none;
 }
 
 .emoji {
@@ -187,11 +189,21 @@ a {color: inherit; text-decoration: none;}
 
 @media (max-width: 1400px) {
   /* styles for ≤1400px */
+
+  .chat {
+    font-size: 3.5vw;
+  }
+
 }
 
 /* Large devices (≤1200px) */
 @media (max-width: 1200px) {
   /* styles for ≤1200px */
+
+  .chat {
+    font-size: 3.5vw;
+  }
+
 }
 
 /* Medium devices (≤992px) */
@@ -230,6 +242,8 @@ a {color: inherit; text-decoration: none;}
     align-items: center;
   }
 
+  .short-desc {font-size: 1.25em;}
+
 }
 
 /* Extra small devices (≤576px) */
@@ -241,4 +255,10 @@ a {color: inherit; text-decoration: none;}
     font-size: 4.2vw;
   }
 
+}
+
+.panel-title {
+  font-size: 3em;
+  text-align: center;
+  font-weight: 500;
 }
