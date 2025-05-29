@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.5ffb1c82.css",
-    "main.js": "/static/js/main.e3d90431.js",
+    "main.css": "/static/css/main.4314f949.css",
+    "main.js": "/static/js/main.0ad6ff17.js",
     "static/media/Jason_Cordova_Resume.pdf": "/static/media/Jason_Cordova_Resume.763327a24e1c95d3a93c.pdf",
     "static/media/headshot.webp": "/static/media/headshot.76e2a0118d0b3abb1c93.webp",
     "static/media/coral.webp": "/static/media/coral.f76c962ac4b853b662f9.webp",
@@ -10,12 +10,13 @@
     "static/media/statue.webp": "/static/media/statue.af5b99011be80c0b8a2c.webp",
     "static/media/fish.webp": "/static/media/fish.0f5865b9a82289784f1d.webp",
     "static/media/bubble.webp": "/static/media/bubble.9e20ca0c9cb49f2030f2.webp",
+    "static/media/heart.webp": "/static/media/heart.ff1933645c565b70d935.webp",
     "index.html": "/index.html",
-    "main.5ffb1c82.css.map": "/static/css/main.5ffb1c82.css.map",
-    "main.e3d90431.js.map": "/static/js/main.e3d90431.js.map"
+    "main.4314f949.css.map": "/static/css/main.4314f949.css.map",
+    "main.0ad6ff17.js.map": "/static/js/main.0ad6ff17.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ffb1c82.css",
-    "static/js/main.e3d90431.js"
+    "static/css/main.4314f949.css",
+    "static/js/main.0ad6ff17.js"
   ]
 }
