@@ -2,6 +2,11 @@
     width: 100%;
     padding: 2em var(--body-padding);
     box-sizing: border-box;
-    background-color: #121212;
-    color: white;
+    border-top: 1px solid rgb(215, 215, 215);
+}
+
+.bg-clip {
+    background-image: url("https://images.ctfassets.net/beeay9aupl8z/b3ObGYi0m116JbEoZAce8/dcc87adace37e1b49c7b30c98a188c36/IMAGE_GRID_OPTION_3.png?fm=webp&w=1800&q=75");
+    background-clip: text;
+    color: transparent;
 }

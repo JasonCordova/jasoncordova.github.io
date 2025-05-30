@@ -5,7 +5,9 @@ const ExperiencePanel = () => {
     return (
         <div class="experience">
 
-            <div className="panel-title">Experience</div>
+            <div className="panel-title bg-clip">
+                <span>Experience</span>
+            </div>
 
         </div>
     );
