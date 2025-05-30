@@ -6,7 +6,7 @@ const ExperiencePanel = () => {
         <div class="experience">
 
             <div className="panel-title bg-clip">
-                <span>Experience</span>
+                <span>JC</span>
             </div>
 
         </div>
