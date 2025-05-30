@@ -162,6 +162,11 @@ a {color: inherit; text-decoration: none;}
   transition: fill .15s ease-out;
 }
 
+canvas {
+  width: 100svw;
+  height: 100svh;
+}
+
 .landing-socials a {display: flex;}
 
 .njit {
