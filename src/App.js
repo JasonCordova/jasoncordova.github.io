@@ -29,7 +29,7 @@ function App() {
 
   const triggerConfetti = () => {
     const now = Date.now();
-    const cooldownPeriod = 1000; // 3 seconds between triggers
+    const cooldownPeriod = 3000; // 3 seconds between triggers
     
     // If in cooldown, ignore the click
     if (now - lastConfettiTime < cooldownPeriod) {
@@ -49,9 +49,9 @@ function App() {
       startVelocity: 45,
       decay: 0.94,
       gravity: 0.5,
-      scalar: 1.2,
+      scalar: 1,
       shapes: ['circle', 'square'],
-      ticks: 250,
+      ticks: 350,
       drift: 0.6
     });
 
@@ -65,9 +65,9 @@ function App() {
       startVelocity: 45,
       decay: 0.94,
       gravity: 0.5,
-      scalar: 1.2,
+      scalar: 1,
       shapes: ['circle', 'square'],
-      ticks: 250,
+      ticks: 350,
       drift: -0.6
     });
 
