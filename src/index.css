@@ -8,6 +8,13 @@
   100% { transform: rotate(0deg); }
 }
 
+@keyframes messageRead {
+
+    0% {opacity: 0; transform: scale(0.5) translate(0%, 0%);}
+    100% {opacity: 1; transform: scale(1.0) translate(0% 0%);}
+
+}
+
 :root {
 
   --landing: #ffffff;
@@ -66,13 +73,6 @@ a {color: inherit; text-decoration: none;}
   fill: var(--sender);
 }
 
-.message {
-    position: relative;
-    margin-right: 0.8em;
-    cursor: pointer;
-    user-select: none;
-}
-
 .emoji {
   margin-left: 0.25em;
   display: inline-block;
@@ -101,11 +101,22 @@ a {color: inherit; text-decoration: none;}
   color: white;
 }
 
+.message {
+    position: relative;
+    margin-right: 0.8em;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
+    animation: messagePopUp .3s ease-out 0.5s forwards;
+}
+
 .message-read {
     font-weight: 500;
     color: #88888A;
     margin-top: 0.25em;
     margin-right: 0.8em;
+    opacity: 0;
+    animation: messageRead .4s ease-in-out 0.8s forwards;
 }
 
 .message-read span {

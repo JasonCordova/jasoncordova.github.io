@@ -1,6 +1,6 @@
 @keyframes sway-dots {
-    0% {background-position: 0% 0%;}
-    100% {background-position: 0% -100%;}
+    0% {background-position: 0px 0px;}
+    100% {background-position: 0px -20px;}
 }
 
 .experience {
@@ -29,7 +29,7 @@
     top: 0px;
     mask-image: linear-gradient(180deg, #ffffff00, #000000);
     z-index: 0 !important;
-    animation: infinite sway-dots 10s linear;
+    animation: infinite sway-dots 1s linear;
 
 }
 
@@ -44,7 +44,7 @@
     margin: 0 auto;
     background-color: rgb(44, 44, 44);
     border-radius: 1em;
-    padding: 0.25em;
+    padding: 0.3em;
     font-weight: 500;
 }
 
@@ -57,10 +57,10 @@
 .tab-option {
     width: 100%;
     text-align: center;
-    padding: 0.8em 1em;
+    padding: 0.7em 1em;
     color: #949494;
     cursor: pointer;
-    transition: color .15s ease-out;
+    transition: color .2s ease-out;
 }
 
 .tab-option.active {
@@ -75,7 +75,7 @@
     left: 0%; 
     top: 0%;
     height: 100%;
-    transition: left .15s ease-out;
+    transition: left .2s ease-out;
 }
 
 .tab-cell.active {
