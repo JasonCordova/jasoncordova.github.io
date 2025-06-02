@@ -9,12 +9,11 @@
     box-sizing: border-box;
     overflow: hidden;
     color: rgb(255, 255, 255);
-    background-color: #0e0e0e;
+    background-color: #101010;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
 }
 
 .dot-bg {
@@ -23,7 +22,7 @@
     height: 100%;
     box-sizing: border-box;
     position: absolute !important;
-    background-image: radial-gradient(circle at 50% 50%, #ffffff40 1px, #fff 0, #0000 1px);
+    background-image: radial-gradient(circle at 50% 50%, #ffffff15 1px, #fff 0, #0000 1px);
     background-size: 20px 20px;
     left: 0px;
     top: 0px;
@@ -46,6 +45,7 @@
     border-radius: 1em;
     padding: 0.3em;
     font-weight: 500;
+    margin-top: 1em;
 }
 
 .experience-tab {
@@ -86,4 +86,63 @@
     /* background-image: url("https://images.ctfassets.net/beeay9aupl8z/b3ObGYi0m116JbEoZAce8/dcc87adace37e1b49c7b30c98a188c36/IMAGE_GRID_OPTION_3.png?fm=webp&w=1800&q=75");
     background-clip: text;
     color: transparent; */
+}
+
+.exp-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 128px;
+}
+
+.exp-holder {
+    margin-top: 4em;
+    max-width: 760px;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+
+.exp-cell {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.exp-cell:last-child {
+    border-bottom: none;
+}
+
+.exp-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.exp-date {
+    font-size: 0.75em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.exp-company {
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.exp-title {
+    font-size: 0.875em;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.exp-desc {
+    margin-top: 1em;
+    line-height: 1.25em;
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    color: rgba(255, 255, 255, .85);
+    list-style-position: outside;
+    padding-left: 1em;
+    margin-bottom: 0px;
 }

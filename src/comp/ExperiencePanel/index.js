@@ -1,5 +1,7 @@
 import './index.css';
 import { useState } from 'react';
+import WorkExperience from './WorkExperience';
+import EducationExperience from './EducationExperience';
 
 const ExperiencePanel = () => {
 
@@ -21,6 +23,13 @@ const ExperiencePanel = () => {
                     <div className={`tab-option${tab === "education" ? " active" : ""}`} onClick={() => {setTab("education");}}>Education</div>
 
                 </div>
+
+            </div>
+
+            <div className="exp-holder">
+
+                {tab === "work" ? <WorkExperience/> : <EducationExperience/>}
+
 
             </div>
 
