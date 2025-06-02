@@ -107,7 +107,7 @@ a {color: inherit; text-decoration: none;}
     cursor: pointer;
     user-select: none;
     opacity: 0;
-    animation: messagePopUp .3s ease-out 0.5s forwards;
+    animation: messagePopUp .4s ease-out 0.5s forwards;
 }
 
 .message-read {
@@ -116,7 +116,7 @@ a {color: inherit; text-decoration: none;}
     margin-top: 0.25em;
     margin-right: 0.8em;
     opacity: 0;
-    animation: messageRead .4s ease-in-out 0.8s forwards;
+    animation: messageRead .4s ease-out 0.7s forwards;
 }
 
 .message-read span {
