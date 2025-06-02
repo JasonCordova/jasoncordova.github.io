@@ -72,7 +72,7 @@
     width: 0.4em;
     height: 0.4em;
     background-color: var(--receiver);
-    border-radius: 3em;
+    border-radius: 2.5em;
     position: absolute;
     bottom: -25%;
     left: -5%;

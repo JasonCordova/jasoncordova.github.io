@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2em;
+    gap: 1em;
 }
 
 .dot-bg {
@@ -27,7 +27,7 @@
     background-size: 20px 20px;
     left: 0px;
     top: 0px;
-    mask-image: linear-gradient(180deg, rgb(255 255 255 / 50%), #ffffff);
+    mask-image: linear-gradient(180deg, rgb(255 255 255 / 35%), #ffffff);
     z-index: 0 !important;
     animation: infinite sway-dots 1s linear;
 
@@ -40,7 +40,7 @@
 
 .tab-list {
     width: 100%;
-    max-width: 500px;
+    max-width: 460px;
     margin: 0 auto;
     background-color: rgb(44, 44, 44);
     border-radius: 1em;
@@ -57,7 +57,7 @@
 .tab-option {
     width: 100%;
     text-align: center;
-    padding: 0.7em 1em;
+    padding: 0.7em 1em 0.5em;
     color: #949494;
     cursor: pointer;
     transition: color .2s ease-out;
