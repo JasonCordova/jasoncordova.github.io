@@ -263,9 +263,9 @@ canvas {
 }
 
 .panel-title {
-    font-size: 30VW;
+    font-size: 3em;
     text-align: center;
-    font-weight: 600;
+    font-weight: 500;
     background-size: contain;
     line-height: 1em;
 }

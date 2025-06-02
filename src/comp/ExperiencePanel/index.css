@@ -1,12 +1,90 @@
+@keyframes sway-dots {
+    0% {background-position: 0% 0%;}
+    100% {background-position: 0% -100%;}
+}
+
 .experience {
     width: 100%;
-    padding: 2em var(--body-padding);
+    padding: 6em var(--body-padding);
     box-sizing: border-box;
-    border-top: 1px solid rgb(215, 215, 215);
+    overflow: hidden;
+    color: rgb(255, 255, 255);
+    background-color: #0e0e0e;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.dot-bg {
+
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute !important;
+    background-image: radial-gradient(circle at 50% 50%, #2d2d2d 1px, #ffffff 0px, #00000000 1px);
+    background-size: 20px 20px;
+    left: 0px;
+    top: 0px;
+    mask-image: linear-gradient(180deg, #ffffff00, #000000);
+    z-index: 0 !important;
+    animation: infinite sway-dots 10s linear;
+
+}
+
+.experience * {
+    z-index: 1;
+    position: relative;
+}
+
+.tab-list {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: rgb(44, 44, 44);
+    border-radius: 1em;
+    padding: 0.25em;
+    font-weight: 500;
+}
+
+.experience-tab {
+    display: flex;
+    border-radius: 1em;
+    width: 100%;
+}
+
+.tab-option {
+    width: 100%;
+    text-align: center;
+    padding: 0.8em 1em;
+    color: #949494;
+    cursor: pointer;
+    transition: color .15s ease-out;
+    font-size: 0.9em;
+}
+
+.tab-option.active {
+    color: rgb(30, 30, 30);
+}
+
+.tab-cell {
+    width: 50%; 
+    background-color: white;
+    border-radius: 0.8em; 
+    position: absolute;
+    left: 0%; 
+    top: 0%;
+    height: 100%;
+    transition: left .15s ease-out;
+}
+
+.tab-cell.active {
+    left: 50%;
 }
 
 .bg-clip {
-    background-image: url("https://images.ctfassets.net/beeay9aupl8z/b3ObGYi0m116JbEoZAce8/dcc87adace37e1b49c7b30c98a188c36/IMAGE_GRID_OPTION_3.png?fm=webp&w=1800&q=75");
+    /* background-image: url("https://images.ctfassets.net/beeay9aupl8z/b3ObGYi0m116JbEoZAce8/dcc87adace37e1b49c7b30c98a188c36/IMAGE_GRID_OPTION_3.png?fm=webp&w=1800&q=75");
     background-clip: text;
-    color: transparent;
+    color: transparent; */
 }
