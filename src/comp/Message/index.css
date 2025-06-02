@@ -46,7 +46,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    animation: scaleAnimationLinear 0.33s ease-out 2.5s forwards;
+    animation: scaleAnimationLinear 0.3s ease-out 2.3s forwards;
     cursor: pointer;
 }
 
@@ -54,7 +54,7 @@
     display: flex;
     width: 50%;
     transform: scale(0);
-    animation: scaleAnimationBounce 0.4s ease-out 2.7s forwards;
+    animation: scaleAnimationBounce 0.4s ease-out 2.5s forwards;
 }
 
 .react-bubble1 {
