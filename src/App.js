@@ -93,8 +93,6 @@ function App() {
 
       <div className="landing">
 
-        <div className="panel-fader"></div>
-
         <div className="chat">
 
           <Message type="sender" message="Hey, it's Jason" emoji="wave"/>
