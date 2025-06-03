@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.f0d07cda.css",
-    "main.js": "/static/js/main.c1c38ec6.js",
+    "main.css": "/static/css/main.d22de8af.css",
+    "main.js": "/static/js/main.a7e4ddb0.js",
     "static/media/JasonCordova_Resume.pdf": "/static/media/JasonCordova_Resume.763327a24e1c95d3a93c.pdf",
     "static/media/headshot.webp": "/static/media/headshot.76e2a0118d0b3abb1c93.webp",
     "static/media/coral.webp": "/static/media/coral.f76c962ac4b853b662f9.webp",
@@ -19,11 +19,11 @@
     "static/media/broadridge.webp": "/static/media/broadridge.80b2b1e27d9f9ccaa484.webp",
     "static/media/njit.webp": "/static/media/njit.9e2a6567d3da8b34cbaa.webp",
     "index.html": "/index.html",
-    "main.f0d07cda.css.map": "/static/css/main.f0d07cda.css.map",
-    "main.c1c38ec6.js.map": "/static/js/main.c1c38ec6.js.map"
+    "main.d22de8af.css.map": "/static/css/main.d22de8af.css.map",
+    "main.a7e4ddb0.js.map": "/static/js/main.a7e4ddb0.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0d07cda.css",
-    "static/js/main.c1c38ec6.js"
+    "static/css/main.d22de8af.css",
+    "static/js/main.a7e4ddb0.js"
   ]
 }
