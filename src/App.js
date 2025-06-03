@@ -16,7 +16,6 @@ function App() {
 
   const lenisRef = useRef();
   const [lastConfettiTime, setLastConfettiTime] = useState(0); // Track last trigger time
-  const [isCooldown, setIsCooldown] = useState(false); // Cooldown state
 
   const [time] = useState(() => {
     const now = new Date();
@@ -37,7 +36,6 @@ function App() {
     }
 
     setLastConfettiTime(now);
-    setIsCooldown(true);
 
     // Bottom left confetti
     confetti({
@@ -72,7 +70,7 @@ function App() {
     });
 
     // Reset cooldown after period ends
-    setTimeout(() => setIsCooldown(false), cooldownPeriod);
+
   };
 
   useEffect(() => {
@@ -95,6 +93,7 @@ function App() {
 
       <div className="landing">
 
+        <div className="panel-fader"></div>
 
         <div className="chat">
 

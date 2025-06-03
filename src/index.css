@@ -203,6 +203,21 @@ canvas {
   fill: #0A66C2;
 }
 
+.panel-title {
+    font-size: 2.5em;
+    text-align: center;
+    font-weight: 400;
+    background-size: contain;
+    line-height: 1em;
+}
+
+.panel-fader {
+  width: 100%;
+  height: 124px;
+  position: sticky;
+  top: 0px;
+}
+
 @media (max-width: 1400px) {
   /* styles for ≤1400px */
 
@@ -271,12 +286,4 @@ canvas {
     font-size: 4.2vw;
   }
 
-}
-
-.panel-title {
-    font-size: 2.5em;
-    text-align: center;
-    font-weight: 400;
-    background-size: contain;
-    line-height: 1em;
 }
