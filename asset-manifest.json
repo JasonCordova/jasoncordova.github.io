@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d22de8af.css",
-    "main.js": "/static/js/main.a7e4ddb0.js",
+    "main.css": "/static/css/main.1c579f65.css",
+    "main.js": "/static/js/main.48ae2da7.js",
     "static/media/JasonCordova_Resume.pdf": "/static/media/JasonCordova_Resume.763327a24e1c95d3a93c.pdf",
     "static/media/headshot.webp": "/static/media/headshot.76e2a0118d0b3abb1c93.webp",
     "static/media/coral.webp": "/static/media/coral.f76c962ac4b853b662f9.webp",
@@ -17,13 +17,13 @@
     "static/media/heart.webp": "/static/media/heart.ff1933645c565b70d935.webp",
     "static/media/harmon.webp": "/static/media/harmon.5b539f8d637fdceb2644.webp",
     "static/media/broadridge.webp": "/static/media/broadridge.80b2b1e27d9f9ccaa484.webp",
-    "static/media/njit.webp": "/static/media/njit.9e2a6567d3da8b34cbaa.webp",
+    "static/media/njit.webp": "/static/media/njit.a78cd0e8a34b316c7613.webp",
     "index.html": "/index.html",
-    "main.d22de8af.css.map": "/static/css/main.d22de8af.css.map",
-    "main.a7e4ddb0.js.map": "/static/js/main.a7e4ddb0.js.map"
+    "main.1c579f65.css.map": "/static/css/main.1c579f65.css.map",
+    "main.48ae2da7.js.map": "/static/js/main.48ae2da7.js.map"
   },
   "entrypoints": [
-    "static/css/main.d22de8af.css",
-    "static/js/main.a7e4ddb0.js"
+    "static/css/main.1c579f65.css",
+    "static/js/main.48ae2da7.js"
   ]
 }
