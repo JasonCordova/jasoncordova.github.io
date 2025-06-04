@@ -26,7 +26,7 @@
     flex-direction: row;
     align-items: center;
     padding: var(--body-padding);
-    position: fixed;
+    position: absolute;
     top: 0px;
     left: 0px;
     z-index: 99999;
@@ -38,5 +38,5 @@
 }
 
 .nav a {
-    padding: 0em 0.75em;
+    padding: 1em 0.75em;
 }
