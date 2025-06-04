@@ -11,14 +11,14 @@ const ProjectPanel = () => {
 
                 <div className="project-cell square">
 
-                    <div className="project-sub">Web App</div>
+                    <div className="project-sub">E-Commerce</div>
                     <div className="project-title">Marelli</div>
 
                 </div>
 
                 <div className="project-cell rect">
 
-                    <div className="project-sub">Web App</div>
+                    <div className="project-sub">Music Platform</div>
                     <div className="project-title">PeachMix</div>
 
                 </div>

@@ -19,8 +19,8 @@ const WorkExperience = () => {
 
                     <ul className="exp-desc">
 
-                        <li>Use Java, Selenium, Serenity, Cucumber, and Gherkin to triage automated test cases and reduce errors by 70%</li>
-                        <li>Trained new hires on AWS and guided them through onboarding.</li>
+                        <li>Automated test cases using Jira, Selenium, and Cucumber, helping reduce test errors by 70%.</li>
+                        <li>Led onboarding sessions and trained new hires on AWS services and QA tools.</li>
                         <li>Maintained data pipeline containing end-to-end user test cases, ensuring quality and reusability using Maven, JIRA, and Xray.</li>
 
                     </ul>
@@ -42,10 +42,9 @@ const WorkExperience = () => {
 
                     <ul className="exp-desc">
 
-                        <li>Helped move from manual to automated testing using Java, Selenium, Serenity, Cucumber, and Gherkin in an Agile environment.</li>
-                        <li>Triaged test cases and reduced overall test errors by 70%.</li>
-                        <li>Trained new hires on AWS and guided them through onboarding.</li>
-                        <li>Maintained data pipeline containing end-to-end user test cases, ensuring quality and reusability using Maven, JIRA, and Xray.</li>
+                        <li>Analyzed warehouse data using IBM Cognos to assess productivity and identify areas of improvement.</li>
+                        <li>Processed 5,000+ daily records to construct key points indicators for multiple store branches.</li>
+                        <li>Monitored warehouse operations and proposed actionable data-driven insights during weekly operations meetings, improving workplace efficiency by 13%.</li>
 
                     </ul>
 

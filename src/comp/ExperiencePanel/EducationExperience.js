@@ -12,13 +12,13 @@ const EducationExperience = () => {
 
                 <div className="exp-date">May 2025</div>
                 <div className="exp-company">New Jersey Institute of Technology</div>
-                <div className="exp-title">BSc in Computer Science</div>
+                <div className="exp-title">B.S. in Computer Science</div>
 
                 <ul className="exp-desc">
 
-                    <li>Awarded Dean's List Award for each semester of enrollment.</li>
-                    <li>Trained new hires on AWS and guided them through onboarding.</li>
-                    <li>Maintained data pipeline containing end-to-end user test cases, ensuring quality and reusability using Maven, JIRA, and Xray.</li>
+                    <li>Graduated Magna Cum Laude with a 3.7 GPA in Computer Science</li>
+                    <li>Awarded Dean's List Honors eight times for consistent academic excellence</li>
+                    <li>2nd Place Senior Capstone under RDE Systems for developing a Medication Adherence Web App</li>
 
                 </ul>
 

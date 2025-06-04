@@ -23,6 +23,8 @@
   --sender: #0d85ff;
   --receiver: #EAE8EB;
   --body-padding: 2em;
+  --shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  --border: 1px solid rgba(0, 0, 0, 0.2);
 
 }
 
