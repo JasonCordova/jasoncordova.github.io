@@ -106,7 +106,8 @@
     gap: 4em;
     padding: 2em;
     background: white;
-    box-shadow: var(--shadow);
+    box-shadow: var(--border);
+    box-sizing: border-box;
 }
 
 .exp-cell {
