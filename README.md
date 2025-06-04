@@ -1,11 +1,13 @@
-# Jason Cordova - SWE Portfolio
+# Jason Cordova: Portfolio
 
 
-Hey, I'm Jason Cordova! I'm a Software Engineer with a focus in Backend Development and Quality Assurnace. 
+Hey, I'm Jason Cordova! 👋
+
+I'm a Software Engineer with a focus in Backend Development and Quality Assuranace. 
 
 This portfolio serves as a showcase to the skills and projects I’ve developed to continuously learn and grow in the tech industry.
 
-Whether you’re here to explore my work, review my code, or collaborate on exciting projects, this portfolio reflects my commitment to quality software development and lifelong learning. Thanks for stopping by!
+Feel free to explore my work, review my code, or connect. Thanks for stopping by!
 
 ---
 
