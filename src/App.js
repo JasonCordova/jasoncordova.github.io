@@ -1,8 +1,8 @@
-import FishTank from "./comp/FishTank";
 import Resume from './assets/JasonCordova_Resume.pdf';
 import Message from "./comp/Message";
 import Header from './comp/Header';
 import ExperiencePanel from "./comp/ExperiencePanel";
+import ProjectPanel from "./comp/ProjectPanel";
 import { ReactLenis } from 'lenis/react' // Note: Correct import path
 import { useEffect, useRef, useState } from 'react'
 import confetti from "canvas-confetti";
@@ -122,6 +122,7 @@ function App() {
       </div>
 
       <ExperiencePanel></ExperiencePanel>
+      <ProjectPanel></ProjectPanel>
 
     </ReactLenis>
 

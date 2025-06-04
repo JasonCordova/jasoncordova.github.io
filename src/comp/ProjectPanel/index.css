@@ -1,0 +1,45 @@
+.project-panel {
+    width: 100%;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 6em var(--body-padding);
+    box-sizing: border-box;
+}
+
+.projects {
+    max-width: 1700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+}
+
+.square, .rect {
+
+    height: 30em;
+
+}
+
+.rect {
+    grid-column: span 2;
+}
+
+
+
+.project-cell {
+    border-radius: 2em;
+    background-color: #F5F5F7;
+    padding: 2em;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+}
+
+.project-title {
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.project-sub {
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5em;
+}
