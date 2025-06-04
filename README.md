@@ -1,28 +1,22 @@
-# Jason Cordova: Portfolio
+# Jason Cordova — Software Engineer
 
+Hi, I’m Jason! 👋  
+A software engineer specializing in backend development and quality assurance.
 
-Hey, I'm Jason Cordova! 👋
-
-I'm a Software Engineer with a focus in Backend Development and Quality Assuranace. 
-
-This portfolio serves as a showcase to the skills and projects I’ve developed to continuously learn and grow in the tech industry.
-
-Feel free to explore my work, review my code, or connect. Thanks for stopping by!
+This portfolio highlights my skills and projects as I grow and explore new tech. Feel free to browse, review, or connect!
 
 ---
 
-## Skills & Technologies
+## Skills
 
 - **Languages:** Java, JavaScript, C++, C#, Python, PHP, SQL, Kotlin, HTML, CSS, Bash  
-- **Frameworks & Libraries:** React, Node.js, Selenium, Serenity, Maven  
-- **Tools & Platforms:** Git, GitHub Actions, AWS, Heroku, Docker, Jenkins, Firebase  
-- **Methodologies:** Agile, Test Automation, CI/CD, Scrum, UX/UI Design  
+- **Frameworks & Tools:** React, Node.js, Selenium, Serenity, Maven, Git, Docker, AWS, Jenkins, Firebase  
+- **Practices:** Agile, Test Automation, CI/CD, Scrum, UX/UI Design  
 
 ---
 
-## Let’s Connect
+## Connect
 
-I’m always open to new opportunities, feedback, and collaboration! Feel free to get in touch:
-
-- LinkedIn: [linkedin.com/in/jason-cordova](https://linkedin.com/in/jason-cordova)  
-
+Let’s collaborate or chat:  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0a66c2)](https://www.linkedin.com/in/jason-cordova/)
+[![Handshake](https://img.shields.io/badge/Handshake-cdf687?logo=handshake&logoColor=%23000)](https://app.joinhandshake.com/profiles/nesg7w)
