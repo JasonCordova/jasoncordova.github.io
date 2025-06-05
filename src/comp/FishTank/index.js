@@ -81,7 +81,7 @@ const FishTank = () => {
 
     return (
 
-            <div ref={fishTankRef} className="fishtank">
+            <div ref={fishTankRef} className="fishtank square">
 
                 <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
                 <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
