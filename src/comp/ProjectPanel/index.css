@@ -24,7 +24,7 @@
     grid-column: span 2;
 }
 
-.project-video {
+.project-bg {
     position: absolute;
     top: 0%;
     left: 0%;
@@ -46,12 +46,16 @@
     overflow: hidden;
 }
 
+.marelli {
+    background-color: #4e5c4c;
+}
+
 .project-cell::after {
     content: "";
     width: 100%;
     display: block;
-    height: 50%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    height: 40%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
     position: absolute;
     top: 0px;
     left: 0%;

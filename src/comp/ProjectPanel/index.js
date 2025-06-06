@@ -1,5 +1,6 @@
 import './index.css';
 import FishTank from '../FishTank';
+import marellIDemo from '../../assets/marelli-demo.webp';
 
 const ProjectPanel = () => {
 
@@ -9,10 +10,13 @@ const ProjectPanel = () => {
 
             <div className="projects">
 
-                <div className="project-cell square">
+                <div className="project-cell square marelli">
 
-                    <div className="project-sub">E-Commerce</div>
+                    <div className="project-sub">eCommerce</div>
                     <div className="project-title">Marelli</div>
+
+                    <img className="project-bg" src={marellIDemo}></img>
+
 
                 </div>
 
@@ -20,12 +24,12 @@ const ProjectPanel = () => {
                     <div className="project-sub">Music Platform</div>
                     <div className="project-title">PeachMix</div>
                     <video
-                        className="project-video"
+                        className="project-bg"
                         src="https://player.vimeo.com/progressive_redirect/playback/1071595198/rendition/1080p/file.mp4?loc=external&log_user=0&signature=3966f0f0fe6e27f2b187f241b359f0ce292d5a6b41dcb3046d4036829febce14"
-                        autoplay="true"
-                        muted="true"
-                        loop="true"
-                        playsinline="true"
+                        autoPlay={true}
+                        muted={true}
+                        loop={true}
+                        playsInline={true}
                         webkit-playsinline="true"
                         preload="none"
                         >
