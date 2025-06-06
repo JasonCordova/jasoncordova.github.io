@@ -214,12 +214,6 @@ canvas {
     margin-bottom: 0.5em;
 }
 
-.panel-subtitle {
-  margin-bottom: 0.5em;
-  font-weight: 500;
-  color: var(--sender);
-}
-
 @media (max-width: 1400px) {
   /* styles for ≤1400px */
 
