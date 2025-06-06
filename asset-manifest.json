@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.fe788537.css",
-    "main.js": "/static/js/main.ddc12c6f.js",
+    "main.css": "/static/css/main.92b9dc5f.css",
+    "main.js": "/static/js/main.c8774b68.js",
     "static/media/JasonCordova_Resume.pdf": "/static/media/JasonCordova_Resume.763327a24e1c95d3a93c.pdf",
     "static/media/headshot.webp": "/static/media/headshot.76e2a0118d0b3abb1c93.webp",
     "static/media/marelli-demo.webp": "/static/media/marelli-demo.195a47b410910d927772.webp",
@@ -20,11 +20,11 @@
     "static/media/broadridge.webp": "/static/media/broadridge.80b2b1e27d9f9ccaa484.webp",
     "static/media/njit.webp": "/static/media/njit.8cf327be8f218ae4965a.webp",
     "index.html": "/index.html",
-    "main.fe788537.css.map": "/static/css/main.fe788537.css.map",
-    "main.ddc12c6f.js.map": "/static/js/main.ddc12c6f.js.map"
+    "main.92b9dc5f.css.map": "/static/css/main.92b9dc5f.css.map",
+    "main.c8774b68.js.map": "/static/js/main.c8774b68.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe788537.css",
-    "static/js/main.ddc12c6f.js"
+    "static/css/main.92b9dc5f.css",
+    "static/js/main.c8774b68.js"
   ]
 }
