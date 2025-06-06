@@ -2,7 +2,7 @@
     width: 100%;
     background-color: #ffffff;
     color: #000000;
-    padding: 6em var(--body-padding);
+    padding: 4em var(--body-padding);
     box-sizing: border-box;
 }
 
@@ -74,6 +74,8 @@
     position: relative;
     z-index: 1;
 }
+
+.project-panel .panel-title {text-align: left;}
 
 @media (max-width: 1400px) {
 

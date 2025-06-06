@@ -12,7 +12,7 @@ const ExperiencePanel = () => {
         <>
         <div className="experience">
 
-            <div className="dot-bg"></div>
+            <div className="panel-subtitle">Background</div>
             <div className="panel-title">Experience</div>
 
             <div className="tab-list">

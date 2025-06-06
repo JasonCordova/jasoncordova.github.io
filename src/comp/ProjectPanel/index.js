@@ -8,6 +8,9 @@ const ProjectPanel = () => {
 
         <div className="project-panel">
 
+            <div className="panel-subtitle">Showcase</div>
+            <div className="panel-title">Projects</div>
+
             <div className="projects">
 
                 <div className="project-cell square marelli">
