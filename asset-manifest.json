@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.92b9dc5f.css",
-    "main.js": "/static/js/main.0a7b8ed4.js",
+    "main.css": "/static/css/main.6c88c3cd.css",
+    "main.js": "/static/js/main.df3053ba.js",
     "static/media/PeachMix_Demo.mp4": "/static/media/PeachMix_Demo.4da7c6b4f536f51f1fb3.mp4",
     "static/media/JasonCordova_Resume.pdf": "/static/media/JasonCordova_Resume.763327a24e1c95d3a93c.pdf",
     "static/media/headshot.webp": "/static/media/headshot.76e2a0118d0b3abb1c93.webp",
@@ -21,11 +21,11 @@
     "static/media/broadridge.webp": "/static/media/broadridge.80b2b1e27d9f9ccaa484.webp",
     "static/media/njit.webp": "/static/media/njit.8cf327be8f218ae4965a.webp",
     "index.html": "/index.html",
-    "main.92b9dc5f.css.map": "/static/css/main.92b9dc5f.css.map",
-    "main.0a7b8ed4.js.map": "/static/js/main.0a7b8ed4.js.map"
+    "main.6c88c3cd.css.map": "/static/css/main.6c88c3cd.css.map",
+    "main.df3053ba.js.map": "/static/js/main.df3053ba.js.map"
   },
   "entrypoints": [
-    "static/css/main.92b9dc5f.css",
-    "static/js/main.0a7b8ed4.js"
+    "static/css/main.6c88c3cd.css",
+    "static/js/main.df3053ba.js"
   ]
 }
