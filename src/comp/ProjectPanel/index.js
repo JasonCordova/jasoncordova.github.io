@@ -1,6 +1,7 @@
 import './index.css';
 import FishTank from '../FishTank';
 import marellIDemo from '../../assets/marelli-demo.webp';
+import peachmixDemo from '../../assets/PeachMix_Demo.mp4';
 
 const ProjectPanel = () => {
 
@@ -28,7 +29,7 @@ const ProjectPanel = () => {
                     <div className="project-title">PeachMix</div>
                     <video
                         className="project-bg"
-                        src="https://player.vimeo.com/progressive_redirect/playback/1071595198/rendition/1080p/file.mp4?loc=external&log_user=0&signature=3966f0f0fe6e27f2b187f241b359f0ce292d5a6b41dcb3046d4036829febce14"
+                        src={peachmixDemo}
                         autoPlay={true}
                         muted={true}
                         loop={true}
