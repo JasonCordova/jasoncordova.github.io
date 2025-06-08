@@ -16,7 +16,7 @@ const Project = (props) => {
                 preload="none"
                 >
             </video>
-            : <img className={`project-bg ${props.color}`} src={props.image}></img>}
+            : props.image ? <img className={`project-bg ${props.color}`} src={props.image}></img> : <div className="project-bg missing">{props.title}</div>}
 
             <div className="project-info">
 

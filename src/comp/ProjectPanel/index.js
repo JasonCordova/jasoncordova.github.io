@@ -18,9 +18,9 @@ const ProjectPanel = () => {
                 <Project 
                 title="PeachMix" desc="Music Platform" video={peachmixDemo}/>
                 <Project 
-                title="Marelli" desc="eCommerce Store" video={marelliDemo} color="marelli"/>
+                title="Marelli" desc="eCommerce Store" video={marelliDemo}/>
                 <Project
-                title="Sort Visualizer" desc="Web App" color="marelli" image={marellIDemo}></Project>
+                title="Sort Visualizer" desc="Web App"></Project>
 
             </div>
 
