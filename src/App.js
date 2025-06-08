@@ -91,7 +91,7 @@ function App() {
 
       <Header></Header>
 
-      <div className="landing">
+      <div id="home" className="landing">
 
         <div className="chat">
 

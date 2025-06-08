@@ -9,7 +9,7 @@ const ProjectPanel = () => {
 
     return (
 
-        <div className="project-panel">
+        <div id="projects" className="project-panel">
 
             <div className="panel-title">Projects</div>
 
