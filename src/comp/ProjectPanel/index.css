@@ -14,68 +14,50 @@
     gap: 1em;
 }
 
-.square, .rect {
-
-    height: 30em;
-
-}
-
-.rect {
-    grid-column: span 2;
-}
 
 .project-bg {
-    position: absolute;
-    top: 0%;
-    left: 0%;
     z-index: 0;
     width: 100%;
-    height: 100%;
     object-fit: cover;
+    border-radius: 1em;
+    aspect-ratio: 16/9;
+    box-shadow: var(--shadow);
+}
+
+.square {
+    aspect-ratio: 1/1;
 }
 
 
 .project-cell {
-    border-radius: 2em;
     background-color: transparent;
-    padding: 2em;
-    color: rgb(255, 255, 255);
-    box-sizing: border-box;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
     position: relative;
-    overflow: hidden;
+}
+
+.project-info {
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 1em;
 }
 
 .marelli {
-    background-color: #4e5c4c;
-}
-
-.project-cell::after {
-    content: "";
-    width: 100%;
-    display: block;
-    height: 40%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
-    position: absolute;
-    top: 0px;
-    left: 0%;
+    background-color: #354038;
 }
 
 .project-title {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 500;
-    position: relative;
-    z-index: 1;
 }
 
 .project-sub {
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 0.5em;
-    position: relative;
-    z-index: 1;
+    margin-top: 0.25em;
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, .6);
 }
-
-.project-panel .panel-title {text-align: left;}
 
 @media (max-width: 1400px) {
 
@@ -86,39 +68,29 @@
 @media (max-width: 1200px) {
 
     .projects {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
-
-    .square {
-        grid-column: span 2;
-    }
-
-    .rect {grid-column: span 3;}
 
 }
 
 /* Medium devices (≤992px) */
 @media (max-width: 992px) {
 
-    .projects {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .square, .rect {grid-column: span 1;}
-
 }
 
 /* Small devices (≤768px) */
 @media (max-width: 768px) {
 
-    .square, .rect {grid-column: span 2;}
+    .projects {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
 
 }
 
 /* Small devices (≤700px) */
 @media (max-width: 700px) {
 
-    .square, .rect {grid-column: span 2;}
 
 
 }

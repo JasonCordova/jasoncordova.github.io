@@ -1,7 +1,9 @@
 import './index.css';
+import Project from './Project';
 import FishTank from '../FishTank';
 import marellIDemo from '../../assets/marelli-demo.webp';
 import peachmixDemo from '../../assets/PeachMix_Demo.mp4';
+import marelliDemo from '../../assets/marelli_demo.mp4';
 
 const ProjectPanel = () => {
 
@@ -13,43 +15,12 @@ const ProjectPanel = () => {
 
             <div className="projects">
 
-                <div className="project-cell square marelli">
-
-                    <div className="project-sub">eCommerce</div>
-                    <div className="project-title">Marelli</div>
-
-                    <img className="project-bg" src={marellIDemo}></img>
-
-
-                </div>
-
-                <div className="project-cell rect">
-                    <div className="project-sub">Music Platform</div>
-                    <div className="project-title">PeachMix</div>
-                    <video
-                        className="project-bg"
-                        src={peachmixDemo}
-                        autoPlay={true}
-                        muted={true}
-                        loop={true}
-                        playsInline={true}
-                        webkit-playsinline="true"
-                        preload="none"
-                        >
-                    </video>
-                    
-
-                </div>
-
-
-                <div className="project-cell rect">
-
-                    <div className="project-sub">Web App</div>
-                    <div className="project-title">Sort Visualizer</div>
-
-                </div>
-
-                    <FishTank/>
+                <Project 
+                title="PeachMix" desc="Music Platform" video={peachmixDemo}/>
+                <Project 
+                title="Marelli" desc="eCommerce Store" video={marelliDemo} color="marelli"/>
+                <Project
+                title="Sort Visualizer" desc="Web App" color="marelli" image={marellIDemo}></Project>
 
             </div>
 
