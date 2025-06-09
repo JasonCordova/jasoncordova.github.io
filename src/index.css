@@ -249,7 +249,7 @@ canvas {
   max-width: 30em;
   line-height: 1.5em;
   margin-top: 1em;
-  color: rgba(0, 0, 0, 0.8);
+  color: var(--landing-text);
   font-weight: 400;
 }
 
