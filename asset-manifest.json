@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.1f0f3234.css",
+    "main.css": "/static/css/main.6abfe3fc.css",
     "main.js": "/static/js/main.a375baa6.js",
     "static/media/PeachMix_Demo.mp4": "/static/media/PeachMix_Demo.4da7c6b4f536f51f1fb3.mp4",
     "static/media/marelli_demo.mp4": "/static/media/marelli_demo.5f89a1d5a6c620cdbf21.mp4",
@@ -16,11 +16,11 @@
     "static/media/broadridge.webp": "/static/media/broadridge.80b2b1e27d9f9ccaa484.webp",
     "static/media/njit.webp": "/static/media/njit.8cf327be8f218ae4965a.webp",
     "index.html": "/index.html",
-    "main.1f0f3234.css.map": "/static/css/main.1f0f3234.css.map",
+    "main.6abfe3fc.css.map": "/static/css/main.6abfe3fc.css.map",
     "main.a375baa6.js.map": "/static/js/main.a375baa6.js.map"
   },
   "entrypoints": [
-    "static/css/main.1f0f3234.css",
+    "static/css/main.6abfe3fc.css",
     "static/js/main.a375baa6.js"
   ]
 }
