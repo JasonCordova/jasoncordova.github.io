@@ -3,18 +3,15 @@
     100% {background-position: 0px -20px;}
 }
 
-.experience {
-    width: 100%;
-    padding: 4em var(--body-padding);
-    box-sizing: border-box;
-    overflow: hidden;
-    color: rgb(0, 0, 0);
+#experience {
+    color: #000;
     background-color: #f5f5f7;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 
 .dot-bg {
 
@@ -53,6 +50,7 @@
     display: flex;
     border-radius: 1em;
     width: 100%;
+    position: relative;
 }
 
 .tab-option {
@@ -62,6 +60,7 @@
     color: #000000;
     cursor: pointer;
     transition: color .2s ease-out;
+    z-index: 1;
 }
 
 .tab-option.active {

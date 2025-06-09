@@ -10,7 +10,7 @@ const ExperiencePanel = () => {
 
     return (
         <>
-        <div id="experience" className="experience">
+        <div id="experience" className="body-panel">
 
             <div className="panel-title">Experience</div>
 
