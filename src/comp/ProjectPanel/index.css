@@ -62,13 +62,13 @@
 }
 
 .project-title {
-    font-size: 1.5em;
-    font-weight: 400;
+    font-size: 1.25em;
+    font-weight: 500;
 }
 
 .project-sub {
-    margin-top: 0.5em;
-    font-size: 1em;
+    margin-top: 0.25em;
+    font-size: 0.9em;
     color: var(--landing-text);
 }
 
