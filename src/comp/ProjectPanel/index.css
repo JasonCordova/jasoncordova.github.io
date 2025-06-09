@@ -122,6 +122,7 @@
 /* Small devices (≤700px) */
 @media (max-width: 700px) {
 
+    .large {font-size: 3em;}
 
 
 }
