@@ -74,6 +74,7 @@
 
 .project-links {
     display: flex;
+    gap: 1em;
 }
 
 .project-links a {
@@ -81,7 +82,7 @@
 }
 
 .project-links a svg {
-    height: 32px;
+    height: 28px;
     fill: var(--landing-text);
     transition: fill .15s ease-out;
 }
