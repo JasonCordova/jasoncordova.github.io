@@ -12,7 +12,7 @@ const ExperiencePanel = () => {
         <>
         <div id="experience" className="body-panel">
 
-            <div className="panel-title">Experience</div>
+            <div className="panel-title large">Experience</div>
 
             <div className="tab-list">
 
@@ -35,22 +35,22 @@ const ExperiencePanel = () => {
                     <div className="exp-cell">
 
                         <img src={broadridgeLogo} className="exp-img" alt="Broadridge Logo"></img>
+    
+                         <div className="exp-info">
 
-                        <div className="exp-info">
-
-                            <div className="exp-date">Jun 2024 - Aug 2024</div>
                             <div className="exp-company">Broadridge</div>
                             <div className="exp-title">Software Quality Assurance Intern</div>
-
-                            <ul className="exp-desc">
-
-                                <li>Automated test cases using Jira, Selenium, and Cucumber, helping reduce test errors by 70%.</li>
-                                <li>Led onboarding sessions and trained new hires on AWS services and QA tools.</li>
-                                <li>Maintained data pipeline containing end-to-end user test cases, ensuring quality and reusability using Maven, JIRA, and Xray.</li>
-
-                            </ul>
+                            <div className="exp-date">Jun 2024 - Aug 2024</div>
 
                         </div>
+
+                        <ul className="exp-desc">
+
+                            <li>Automated test cases using Jira, Selenium, and Cucumber, helping reduce test errors by 70%.</li>
+                            <li>Led onboarding sessions and trained new hires on AWS services and QA tools.</li>
+                            <li>Maintained data pipeline containing end-to-end user test cases, ensuring quality and reusability using Maven, JIRA, and Xray.</li>
+                                
+                        </ul>
 
                     </div>
 
@@ -61,9 +61,9 @@ const ExperiencePanel = () => {
 
                         <div className="exp-info">
 
-                            <div className="exp-date">Jun 2022 - July 2022</div>
                             <div className="exp-company">Harmon Face Values</div>
                             <div className="exp-title">Supply Chain Analyst & Engineer</div>
+                            <div className="exp-date">Jun 2022 - July 2022</div>
 
                             <ul className="exp-desc">
 
@@ -88,13 +88,13 @@ const ExperiencePanel = () => {
 
                     <div className="exp-info">
 
-                        <div className="exp-date">May 2025</div>
                         <div className="exp-company">New Jersey Institute of Technology</div>
                         <div className="exp-title">B.S. in Computer Science</div>
+                        <div className="exp-date">May 2025</div>
 
                         <ul className="exp-desc">
 
-                            <li>Graduated Magna Cum Laude with a 3.7 GPA in Computer Science</li>
+                            <li>Graduated Magna Cum Laude with a 3.7 GPA</li>
                             <li>Awarded Dean's List Honors eight times for consistent academic excellence</li>
                             <li>2nd Place Senior Capstone under RDE Systems for developing a Medication Adherence Web App</li>
 

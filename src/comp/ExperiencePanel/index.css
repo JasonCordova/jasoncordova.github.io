@@ -4,8 +4,8 @@
 }
 
 #experience {
-    color: #000;
-    background-color: #f5f5f7;
+    color: #fff;
+    background-color: #101010;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -40,10 +40,11 @@
     max-width: 360px;
     border-radius: 3em;
     font-weight: 500;
-    background-color: #e2e2e2;
+    background-color: #343434;
     padding: 0.4em;
     margin: 0em auto 0;
     box-shadow: var(--shadow);
+    margin-top: 1em;
 }
 
 .experience-tab {
@@ -57,19 +58,19 @@
     width: 100%;
     text-align: center;
     padding: 0.9em 1em 0.7em;
-    color: #000000;
+    color: #ffffff;
     cursor: pointer;
     transition: color .2s ease-out;
     z-index: 1;
 }
 
 .tab-option.active {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 .tab-cell {
     width: 50%; 
-    background-color: #1D1D1F;
+    background-color: #ffffff;
     border-radius: 3em; 
     position: absolute;
     left: 0%; 
@@ -82,47 +83,39 @@
     left: 50%;
 }
 
-.bg-clip {
-    /* background-image: url("https://images.ctfassets.net/beeay9aupl8z/b3ObGYi0m116JbEoZAce8/dcc87adace37e1b49c7b30c98a188c36/IMAGE_GRID_OPTION_3.png?fm=webp&w=1800&q=75");
-    background-clip: text;
-    color: transparent; */
-}
-
 .exp-img {
     width: 64px;
     height: 64px;
-    border-radius: 128px;
+    border-radius: 8px;
     box-shadow: var(--shadow);
-}
-
-.exp-holder {
-    margin-top: 4em;
-    width: 100%;
-    max-width: 760px;
-    border-radius: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 4em;
-    padding: 2em;
-    background: white;
-    box-shadow: var(--border);
-    box-sizing: border-box;
-}
-
-.exp-cell {
-    display: flex;
-    flex-direction: row;
-    gap: 2em;
-}
-
-.exp-cell:last-child {
-    border-bottom: none;
 }
 
 .exp-info {
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 6px;
+    margin-top: 1.5em;
+}
+
+.exp-holder {
+    display: flex;
+    flex-direction: row;
+    margin-top: 6em;
+    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.exp-cell {
+    display: flex;
+    flex-direction: column;
+    background-color: #1E1D1C;
+    width: 100%;
+    max-width: 300px;
+    padding: 2em;
+    border-radius: 1em;
+    border: 1px solid #4A4A4A;
 }
 
 .exp-date {
@@ -136,12 +129,12 @@
 }
 
 .exp-title {
-    font-size: 0.875em;
-    opacity: 0.65;
+    font-size: 0.9em;
+    opacity: 0.75;
 }
 
 .exp-desc {
-    margin-top: 1em;
+    margin-top: 1.5em;
     line-height: 1.25em;
     font-size: 0.9em;
     display: flex;
