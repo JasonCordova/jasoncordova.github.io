@@ -172,7 +172,8 @@ const Fish = forwardRef((props, ref) => {
 
     useEffect(() => {
 
-        let randomSize = Math.round(Math.random() * (maxSize - minSize) + minSize);
+        // let randomSize = Math.round(Math.random() * (maxSize - minSize) + minSize);
+        let randomSize = minSize;
         FishElement.current.style.width = `${randomSize}%`;
 
         updatePosition();

@@ -100,7 +100,7 @@
 .exp-holder {
     display: flex;
     flex-direction: row;
-    margin-top: 6em;
+    margin-top: 3em;
     gap: 2em;
     flex-wrap: wrap;
     justify-content: center;

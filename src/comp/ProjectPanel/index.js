@@ -2,6 +2,7 @@ import './index.css';
 import Project from './Project';
 import peachmixDemo from '../../assets/PeachMix_Demo.mp4';
 import marelliDemo from '../../assets/marelli_demo.mp4';
+import FishTank from '../FishTank/index';
 
 const ProjectPanel = () => {
 
@@ -25,11 +26,12 @@ const ProjectPanel = () => {
             <div className="projects">
 
                 <Project 
-                title="PeachMix" desc="Music Platform" video={peachmixDemo} github="https://github.com/JasonCordova/peachmix" url="https://sage-mandazi-75f7eb.netlify.app/"/>
+                title="PeachMix" desc="Music Platform" video={peachmixDemo} github="https://github.com/JasonCordova/peachmix" url="https://peachmix.netlify.app/"/>
                 <Project 
-                title="Marelli" desc="eCommerce Store" video={marelliDemo} github="https://github.com/JasonCordova/Marelli" url="https://jazzy-croissant-6bb6fb.netlify.app/"/>
+                title="Marelli" desc="eCommerce Store" video={marelliDemo} github="https://github.com/JasonCordova/Marelli" url="https://jcmarelli.netlify.app/"/>
                 <Project
                 title="Sort Visualizer" desc="Web App"></Project>
+                <FishTank></FishTank>
 
             </div>
 

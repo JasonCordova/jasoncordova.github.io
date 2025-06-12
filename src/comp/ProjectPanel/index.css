@@ -10,8 +10,7 @@
     gap: 2em;
 }
 
-
-.project-bg {
+.project-bg-holder {
     z-index: 0;
     width: 100%;
     object-fit: cover;
@@ -24,6 +23,24 @@
     align-items: center;
     font-size: 2em;
     font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-cell:hover .project-bg {
+    transform: scale(1.05);
+}
+
+
+.project-bg {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: transform .2s ease-out;
 }
 
 .project-bg.missing {

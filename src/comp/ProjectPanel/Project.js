@@ -3,32 +3,40 @@ const linkSVG = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95.782 95.6
 
 const Project = (props) => {
 
+    const pageURL = `/projects/${props.title.toLowerCase().replace(" ", "-")}`
+
     return (
 
         <div className={`project-cell`}>
 
             {props.video ? 
-            <video
-                className="project-bg"
-                src={props.video}
-                autoPlay={true}
-                muted={true}
-                loop={true}
-                playsInline={true}
-                webkit-playsinline="true"
-                preload="none"
-                >
-            </video>
-            : props.image ? <img alt="Project" className={`project-bg ${props.color}`} src={props.image}></img> : <div className="project-bg missing">{props.title}</div>}
+
+                <a href={`${pageURL}`} className="project-bg-holder">
+
+                    <video
+                        className="project-bg"
+                        src={props.video}
+                        autoPlay={true}
+                        muted={true}
+                        loop={true}
+                        playsInline={true}
+                        webkit-playsinline="true"
+                        preload="none"
+                        >
+                    </video>
+
+                </a>
+            
+            : props.image ? <a href={`${pageURL}`} className="project-bg-holder"><img alt="Project" className={`project-bg ${props.color}`} src={props.image}></img></a> : <a href={`${pageURL}`} className="project-bg-holder"><div className="project-bg missing">{props.title}</div></a>}
 
             <div className="project-info-holder">
 
-                <div className="project-info">
+                <a href={`${pageURL}`} className="project-info">
 
                     <div className="project-title">{props.title}</div>
                     <div className="project-sub">{props.desc}</div>
 
-                </div>
+                </a>
 
                 <div className="project-links">
 

@@ -79,9 +79,15 @@ const FishTank = () => {
         ]);
     };
 
+    const handleClick = (e) => {
+
+      console.log(e.clientX);
+
+    }
+
     return (
 
-            <div ref={fishTankRef} className="fishtank square">
+            <div ref={fishTankRef} className="fishtank project-bg-holder" onClick={handleClick}>
 
                 <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
                 <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
