@@ -2,6 +2,7 @@ import './index.css';
 import Project from './Project';
 import peachmixDemo from '../../assets/PeachMix_Demo.mp4';
 import marelliDemo from '../../assets/marelli_demo.mp4';
+import sortingDemo from '../../assets/sorting-visualizer.webp'
 import FishTank from '../FishTank/index';
 
 const ProjectPanel = () => {
@@ -30,7 +31,7 @@ const ProjectPanel = () => {
                 <Project 
                 title="Marelli" desc="eCommerce Store" video={marelliDemo} github="https://github.com/JasonCordova/Marelli" url="https://jcmarelli.netlify.app/"/>
                 <Project
-                title="Sort Visualizer" desc="Web App"></Project>
+                title="Sort Visualizer" desc="Web App" image={sortingDemo} url="https://jc-sorting-visualizer.netlify.app/"></Project>
                 <FishTank></FishTank>
 
             </div>
