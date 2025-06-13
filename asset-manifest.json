@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/static/css/main.a6c80054.css",
-    "main.js": "/static/js/main.c6d4dd13.js",
-    "static/media/PeachMix_Demo.mp4": "/static/media/PeachMix_Demo.4da7c6b4f536f51f1fb3.mp4",
+    "main.js": "/static/js/main.131491a2.js",
     "static/media/marelli_demo.mp4": "/static/media/marelli_demo.5f89a1d5a6c620cdbf21.mp4",
-    "static/media/JasonCordova_Resume.pdf": "/static/media/JasonCordova_Resume.763327a24e1c95d3a93c.pdf",
+    "static/media/PeachMix_Demo.mp4": "/static/media/PeachMix_Demo.d83d6451f2531c6669cb.mp4",
+    "static/media/JasonCordova_Resume.pdf": "/static/media/JasonCordova_Resume.ac383d50fc6733e00f5d.pdf",
     "static/media/headshot.webp": "/static/media/headshot.76e2a0118d0b3abb1c93.webp",
     "static/media/sorting-visualizer.webp": "/static/media/sorting-visualizer.5bb8680c419a534a98b3.webp",
     "static/media/coral.webp": "/static/media/coral.f76c962ac4b853b662f9.webp",
@@ -23,10 +23,10 @@
     "static/media/njit.webp": "/static/media/njit.8cf327be8f218ae4965a.webp",
     "index.html": "/index.html",
     "main.a6c80054.css.map": "/static/css/main.a6c80054.css.map",
-    "main.c6d4dd13.js.map": "/static/js/main.c6d4dd13.js.map"
+    "main.131491a2.js.map": "/static/js/main.131491a2.js.map"
   },
   "entrypoints": [
     "static/css/main.a6c80054.css",
-    "static/js/main.c6d4dd13.js"
+    "static/js/main.131491a2.js"
   ]
 }
