@@ -25,10 +25,12 @@
     font-weight: 500;
     position: relative;
     overflow: hidden;
+    background-color: black;
 }
 
 .project-cell:hover .project-bg {
-    transform: scale(1.05);
+    transform: scale(1.02);
+    opacity: 0.75;
 }
 
 
@@ -40,7 +42,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    transition: transform .2s ease-out;
+    transition: opacity .2s ease-out, transform .2s ease-out;
 }
 
 .project-bg.missing {
