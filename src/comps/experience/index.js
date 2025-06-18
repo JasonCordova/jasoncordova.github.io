@@ -28,7 +28,7 @@ const ExperiencePanel = () => {
 
                 <div className={`exp-cell${tab === "work" ? "" : " hidden"}`}>
 
-                    <Image src="/broadridge.webp" className="exp-img" alt="Broadridge Logo"></Image>
+                    <Image width={1} height={1} src="/broadridge.webp" className="exp-img" alt="Broadridge Logo"></Image>
     
                      <div className="exp-info">
 
@@ -51,7 +51,7 @@ const ExperiencePanel = () => {
 
                 <div className={`exp-cell${tab === "work" ? "" : " hidden"}`}>
 
-                    <Image src="/harmon.webp" className="exp-img" alt="Harmon Logo"></Image>
+                    <Image width={1} height={1} src="/harmon.webp" className="exp-img" alt="Harmon Logo"></Image>
 
                     <div className="exp-info">
 
@@ -74,7 +74,7 @@ const ExperiencePanel = () => {
 
                 <div className={`exp-cell${tab === "education" ? "" : " hidden"}`}>
 
-                    <Image src="/njit.webp" className="exp-img" alt="New Jersey Institute of Technology Logo"></Image>
+                    <Image width={1} height={1} src="/njit.webp" className="exp-img" alt="New Jersey Institute of Technology Logo"></Image>
 
                     <div className="exp-info">
 

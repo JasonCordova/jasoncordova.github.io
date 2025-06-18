@@ -83,7 +83,8 @@ a {color: inherit; text-decoration: none;}
 .emoji {
   margin-left: 0.25em;
   display: inline-block;
-  height: 1em;
+  height: 1em !important;
+  width: auto !important;
   transform-origin: 60% 90%;
   animation: wave-emoji infinite 2s ease-in-out;
   margin-top: -0.5em;
@@ -257,6 +258,10 @@ a {color: inherit; text-decoration: none;}
     margin-bottom: 6em;
     flex-wrap: wrap;
     gap: 2em;
+}
+
+.header-gap {
+  margin-top: 124px;
 }
 
 .body-panel {

@@ -19,7 +19,7 @@ export default function ProjectPage({ params }) {
   if (!project) return <div>Project not found</div>;
 
   return (
-    <div className="body-panel">
+    <div className="body-panel header-gap">
 
       <div className="mw g6">
     
@@ -78,7 +78,7 @@ export default function ProjectPage({ params }) {
 
         {project.image ?
         
-          <Image alt="Project" className={`project-graphic`} src={project.image}></Image>
+          <Image width={1} height={1} alt="Project" className={`project-graphic`} src={project.image}></Image>
 
         :<></>}
 

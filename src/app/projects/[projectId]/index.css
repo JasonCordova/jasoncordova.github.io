@@ -1,5 +1,6 @@
 .project-graphic {
-    width: 100%;
+    width: 100% !important;
+    height: auto !important;
     border-radius: 1em;
     box-shadow: var(--shadow);
 }

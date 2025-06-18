@@ -1,6 +1,5 @@
 'use client';
 
-import './index.css';
 import confetti from "canvas-confetti";
 import { useState } from "react";
 import ExperiencePanel from "@/comps/experience";

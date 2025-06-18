@@ -31,7 +31,7 @@ const Project = (props) => {
 
                 </Link>
             
-            : props.image ? <Link href={`${pageURL}`} className="project-bg-holder"><Image alt="Project" className={`project-bg ${props.color}`} src={props.image}></Image></Link> : <Link href={`${pageURL}`} className="project-bg-holder"><div className="project-bg missing">{props.title}</div></Link>}
+            : props.image ? <Link href={`${pageURL}`} className="project-bg-holder"><Image width={5} height={5} alt="Project" className={`project-bg ${props.color}`} src={props.image}></Image></Link> : <Link href={`${pageURL}`} className="project-bg-holder"><div className="project-bg missing">{props.title}</div></Link>}
 
             <div className="project-info-holder">
 

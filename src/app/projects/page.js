@@ -11,7 +11,7 @@ export default function ProjectsPage() {
   return (
     <>
 
-      <div className="body-panel">
+      <div className="body-panel header-gap">
 
         <div className="content mw">
 

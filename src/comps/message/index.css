@@ -52,7 +52,8 @@
 
 .reaction-emoji {
     display: flex;
-    width: 50%;
+    width: 50% !important;
+    height: auto !important;
     transform: scale(0);
     animation: scaleAnimationBounce 0.4s ease-out 2.5s forwards;
 }
