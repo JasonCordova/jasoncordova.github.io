@@ -1,0 +1,76 @@
+.project-graphic {
+    width: 100%;
+    border-radius: 1em;
+    box-shadow: var(--shadow);
+}
+
+.project-description {
+    font-size: 2em;
+}
+
+.g6 {
+    display: flex;
+    flex-direction: column;
+    gap: 6em;
+}
+
+.project-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6em;
+}
+
+.project-info-title {
+    font-size: 1em;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.project-info-text {
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 1.5em;
+    margin-top: 0.5em;
+    max-width: 30em;
+}
+
+.project-info-description {
+    grid-column: span 2;
+}
+
+@media (max-width: 1400px) {
+
+
+}
+
+/* Large devices (≤1200px) */
+@media (max-width: 1200px) {
+
+
+}
+
+/* Medium devices (≤992px) */
+@media (max-width: 992px) {
+
+}
+
+/* Small devices (≤768px) */
+@media (max-width: 768px) {
+
+    .project-info-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+/* Small devices (≤700px) */
+@media (max-width: 700px) {
+
+
+}
+
+/* Extra small devices (≤576px) */
+@media (max-width: 576px) {
+
+}

@@ -1,0 +1,34 @@
+{
+  "peachmix": {
+    "name": "PeachMix",
+    "subtitle": "Online Music Platform",
+    "description": "Web-based music platform that allows users to create sounds using their keyboard or touchscreen. Features optimized audio rendering, a curated collection of playable pop songs, and hidden easter eggs.",
+    "github": "https://github.com/JasonCordova/peachmix",
+    "url": "https://peachmix.netlify.app/",
+    "video": "/peachmix.mp4",
+    "video_poster": "",
+    "tech": ["React.js", "JavaScript", "Web Audio API"]
+  },
+
+  "marelli": {
+    "name": "Marelli",
+    "subtitle": "eCommerce Web App",
+    "description": "CRUD E-Commerce app built with React, Google Firebase, and Firestore. Mimics the aesthetic of a luxury e-commerce website.",
+    "github": "https://github.com/JasonCordova/Marelli",
+    "url": "https://jcmarelli.netlify.app/",
+    "video": "/marelli.mp4",
+    "video_poster": "/marelli_poster.webp",
+    "tech": ["React.js", "Google Firebase"]
+  },
+
+  "sort-visualizer": {
+    "name": "Sort Visualizer",
+    "subtitle": "Data Visualization Tool",
+    "description": "An interactive, web-based sorting visualizer demonstrating multiple algorithmic approaches. Made for fun with more to be added.",
+    "github": "",
+    "url": "https://jc-sorting-visualizer.netlify.app/",
+    "image": "/sortingvisualizer.webp",
+    "tech": ["React.js", "JavaScript"]
+  }
+
+}

@@ -1,0 +1,187 @@
+@keyframes sway-dots {
+    0% {background-position: 0px 0px;}
+    100% {background-position: 0px -20px;}
+}
+
+#experience {
+    color: #fff;
+    background-color: #101010;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.dot-bg {
+
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute !important;
+    background-image: radial-gradient(circle at 50% 50%, hsla(0, 0%, 0%, 0.15) 1px, #fff 0, #0000 1px);
+    background-attachment: fixed;
+    background-size: 20px 20px;
+    left: 0px;
+    top: 0px;
+    mask-image: linear-gradient(180deg, rgb(255 255 255 / 35%), #ffffff);
+    z-index: 0 !important;
+    animation: infinite sway-dots 1s linear;
+
+}
+
+.experience * {
+    z-index: 1;
+    position: relative;
+}
+
+.tab-list {
+    width: 100%;
+    max-width: 360px;
+    border-radius: 3em;
+    font-weight: 500;
+    background-color: #343434;
+    padding: 0.4em;
+    margin: 0em auto 0;
+    box-shadow: var(--shadow);
+    margin-top: 1em;
+}
+
+.experience-tab {
+    display: flex;
+    border-radius: 1em;
+    width: 100%;
+    position: relative;
+}
+
+.tab-option {
+    width: 100%;
+    text-align: center;
+    padding: 0.9em 1em 0.7em;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color .2s ease-out;
+    z-index: 1;
+}
+
+.tab-option.active {
+    color: rgb(0, 0, 0);
+}
+
+.tab-cell {
+    width: 50%; 
+    background-color: #ffffff;
+    border-radius: 3em; 
+    position: absolute;
+    left: 0%; 
+    top: 0%;
+    height: 100%;
+    transition: left .2s ease-out;
+}
+
+.tab-cell.active {
+    left: 50%;
+}
+
+.exp-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.exp-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 1.5em;
+}
+
+.exp-holder {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3em;
+    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.exp-cell {
+    display: flex;
+    flex-direction: column;
+    background-color: #1E1D1C;
+    width: 100%;
+    max-width: 300px;
+    padding: 2em;
+    border-radius: 1em;
+    border: 1px solid #4A4A4A;
+}
+
+.hidden {
+    display: none;
+}
+
+.exp-date {
+    font-size: 0.75em;
+    opacity: 0.5;
+}
+
+.exp-company {
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.exp-title {
+    font-size: 0.9em;
+    opacity: 0.75;
+}
+
+.exp-desc {
+    margin-top: 1.5em;
+    line-height: 1.25em;
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    opacity: 0.85;
+    list-style-position: outside;
+    padding-left: 1em;
+    margin-bottom: 0px;
+}
+
+@media (max-width: 1400px) {
+
+
+}
+
+/* Large devices (≤1200px) */
+@media (max-width: 1200px) {
+
+
+}
+
+/* Medium devices (≤992px) */
+@media (max-width: 992px) {
+
+}
+
+/* Small devices (≤768px) */
+@media (max-width: 768px) {
+
+}
+
+/* Small devices (≤700px) */
+@media (max-width: 700px) {
+
+    .exp-cell {
+        flex-direction: column;
+    }
+
+
+}
+
+/* Extra small devices (≤576px) */
+@media (max-width: 576px) {
+
+}

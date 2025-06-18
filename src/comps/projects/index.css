@@ -1,0 +1,55 @@
+#projects {
+    background-color: #fff;
+    color: #000;
+}
+
+.project-bg.missing {
+    background: linear-gradient(180deg, rgb(222, 151, 151), rgb(246, 133, 231));
+    color: rgb(255, 255, 255);
+}
+
+.square {
+    aspect-ratio: 1/1;
+}
+
+
+.project-cell {
+    background-color: transparent;
+    position: relative;
+}
+
+.marelli {
+    background-color: #354038;
+}
+
+@media (max-width: 1400px) {
+
+
+}
+
+/* Large devices (≤1200px) */
+@media (max-width: 1200px) {
+
+}
+
+/* Medium devices (≤992px) */
+@media (max-width: 992px) {
+
+}
+
+/* Small devices (≤768px) */
+@media (max-width: 768px) {
+
+
+}
+
+/* Small devices (≤700px) */
+@media (max-width: 700px) {
+
+
+}
+
+/* Extra small devices (≤576px) */
+@media (max-width: 576px) {
+
+}
