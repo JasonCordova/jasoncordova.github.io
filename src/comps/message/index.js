@@ -1,4 +1,5 @@
 import './index.css';
+import Image from 'next/image';
 
 import {useRef, useState, useEffect} from 'react';
 
@@ -25,19 +26,19 @@ const Message = (props) => {
         <div className={`message clipped ${props.type === "receiver" ? "" : "sender"}`} onClick={() => {setIndex((index + 1) % emojis.current.length); handleClick();}}>
 
             <div className="message-reaction">
-                <img ref={emojiRef} className="reaction-emoji" src={emojis.current[index]} alt='Heart Emoji'></img>
+                <Image ref={emojiRef} className="reaction-emoji" src={emojis.current[index]} alt='Heart Emoji'></Image>
                 <div className="react-bubble1"></div>
                 <div className="react-bubble2"></div>
             </div>
 
-            {props.type === "image" ? <img className="message-image" src={headshot} alt="Jason"></img>
+            {props.type === "image" ? <Image className="message-image" src={headshot} alt="Jason"></Image>
             :
 
                 <>
 
                     <div className="message-content">
                         <span>{props.message}</span>
-                        {props.emoji != null ? <img className="emoji" src="/wave.webp" alt="Hand waving"></img> : ""}
+                        {props.emoji != null ? <Image className="emoji" src="/wave.webp" alt="Hand waving"></Image> : ""}
                     </div>
                     <svg className="message-edge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.6 18.971"><path d="M0 12.259a24.319 24.319 0 0 0 8.426 4.781A53.363 53.363 0 0 0 20.6 18.971s-7.7-5.226-8.957-10.48a54.431 54.431 0 0 1-.937-8.49s-3.274 2.708-5.951 5.11S0 9.611 0 9.611v2.649Z"/></svg>
 

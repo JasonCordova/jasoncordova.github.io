@@ -1,6 +1,7 @@
 import projectData from '../../../public/data.json';
 import './index.css';
 import Project from './Project';
+import Link from 'next/link';
 
 const ProjectPanel = () => {
 
@@ -26,7 +27,7 @@ const ProjectPanel = () => {
                 
                 </div>
 
-                <a href="/projects" className="panel-button">View all</a>
+                <Link href="/projects" className="panel-button">View all</Link>
 
             </div>
 

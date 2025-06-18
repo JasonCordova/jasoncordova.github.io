@@ -1,6 +1,7 @@
 'use client';
 
 import "./index.css";
+import Link from "next/link";
 import { useEffect, useState, useRef } from 'react';
 
 export default function Header() {
@@ -21,13 +22,13 @@ export default function Header() {
 
   return (
     <div className={`header ${isScrolled ? 'active' : ''}`} ref={headerRef}>
-      <a className="logo" href="/">
+      <Link className="logo" href="/">
         JC
-      </a>
+      </Link>
       <div className="nav">
-        <a href="/#home">Home</a>
-        <a href="/#experience">Experience</a>
-        <a href="/projects">Projects</a>
+        <Link href="/#home">Home</Link>
+        <Link href="/#experience">Experience</Link>
+        <Link href="/projects">Projects</Link>
       </div>
     </div>
   );

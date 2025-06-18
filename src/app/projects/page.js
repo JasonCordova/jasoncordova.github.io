@@ -26,7 +26,7 @@ export default function ProjectsPage() {
 
           {projects.map(project => (
 
-            <Project title={project.name} desc={project.subtitle} image={project.image ? project.image : ""} video={project.video ? project.video : ""} poster={project.video_poster ? project.video_poster: ""} github={project.github} url={project.url}/>
+            <Project key={project.name} title={project.name} desc={project.subtitle} image={project.image ? project.image : ""} video={project.video ? project.video : ""} poster={project.video_poster ? project.video_poster: ""} github={project.github} url={project.url}/>
 
           ))}
 

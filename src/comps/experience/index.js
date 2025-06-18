@@ -1,5 +1,6 @@
 import './index.css';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const ExperiencePanel = () => {
 
@@ -27,7 +28,7 @@ const ExperiencePanel = () => {
 
                 <div className={`exp-cell${tab === "work" ? "" : " hidden"}`}>
 
-                    <img src="/broadridge.webp" className="exp-img" alt="Broadridge Logo"></img>
+                    <Image src="/broadridge.webp" className="exp-img" alt="Broadridge Logo"></Image>
     
                      <div className="exp-info">
 
@@ -50,7 +51,7 @@ const ExperiencePanel = () => {
 
                 <div className={`exp-cell${tab === "work" ? "" : " hidden"}`}>
 
-                    <img src="/harmon.webp" className="exp-img" alt="Harmon Logo"></img>
+                    <Image src="/harmon.webp" className="exp-img" alt="Harmon Logo"></Image>
 
                     <div className="exp-info">
 
@@ -73,7 +74,7 @@ const ExperiencePanel = () => {
 
                 <div className={`exp-cell${tab === "education" ? "" : " hidden"}`}>
 
-                    <img src="/njit.webp" className="exp-img" alt="New Jersey Institute of Technology Logo"></img>
+                    <Image src="/njit.webp" className="exp-img" alt="New Jersey Institute of Technology Logo"></Image>
 
                     <div className="exp-info">
 
@@ -84,7 +85,7 @@ const ExperiencePanel = () => {
                         <ul className="exp-desc">
 
                             <li>Graduated Magna Cum Laude with a 3.7 GPA</li>
-                            <li>Awarded Dean's List Honors eight times for consistent academic excellence</li>
+                            <li>Awarded Dean&#39;s List Honors eight times for consistent academic excellence</li>
                             <li>2nd Place Senior Capstone under RDE Systems for developing a Medication Adherence Web App</li>
 
                         </ul>
