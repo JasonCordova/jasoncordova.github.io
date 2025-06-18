@@ -6,7 +6,7 @@ const linkSVG = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95.782 95.6
 
 const Project = (props) => {
 
-    const pageURL = `/projects/${props.title.toLowerCase().replace(" ", "-")}`
+    const pageURL = `./projects/${props.title.toLowerCase().replace(" ", "-")}`
 
     return (
 
