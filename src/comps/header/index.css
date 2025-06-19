@@ -10,7 +10,7 @@
     line-height: 0.5em;
     font-weight: 500;
     color: white;
-    font-size: 1.5em;
+    font-size: 1.25em;
     padding-top: 0.3125em;
     box-sizing: border-box;
     flex-shrink: 0;
@@ -39,8 +39,8 @@
 }
 
 .header.active {
-    max-height: 100px;
-    background-color: #ffffffb8;
+    max-height: 80px;
+    background-color: #fafafccc;
     backdrop-filter: blur(6px);
     border-bottom: var(--border);
 }

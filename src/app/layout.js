@@ -1,13 +1,11 @@
-// import Lenis from "lenis";
 import LenisScroller from "@/comps/LenisScroller";
 import "./globals.css";
-import Lenis from "lenis";
 import Header from "@/comps/header";
 
-// export const metadata = {
-//   title: "Jason Cordova - Portfolio",
-//   description: "Jason Cordova is a Software Engineer based in New Jersey specializing in Backend Development & QA.",
-// };
+export const metadata = {
+  title: "Jason Cordova - Software Engineer Portfolio",
+  description: "Jason Cordova is a Software Engineer based in New Jersey specializing in Backend Development & QA.",
+};
 
 export default function RootLayout({ children }) {
 
@@ -18,6 +16,7 @@ export default function RootLayout({ children }) {
       
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/wla8dix.css"></link>
+        <link rel="icon" href="./favicon.ico" sizes="any" />
       </head>
 
       <body>

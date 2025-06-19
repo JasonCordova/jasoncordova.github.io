@@ -2,6 +2,11 @@ import projectData from '../../../public/data.json';
 import Project from '@/comps/project/project';
 import './index.css';
 
+export const metadata = {
+  title: "Projects - Jason Cordova",
+  description: "Jason Cordova is a Software Engineer based in New Jersey specializing in Backend Development & QA.",
+};
+
 export default function ProjectsPage() {
   const projects = Object.entries(projectData).map(([key, value]) => ({
     key,
