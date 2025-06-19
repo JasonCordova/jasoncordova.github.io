@@ -26,7 +26,6 @@ export default function Header() {
         JC
       </Link>
       <div className="nav">
-        <Link href="/#home">Home</Link>
         <Link href="/#experience">Experience</Link>
         <Link href="/projects">Projects</Link>
       </div>

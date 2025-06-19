@@ -66,7 +66,7 @@ export default function Home() {
 
     <>
 
-    <div id="home" className="landing">
+    <div className="landing">
 
       <div className="chat">
         
