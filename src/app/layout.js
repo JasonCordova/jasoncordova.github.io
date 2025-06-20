@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/wla8dix.css"></link>
-        <link rel="icon" href="./favicon.ico" sizes="any" />
+        <link rel="icon" href="./app/favicon.ico" sizes="any" />
       </head>
 
       <body>
