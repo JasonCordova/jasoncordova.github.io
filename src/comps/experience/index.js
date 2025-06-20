@@ -10,9 +10,9 @@ const ExperiencePanel = () => {
         <>
         <div id="experience" className="body-panel">
 
-            <div className="panel-title large">Experience</div>
+            <div className="panel-title large fade-in">Experience</div>
 
-            <div className="tab-list">
+            <div className="tab-list fade-in">
 
                 <div className="experience-tab">
 
@@ -26,7 +26,7 @@ const ExperiencePanel = () => {
 
             <div className="exp-holder mw">
 
-                <div className={`exp-cell${tab === "work" ? "" : " hidden"}`}>
+                <div className={`fade-in exp-cell${tab === "work" ? "" : " hidden"}`}>
 
                     <Image width={1} height={1} src="/broadridge.webp" className="exp-img" alt="Broadridge Logo"></Image>
     
@@ -49,7 +49,7 @@ const ExperiencePanel = () => {
                 </div>
 
 
-                <div className={`exp-cell${tab === "work" ? "" : " hidden"}`}>
+                <div className={`fade-in exp-cell${tab === "work" ? "" : " hidden"}`}>
 
                     <Image width={1} height={1} src="/harmon.webp" className="exp-img" alt="Harmon Logo"></Image>
 

@@ -22,12 +22,12 @@ const ProjectPanel = () => {
 
                 <div className="panel-header-left">
 
-                    <div className="panel-title large">Showcase</div>
-                    <div className="panel-desc">View my collection of projects - from creative tools that incorporate music, to fullstack CRUD applications and interactive data visualizations.</div>
+                    <div className="panel-title large fade-in">Showcase</div>
+                    <div className="panel-desc fade-in">View my collection of projects - from creative tools that incorporate music, to fullstack CRUD applications and interactive data visualizations.</div>
                 
                 </div>
 
-                <Link href="/projects" className="panel-button">View all</Link>
+                <Link href="/projects" className="panel-button fade-in">View all</Link>
 
             </div>
 

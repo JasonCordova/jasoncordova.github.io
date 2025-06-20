@@ -1,6 +1,7 @@
 import LenisScroller from "@/comps/LenisScroller";
 import "./globals.css";
 import Header from "@/comps/header";
+import GsapController from "@/comps/gsapController";
 
 export const metadata = {
   title: "Jason Cordova - Software Engineer Portfolio",
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
 
         <LenisScroller>
         
+          <GsapController></GsapController>
           <Header></Header>
           {children}
 

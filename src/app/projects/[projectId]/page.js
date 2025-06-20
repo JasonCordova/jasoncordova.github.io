@@ -36,18 +36,18 @@ export default function ProjectPage({ params }) {
         <div className="fr center-sb wg1">
 
           <div className="fc">
-            <div className="panel-title large">{project.name}</div>
-            <div className="panel-desc">{project.subtitle}</div>
+            <div className="panel-title large fade-in">{project.name}</div>
+            <div className="panel-desc fade-in">{project.subtitle}</div>
           </div>
 
           <div className="project-links">
 
             {project.github ?
-                <a target="_blank" href={project.github} rel='noreferrer'>{githubSVG}</a>
+                <a target="_blank" href={project.github} rel='noreferrer' className="fade-in">{githubSVG}</a>
             :<></>}
 
             {project.url ? 
-                <a target="_blank" href={project.url} rel='noreferrer'>{linkSVG}</a>
+                <a target="_blank" href={project.url} rel='noreferrer' className="fade-in">{linkSVG}</a>
             :<></>}
 
           </div>
@@ -58,15 +58,15 @@ export default function ProjectPage({ params }) {
 
           <div className="project-info-description">
 
-            <div className="project-info-title">Description</div>
-            <div className="project-info-text">{project.description}</div>
+            <div className="project-info-title fade-in">Description</div>
+            <div className="project-info-text fade-in">{project.description}</div>
 
           </div>
           
           <div className="project-info-tech">
 
-            <div className="project-info-title">Tools</div>
-            <div className="project-info-text">{project.tech.map((e) => <div key={`tag-${e}`}>{e}</div>)}</div>
+            <div className="project-info-title fade-in">Tools</div>
+            <div className="project-info-text">{project.tech.map((e) => <div className="fade-in" key={`tag-${e}`}>{e}</div>)}</div>
 
           </div>
 
@@ -75,7 +75,7 @@ export default function ProjectPage({ params }) {
         {project.video ?
         
           <video 
-            className="project-graphic"
+            className="project-graphic fade-in"
             src={project.video}
             poster={project.poster}
             autoPlay={true}
@@ -88,7 +88,7 @@ export default function ProjectPage({ params }) {
 
         {project.image ?
         
-          <Image width={1} height={1} alt="Project" className={`project-graphic`} src={project.image}></Image>
+          <Image width={1} height={1} alt="Project" className={`project-graphic fade-in`} src={project.image}></Image>
 
         :<></>}
 

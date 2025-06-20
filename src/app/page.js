@@ -60,7 +60,7 @@ export default function Home() {
       drift: -0.6
     });
 
-  };
+  };0
 
   return (
 
@@ -81,15 +81,15 @@ export default function Home() {
           
           <div className="landing-socials">
 
-            <a className="github" href="https://github.com/JasonCordova" target="_blank" rel="noreferrer">{githubSVG}</a>
-            <a className="linkedin" href="https://www.linkedin.com/in/jason-cordova/" target="_blank" rel="noreferrer">{linkedinSVG}</a>
-            <a className="resume" href="/JasonCordova_Resume.pdf" target="_blank" rel="noreferrer">{cvSVG}</a>
+            <a className="github fade-in" href="https://github.com/JasonCordova" target="_blank" rel="noreferrer">{githubSVG}</a>
+            <a className="linkedin fade-in" href="https://www.linkedin.com/in/jason-cordova/" target="_blank" rel="noreferrer">{linkedinSVG}</a>
+            <a className="resume fade-in" href="/JasonCordova_Resume.pdf" target="_blank" rel="noreferrer">{cvSVG}</a>
 
           </div>
             
         </div>
 
-        <div className="short-desc">Backend Software Developer & QA from New Jersey. <span className="njit" onClick={() => {triggerConfetti();}}>Recent @NJIT graduate.</span></div>
+        <div className="short-desc fade-in">Backend Software Developer & QA from New Jersey. <span className="njit" onClick={() => {triggerConfetti();}}>Recent @NJIT graduate.</span></div>
 
       </div>
 

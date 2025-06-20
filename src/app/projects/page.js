@@ -22,8 +22,8 @@ export default function ProjectsPage() {
 
         <div className="panel-header">
           <div className="fc">
-            <div className="panel-title large">Projects</div>
-            <div className="panel-desc">View my collection of projects - from creative tools that incorporate music, to fullstack CRUD applications and interactive data visualizations.</div>
+            <div className="panel-title large fade-in">Projects</div>
+            <div className="panel-desc fade-in">View my collection of projects - from creative tools that incorporate music, to fullstack CRUD applications and interactive data visualizations.</div>
           </div>
         </div>
 

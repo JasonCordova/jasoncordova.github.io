@@ -10,7 +10,7 @@ const Project = (props) => {
 
     return (
 
-        <div className={`project-cell`}>
+        <div className={`project-cell fade-in`}>
 
             {props.video ? 
 
@@ -37,19 +37,19 @@ const Project = (props) => {
 
                 <Link href={`${pageURL}`} className="project-info">
 
-                    <div className="project-title">{props.title}</div>
-                    <div className="project-sub">{props.desc}</div>
+                    <div className="project-title fade-in">{props.title}</div>
+                    <div className="project-sub fade-in">{props.desc}</div>
 
                 </Link>
 
                 <div className="project-links">
 
                     {props.github ?
-                        <Link target="_blank" href={props.github} rel='noreferrer'>{githubSVG}</Link>
+                        <Link target="_blank" href={props.github} rel='noreferrer' className="fade-in">{githubSVG}</Link>
                     :<></>}
 
                     {props.url ? 
-                        <Link target="_blank" href={props.url} rel='noreferrer'>{linkSVG}</Link>
+                        <Link target="_blank" href={props.url} rel='noreferrer' className="fade-in">{linkSVG}</Link>
                     :<></>}
 
                 </div>
