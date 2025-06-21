@@ -9,46 +9,45 @@ const GsapController = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Instant scroll to top (smooth can interfere with initial animations)
+  
     window.scrollTo(0, 0);
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // Clean up previous animations
+
     gsap.killTweensOf(".fade-in");
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-    // Create animation for each element individually
     const elements = gsap.utils.toArray(".fade-in");
     elements.forEach(element => {
       gsap.fromTo(element, 
         {
           opacity: 0,
-          y: 20
+          y: 40,
         },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          ease: "power3.out",
+          duration: 1.5,
+          ease: "circ.out",
           scrollTrigger: {
             trigger: element,
-            start: "top 100%",
+            start: "top bottom",
+            markers: true,
             toggleActions: "play none none none",
-            invalidateOnRefresh: true // Important for route changes
+            invalidateOnRefresh: true
           }
         }
       );
     });
 
-    // Refresh ScrollTrigger after setup
     ScrollTrigger.refresh();
 
     return () => {
       gsap.killTweensOf(".fade-in");
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [pathname]); // Re-run on route changes
+  }, [pathname]);
 
   return null;
 };
