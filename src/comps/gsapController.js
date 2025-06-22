@@ -33,7 +33,6 @@ const GsapController = () => {
           scrollTrigger: {
             trigger: element,
             start: "top bottom",
-            markers: true,
             toggleActions: "play none none none",
             invalidateOnRefresh: true
           }
