@@ -22,12 +22,12 @@ export default function Header() {
 
   return (
     <div className={`header ${isScrolled ? 'active' : ''}`} ref={headerRef}>
-      <Link className="logo fade-in" href="/">
+      <Link className="logo" href="/">
         JC
       </Link>
       <div className="nav">
-        <Link href="/#experience" className='fade-in'>Experience</Link>
-        <Link href="/projects" className='fade-in'>Projects</Link>
+        <Link href="/#experience">Experience</Link>
+        <Link href="/projects">Projects</Link>
       </div>
     </div>
   );
