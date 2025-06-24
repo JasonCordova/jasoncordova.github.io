@@ -28,7 +28,7 @@ const GsapController = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 1.5,
+          duration: 1,
           ease: "circ.out",
           scrollTrigger: {
             trigger: element,
