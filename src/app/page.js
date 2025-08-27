@@ -69,39 +69,38 @@ export default function Home() {
   return (
 
     <>
+      <audio src="/partyblower.mp3" ref={PartyBlowerRef}></audio>
+      <div className="landing">
 
-    <audio src="/partyblower.mp3" ref={PartyBlowerRef}></audio>
-    <div className="landing">
-
-      <div className="chat">
-        
-        <Message type="sender" message="Hey, it's Jason" emoji="wave"/>
-        <div className="message-read">Read <span>{time}</span></div>
-
-      </div>
-
-      <div className="landing-content">
-
-        <div className="landing-title-box">
+        <div className="chat">
           
-          <div className="landing-socials">
+          <Message type="sender" message="Hey, it's Jason" emoji="wave"/>
+          <div className="message-read">Read <span>{time}</span></div>
 
-            <a className="github fade-in" href="https://github.com/JasonCordova" target="_blank" rel="noreferrer">{githubSVG}</a>
-            <a className="linkedin fade-in" href="https://www.linkedin.com/in/jason-cordova/" target="_blank" rel="noreferrer">{linkedinSVG}</a>
-            <a className="resume fade-in" href="/JasonCordova_Resume.pdf" target="_blank" rel="noreferrer">{cvSVG}</a>
-
-          </div>
-            
         </div>
 
-        <div className="short-desc fade-in">Backend Software Developer & QA from New Jersey. <span className="njit" onClick={() => {triggerConfetti();}}>Recent @NJIT graduate.</span></div>
+        <div className="landing-content">
+
+          <div className="landing-title-box">
+            
+            <div className="landing-socials">
+
+              <a className="github fade-in" href="https://github.com/JasonCordova" target="_blank" rel="noreferrer">{githubSVG}</a>
+              <a className="linkedin fade-in" href="https://www.linkedin.com/in/jason-cordova/" target="_blank" rel="noreferrer">{linkedinSVG}</a>
+              <a className="resume fade-in" href="/JasonCordova_Resume.pdf" target="_blank" rel="noreferrer">{cvSVG}</a>
+
+            </div>
+              
+          </div>
+
+          <div className="short-desc fade-in">Backend Software Developer & QA from New Jersey. <span className="njit" onClick={() => {triggerConfetti();}}>Recent @NJIT graduate.</span></div>
+
+        </div>
 
       </div>
 
-    </div>
-
-    <ExperiencePanel></ExperiencePanel>
-    <ProjectPanel></ProjectPanel>
+      <ExperiencePanel></ExperiencePanel>
+      <ProjectPanel></ProjectPanel>
 
     </>
 
