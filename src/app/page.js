@@ -1,7 +1,7 @@
 'use client';
 
 import confetti from "canvas-confetti";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ExperiencePanel from "@/comps/experience";
 import Message from "@/comps/message";
 import ProjectPanel from "@/comps/project_panel";
@@ -11,6 +11,8 @@ const linkedinSVG = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240
 const cvSVG = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46"><path d="M36.001 46h-26a10.012 10.012 0 0 1-10-10V10a10.013 10.013 0 0 1 10-10h26a10.011 10.011 0 0 1 10 10v26a10.01 10.01 0 0 1-10 10ZM15.776 14c-5.168 0-8.777 3.745-8.777 9.107v.562c0 5.447 3.517 9.107 8.75 9.107a7.486 7.486 0 0 0 7.908-7.374H19.83c-.13 2.58-1.7 4.184-4.106 4.184-2.958 0-4.795-2.267-4.795-5.917v-.562c0-3.665 1.837-5.942 4.795-5.942a3.961 3.961 0 0 1 2.842 1.064 4.777 4.777 0 0 1 1.29 2.939h3.826C23.373 16.813 20.271 14 15.777 14Zm6.964.332 6.25 18.111h4.156l6.276-18.112h-3.879l-4.386 13.953-4.414-13.953Z"/></svg>;
 
 export default function Home() {
+
+  const PartyBlowerRef = useRef();
 
   const [lastConfettiTime, setLastConfettiTime] = useState(0);
 
@@ -29,6 +31,8 @@ export default function Home() {
     const cooldownPeriod = 3000;
     if (now - lastConfettiTime < cooldownPeriod)return;
     setLastConfettiTime(now);
+
+    PartyBlowerRef.current.play();
 
     confetti({
       particleCount: 200,
@@ -66,6 +70,7 @@ export default function Home() {
 
     <>
 
+    <audio src="/partyblower.mp3" ref={PartyBlowerRef}></audio>
     <div className="landing">
 
       <div className="chat">
