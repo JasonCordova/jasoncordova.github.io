@@ -69,6 +69,7 @@ export default function Home() {
   return (
 
     <>
+    
       <audio src="/partyblower.mp3" ref={PartyBlowerRef}></audio>
       <div className="landing">
 
