@@ -30,5 +30,6 @@ export default function Header() {
         <Link href="/projects">Projects</Link>
       </div>
     </div>
+
   );
 }
