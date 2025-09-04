@@ -7,10 +7,15 @@ const Message = (props) => {
 
     const emojis = useRef(["/sunglasses.webp", "/heart.webp", "/fire.webp", "/handshake.webp", "/cowboy.webp"]);
     const emojiRef = useRef(null);
-    const [index, setIndex] = useState(Math.floor(Math.random() * emojis.current.length));
+    const [index, setIndex] = useState(0);
+    const BubblePopAudio = useRef();
+    const MessageSentAudio = useRef();
 
     const handleClick = () => {
 
+        BubblePopAudio.current.currentTime = 0; // rewind
+        BubblePopAudio.current.play();
+        BubblePopAudio.current.play();
         const element = emojiRef.current;
         const originalDelay = window.getComputedStyle(element).animationDelay;
 
@@ -21,9 +26,18 @@ const Message = (props) => {
 
     }
 
+    useEffect(() => {
+
+        setIndex(Math.floor(Math.random() * emojis.current.length))
+
+    });
+
     return (
 
         <div className={`message clipped ${props.type === "receiver" ? "" : "sender"}`} onClick={() => {setIndex((index + 1) % emojis.current.length); handleClick();}}>
+
+            <audio preload="true" src="/bubble_pop.mp3" ref={BubblePopAudio}></audio>
+            <audio preload="true" src="/message_sent.mp3" ref={MessageSentAudio}></audio>
 
             <div className="message-reaction">
                 <Image ref={emojiRef} width={5} height={5} className="reaction-emoji" src={emojis.current[index]} alt='Heart Emoji'></Image>

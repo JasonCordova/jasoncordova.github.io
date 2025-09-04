@@ -12,7 +12,7 @@ const cvSVG = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46"><path 
 
 export default function Home() {
 
-  const PartyBlowerRef = useRef();
+  const PartyBlowerAudio = useRef();
 
   const [lastConfettiTime, setLastConfettiTime] = useState(0);
 
@@ -32,7 +32,7 @@ export default function Home() {
     if (now - lastConfettiTime < cooldownPeriod)return;
     setLastConfettiTime(now);
 
-    PartyBlowerRef.current.play();
+    PartyBlowerAudio.current.play();
 
     confetti({
       particleCount: 200,
@@ -64,12 +64,12 @@ export default function Home() {
       drift: -0.6
     });
 
-  };0
+  };
 
   return (
 
     <>
-      <audio src="/partyblower.mp3" ref={PartyBlowerRef}></audio>
+      <audio src="/partyblower.mp3" ref={PartyBlowerAudio}></audio>
       <div className="landing">
 
         <div className="chat">
