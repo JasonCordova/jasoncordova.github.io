@@ -1,4 +1,15 @@
 {
+  "waylink": {
+    "name": "Waylink",
+    "subtitle": "Realtime URL Analytics",
+    "description": "Real-time URL shortener built with Spring Boot, Docker, and Kafka. Features secure OAuth2 login, live click analytics, and instant link sharing.",
+    "github": "",
+    "url": "",
+    "video": "/waylink.png",
+    "video_poster": "/waylink.png",
+    "tech": ["Spring Boot", "Spring Security", "OAuth2", "Kafka", "PostgreSQL", "Docker"]
+  },
+
   "peachmix": {
     "name": "PeachMix",
     "subtitle": "Online Music Platform",

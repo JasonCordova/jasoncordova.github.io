@@ -77,7 +77,7 @@ export default function ProjectPage({ params }) {
           <video 
             className="project-graphic fade-in"
             src={project.video}
-            poster={project.poster}
+            poster={project.video_poster}
             autoPlay={true}
             muted={true}
             loop={true}

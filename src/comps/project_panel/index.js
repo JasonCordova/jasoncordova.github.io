@@ -27,7 +27,7 @@ const ProjectPanel = () => {
                 
                 </div>
 
-                <Link href="/projects" className="panel-button fade-in">View all</Link>
+                <Link scroll={true} href="/projects" className="panel-button fade-in">View all</Link>
 
             </div>
 
