@@ -10,7 +10,7 @@ const ProjectPanel = () => {
     const projects = Object.entries(projectData).map(([key, value]) => ({
         key,
         ...value
-      })).slice(0, numberofProjects);
+      }));
 
     return (
 
