@@ -3,7 +3,7 @@
     "name": "Waylink",
     "subtitle": "Realtime URL Analytics",
     "description": "Real-time URL shortener built with Spring Boot, Docker, and WebSockets. Features secure OAuth2 login, live click analytics, and instant link sharing.",
-    "github": "",
+    "github": "https://github.com/JasonCordova/waylink",
     "url": "",
     "video": "/waylink.png",
     "video_poster": "/waylink.png",
