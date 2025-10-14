@@ -5,7 +5,7 @@
     "description": "Real-time URL shortener built with Spring Boot, Docker, and WebSockets. Features secure OAuth2 login, live click analytics, and instant link sharing.",
     "github": "https://github.com/JasonCordova/waylink",
     "url": "",
-    "video": "/waylink.png",
+    "video": "/waylink.mp4",
     "video_poster": "/waylink.png",
     "tech": ["Spring Boot", "Spring Security", "OAuth2", "WebSockets", "PostgreSQL", "Docker"]
   },
