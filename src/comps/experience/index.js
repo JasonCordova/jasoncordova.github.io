@@ -28,6 +28,28 @@ const ExperiencePanel = () => {
 
                 <div className={`fade-in exp-cell${tab === "work" ? "" : " hidden"}`}>
 
+                    <Image width={1} height={1} src="/earthcam.webp" className="exp-img" alt="EarthCam Logo"></Image>
+    
+                     <div className="exp-info">
+
+                        <div className="exp-company">EarthCam</div>
+                        <div className="exp-title">Junior Developer</div>
+                        <div className="exp-date">Oct 2025 - Present</div>
+
+                    </div>
+
+                    <ul className="exp-desc">
+
+                        <li>Automated test cases using Jira, Selenium, and Cucumber, helping reduce test errors by 70%.</li>
+                        <li>Led onboarding sessions and trained new hires on AWS services and QA tools.</li>
+                        <li>Maintained data pipeline containing end-to-end user test cases, ensuring quality and reusability using Maven, JIRA, and Xray.</li>
+
+                    </ul>
+
+                </div>
+
+                <div className={`fade-in exp-cell${tab === "work" ? "" : " hidden"}`}>
+
                     <Image width={1} height={1} src="/broadridge.webp" className="exp-img" alt="Broadridge Logo"></Image>
     
                      <div className="exp-info">
