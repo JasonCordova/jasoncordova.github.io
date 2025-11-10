@@ -40,9 +40,9 @@ const ExperiencePanel = () => {
 
                     <ul className="exp-desc">
 
-                        <li>Automated test cases using Jira, Selenium, and Cucumber, helping reduce test errors by 70%.</li>
-                        <li>Led onboarding sessions and trained new hires on AWS services and QA tools.</li>
-                        <li>Maintained data pipeline containing end-to-end user test cases, ensuring quality and reusability using Maven, JIRA, and Xray.</li>
+                        <li>Developed and maintained new RESTful APIs to support new features and improve backend–frontend integration.</li>
+                        <li>Built interactive frontend components with Laravel Blade and TypeScript, enhancing UI consistency and UX alignment.</li>
+                        <li>Optimized database queries and application logic, boosting backend performance and response speed.</li>
 
                     </ul>
 
@@ -62,7 +62,7 @@ const ExperiencePanel = () => {
 
                     <ul className="exp-desc">
 
-                        <li>Automated test cases using Jira, Selenium, and Cucumber, helping reduce test errors by 70%.</li>
+                        <li>Automated test cases using Gherkin, Selenium, and Cucumber, helping reduce test errors by 70%.</li>
                         <li>Led onboarding sessions and trained new hires on AWS services and QA tools.</li>
                         <li>Maintained data pipeline containing end-to-end user test cases, ensuring quality and reusability using Maven, JIRA, and Xray.</li>
 
