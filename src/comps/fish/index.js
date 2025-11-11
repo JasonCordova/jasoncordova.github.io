@@ -182,15 +182,18 @@ const Fish = forwardRef((props, ref) => {
         tankRef.addEventListener("mousedown", handleMouseMove);
         tankRef.addEventListener("mousemove", handleMouseMove);
         tankRef.addEventListener("mouseleave", handleMouseLeave);
+        tankRef.addEventListener("touchend", handleMouseLeave);
         tankRef.addEventListener("touchmove", handleMouseMove);
 
         return () => {
             clearTimeout(initialTimer);
             if (IntervalRef.current) clearInterval(IntervalRef.current);
             if (BubbleIntervalRef.current) clearInterval(BubbleIntervalRef.current);
-            tankRef.removeEventListener("mouseenter", handleMouseEnter);
+            tankRef.removeEventListener("mousedown", handleMouseMove);
             tankRef.removeEventListener("mousemove", handleMouseMove);
             tankRef.removeEventListener("mouseleave", handleMouseLeave);
+            tankRef.removeEventListener("touchend", handleMouseLeave);
+            tankRef.removeEventListener("touchmove", handleMouseMove);
             
         }
 
