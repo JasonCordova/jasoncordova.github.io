@@ -1,4 +1,4 @@
-import Fish from '../Fish';
+import Fish from '../fish';
 import Statue from '../../assets/statue.webp';
 import Coral from '../../assets/coral.webp';
 import BubbleSprite from '../../assets/bubble.webp';
