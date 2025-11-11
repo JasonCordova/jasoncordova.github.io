@@ -103,6 +103,8 @@
     min-height: max(50svh, 400px);
     max-height: 80svh;
     user-select: none;
+    touch-action: none;
+    -ms-touch-action: none;
 }
 
 .statue {
