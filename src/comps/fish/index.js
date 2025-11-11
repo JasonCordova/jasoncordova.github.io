@@ -173,6 +173,8 @@ const Fish = forwardRef((props, ref) => {
 
     useEffect(() => {
 
+        const tankRef = ref.current;
+
         let randomSize = Math.round(Math.random() * (maxSize - minSize) + minSize);
         // let randomSize = minSize;
         FishElement.current.style.width = `${randomSize}%`;
@@ -181,17 +183,17 @@ const Fish = forwardRef((props, ref) => {
         const initialTimer = setTimeout(() => {updatePosition();}, 10);
         BubbleIntervalRef.current = setInterval(blowBubbles, Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 100);
 
-        ref.current.addEventListener("mouseenter", handleMouseEnter);
-        ref.current.addEventListener("mousemove", handleMouseMove);
-        ref.current.addEventListener("mouseleave", handleMouseLeave);
+        tankRef.addEventListener("mouseenter", handleMouseEnter);
+        tankRef.addEventListener("mousemove", handleMouseMove);
+        tankRef.addEventListener("mouseleave", handleMouseLeave);
 
         return () => {
             clearTimeout(initialTimer);
             if (IntervalRef.current) clearInterval(IntervalRef.current);
             if (BubbleIntervalRef.current) clearInterval(BubbleIntervalRef.current);
-            ref.current.removeEventListener("mouseenter", handleMouseEnter);
-            ref.current.removeEventListener("mousemove", handleMouseMove);
-            ref.current.removeEventListener("mouseleave", handleMouseLeave);
+            tankRef.removeEventListener("mouseenter", handleMouseEnter);
+            tankRef.removeEventListener("mousemove", handleMouseMove);
+            tankRef.removeEventListener("mouseleave", handleMouseLeave);
             
         }
 
@@ -210,4 +212,5 @@ const Fish = forwardRef((props, ref) => {
 
 });
 
+Fish.displayName = "Fish";
 export default Fish;
