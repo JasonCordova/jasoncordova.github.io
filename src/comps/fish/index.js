@@ -179,12 +179,19 @@ const Fish = forwardRef((props, ref) => {
         // let randomSize = minSize;
         FishElement.current.style.height = `${randomSize}%`;
 
+        const startX = Math.random() * 76 + 12;
+        const startY = Math.random() * 74 + 13;
+        FishElement.current.style.left = `${startX}%`;
+        FishElement.current.style.top = `${startY}%`;
+
         updatePosition();
         const initialTimer = setTimeout(() => {updatePosition();}, 10);
         BubbleIntervalRef.current = setInterval(blowBubbles, Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 100);
 
         tankRef.addEventListener("mouseenter", handleMouseEnter);
+        tankRef.addEventListener("touchmove", handleMouseMove);
         tankRef.addEventListener("mousemove", handleMouseMove);
+        tankRef.addEventListener("touchend", handleMouseLeave);
         tankRef.addEventListener("mouseleave", handleMouseLeave);
 
         return () => {
@@ -193,7 +200,9 @@ const Fish = forwardRef((props, ref) => {
             if (BubbleIntervalRef.current) clearInterval(BubbleIntervalRef.current);
             tankRef.removeEventListener("mouseenter", handleMouseEnter);
             tankRef.removeEventListener("mousemove", handleMouseMove);
+            tankRef.removeEventListener("touchmove", handleMouseMove);
             tankRef.removeEventListener("mouseleave", handleMouseLeave);
+            tankRef.removeEventListener("touchend", handleMouseLeave);
             
         }
 
