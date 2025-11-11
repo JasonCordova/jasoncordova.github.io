@@ -100,7 +100,7 @@
     position: sticky;
     bottom: 0px;
     overflow: hidden;
-    min-height: 50svh;
+    min-height: max(50svh, 400px);
     max-height: 80svh;
 }
 

@@ -4,8 +4,8 @@ import './index.css';
 import { useEffect, useRef, forwardRef } from 'react';
 import Image from 'next/image';
 
-const minSize = 6;
-const maxSize = 10;
+const minSize = 12;
+const maxSize = 20;
 const maxDegree = 40;
 
 const maxTransitionSpeed = 8; // Goes off seconds
@@ -177,7 +177,7 @@ const Fish = forwardRef((props, ref) => {
 
         let randomSize = Math.round(Math.random() * (maxSize - minSize) + minSize);
         // let randomSize = minSize;
-        FishElement.current.style.width = `${randomSize}%`;
+        FishElement.current.style.height = `${randomSize}%`;
 
         updatePosition();
         const initialTimer = setTimeout(() => {updatePosition();}, 10);
@@ -204,7 +204,7 @@ const Fish = forwardRef((props, ref) => {
         <div className="fish" ref={FishElement} onClick={() => {blowBubbles();}}>
             <div className="fish-rotator" ref={FishRotator}>
                 <div ref={FishMouth} className="fish-mouth"></div>
-                <Image height={400} style={{height: 'auto'}} alt="Fish" draggable={false} className="fish-img" src={props.type === "tropical" ? TropicalFishSprite : FishSprite}/>
+                <Image width={1} style={{width: 'auto'}} alt="Fish" draggable={false} className="fish-img" src={props.type === "tropical" ? TropicalFishSprite : FishSprite}/>
             </div>
         </div>
 
