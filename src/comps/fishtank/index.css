@@ -102,7 +102,6 @@
     overflow: hidden;
     min-height: max(50svh, 400px);
     max-height: 80svh;
-    pointer-events: none;
     user-select: none;
 }
 
