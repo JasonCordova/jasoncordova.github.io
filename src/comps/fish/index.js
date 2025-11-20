@@ -53,7 +53,7 @@ const Fish = forwardRef((props, ref) => {
         if (e.type == "touchmove" && e.touches && e.touches.length > 0) {
             var x = ((e.touches[0].clientX - tankBounding.left) / tankBounding.width) * 100;
             var y = ((e.touches[0].clientY - tankBounding.top) / tankBounding.height) * 100;
-        } else if (e.type == "mousedown"){
+        } else if (e.type == "mousemove" || e.type == "mousedown") {
             var x = ((e.clientX - tankBounding.left) / tankBounding.width) * 100;
             var y = ((e.clientY - tankBounding.top) / tankBounding.height) * 100;
         }
