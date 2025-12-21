@@ -88,6 +88,7 @@ export default function Home() {
 
               <a className="github fade-in" href="https://github.com/JasonCordova" target="_blank" rel="noreferrer">{githubSVG}</a>
               <a className="linkedin fade-in" href="https://www.linkedin.com/in/jason-cordova/" target="_blank" rel="noreferrer">{linkedinSVG}</a>
+              <a className="resume fade-in" href="/JasonCordova_Resume.pdf" target="_blank" rel="noreferrer">{cvSVG}</a>
 
             </div>
               
