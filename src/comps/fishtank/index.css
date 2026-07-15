@@ -162,3 +162,8 @@
     animation: sway2 6s infinite linear;
     transform-origin: bottom center;
 }
+
+.coral-1, .coral-2, .coral-3, .statue {
+  pointer-events: none;
+  user-select: none;
+}
