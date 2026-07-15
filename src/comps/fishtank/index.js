@@ -104,7 +104,7 @@ const FishTank = () => {
 
     const handleClick = (e) => {
 
-      console.log(e.clientX);
+      // console.log(e.clientX);
 
     }
 

@@ -15,6 +15,7 @@ export default function Home() {
 
   const PartyBlowerAudio = useRef();
   const BubblePopAudio = useRef();
+  const BubbleSwishAudio = useRef();
 
   const [lastConfettiTime, setLastConfettiTime] = useState(0);
 
@@ -75,13 +76,22 @@ export default function Home() {
       BubblePopAudio.current.play();
     };
 
+    const handleBubbleSwish = () => {
+      BubbleSwishAudio.current.currentTime = 0; // rewind
+      BubbleSwishAudio.current.volume = 0.4 + Math.random() * 0.5; // random volume between 0.4 and 0.9
+      BubbleSwishAudio.current.playbackRate = 0.7 + Math.random() * 1; // random pitch between 0.7 and 1.7
+      BubbleSwishAudio.current.play();
+    };
+
     window.addEventListener("bubblePop", handleBubblePop);
+    window.addEventListener("bubbleSwish", handleBubbleSwish);
 
     return () => {
       window.removeEventListener("bubblePop", handleBubblePop);
+      window.removeEventListener("bubbleSwish", handleBubbleSwish);
     };
 
-  }, [BubblePopAudio]);
+  }, [BubblePopAudio, BubbleSwishAudio]);
 
   return (
 
@@ -89,6 +99,7 @@ export default function Home() {
     
       <audio src="/partyblower.mp3" ref={PartyBlowerAudio}></audio>
       <audio src="/bubble_pop.mp3" ref={BubblePopAudio}></audio>
+      <audio src="/bubble_swish.wav" ref={BubbleSwishAudio}></audio>
 
       <div className="landing">
 

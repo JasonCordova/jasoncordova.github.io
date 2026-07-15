@@ -81,7 +81,15 @@ const Fish = forwardRef((props, ref) => {
 
     }
 
+    const handleFishClick = () => {
+        blowBubbles();
+    }
+
     const blowBubbles = () => {
+
+        // Play audio for bubble swish:
+        const bubbleSwishEvent = new CustomEvent("bubbleSwish");
+        window.dispatchEvent(bubbleSwishEvent);
 
         var newRandomBubbleDelay = Math.round(Math.random() * (maxBubbleDelay - minBubbleDelay) + minBubbleDelay) * 100;
         var fishMouthRect = FishMouth.current.getBoundingClientRect();
@@ -208,7 +216,7 @@ const Fish = forwardRef((props, ref) => {
 
     return (
 
-        <div className="fish" ref={FishElement} onClick={() => {blowBubbles();}}>
+        <div className="fish" ref={FishElement} onClick={handleFishClick}>
             <div className="fish-rotator" ref={FishRotator}>
                 <div ref={FishMouth} className="fish-mouth"></div>
                 <Image width={1} style={{width: 'auto'}} alt="Fish" draggable={false} className="fish-img" src={props.type === "tropical" ? TropicalFishSprite : FishSprite}/>
