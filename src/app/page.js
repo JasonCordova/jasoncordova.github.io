@@ -1,7 +1,7 @@
 'use client';
 
 import confetti from "canvas-confetti";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ExperiencePanel from "@/comps/experience";
 import Message from "@/comps/message";
 import ProjectPanel from "@/comps/project_panel";
@@ -14,6 +14,7 @@ const cvSVG = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46"><path 
 export default function Home() {
 
   const PartyBlowerAudio = useRef();
+  const BubblePopAudio = useRef();
 
   const [lastConfettiTime, setLastConfettiTime] = useState(0);
 
@@ -67,10 +68,28 @@ export default function Home() {
 
   };
 
+  useEffect(() => {
+
+    const handleBubblePop = () => {
+      BubblePopAudio.current.currentTime = 0; // rewind
+      BubblePopAudio.current.play();
+    };
+
+    window.addEventListener("bubblePop", handleBubblePop);
+
+    return () => {
+      window.removeEventListener("bubblePop", handleBubblePop);
+    };
+
+  }, [BubblePopAudio]);
+
   return (
 
     <>
+    
       <audio src="/partyblower.mp3" ref={PartyBlowerAudio}></audio>
+      <audio src="/bubble_pop.mp3" ref={BubblePopAudio}></audio>
+
       <div className="landing">
 
         <div className="chat">

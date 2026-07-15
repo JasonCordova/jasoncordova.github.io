@@ -87,13 +87,14 @@
   z-index: 1;
   animation: bubble .5s ease-in;
   transform: translate(-50%, -50%);
+  transition: transform 0.2s ease-in-out;
 }
 
 .bubble {
   width: 100%;
   animation: bubbleSway 2s infinite ease-in-out;
+  cursor: pointer;
 }
-
 
 .fishtank {
     background-color: #13a7ff;

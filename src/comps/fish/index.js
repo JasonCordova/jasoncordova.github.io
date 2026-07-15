@@ -45,7 +45,6 @@ const Fish = forwardRef((props, ref) => {
 
     const handleMouseMove = (e) => {
 
-        console.log(e);
         FocusState.current = true; stopMoving(); 
         var tankBounding = ref.current.getBoundingClientRect();
 
