@@ -25,6 +25,11 @@ export default function Home() {
   const bubblePopPitchStart = 0.5;
   const bubblePopPitchEnd = 2;
 
+  const bubbleSwishVolumeStart = 0.4;
+  const bubbleSwishVolumeEnd = 0.8;
+  const bubbleSwishPitchStart = 0.7;
+  const bubbleSwishPitchEnd = 2.1;
+
   const [lastConfettiTime, setLastConfettiTime] = useState(0);
 
   const [time] = useState(() => {
@@ -91,9 +96,10 @@ export default function Home() {
       if (fishVolumeRef.current <= 0) return; // if fish tank is not visible, don't play sound
 
       BubbleSwishAudio.current.currentTime = 0; // rewind
-      BubbleSwishAudio.current.volume = (0.5 + Math.random() * 0.5) * fishVolumeRef.current; // random volume between 0.4 and 1
-      BubbleSwishAudio.current.playbackRate = 0.7 + Math.random() * 1.4; // random pitch between 0.7 and 1.7
+      BubbleSwishAudio.current.volume = (bubbleSwishVolumeStart + Math.random() * (bubbleSwishVolumeEnd - bubbleSwishVolumeStart)) * fishVolumeRef.current;
+      BubbleSwishAudio.current.playbackRate = bubbleSwishPitchStart + Math.random() * (bubbleSwishPitchEnd - bubbleSwishPitchStart);
       BubbleSwishAudio.current.play();
+
     };
 
     window.addEventListener("bubblePop", handleBubblePop);
@@ -107,6 +113,10 @@ export default function Home() {
   }, [BubblePopAudio, BubbleSwishAudio]);
 
   useEffect(() => {
+
+    const handleFocusOut = () => {
+      fishVolumeRef.current = 0; // set fish volume to 0 when focus is lost
+    }
 
     const handleScroll = () => {
 
@@ -124,10 +134,14 @@ export default function Home() {
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleScroll);
+    window.addEventListener("blur", handleFocusOut);
+    window.addEventListener("focus", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
+      window.removeEventListener("blur", handleFocusOut);
+      window.removeEventListener("focus", handleScroll);
     };
 
   }, []);

@@ -64,7 +64,7 @@ const Bubble = ({ top, left, onExit, onClick }) => {
 
   return (
 
-    <div ref={bubbleRef} onClick={handlePop} className="bubble-holder" style={{ transform: `translate(-50%, -50%) scale(${popped ? 0 : 1})`, width: `${size.current}%`, position: 'absolute', top: `${topPosition}%`, left: `${left}%`}}>
+    <div ref={bubbleRef} onMouseEnter={handlePop} onClick={handlePop} className="bubble-holder" style={{ pointerEvents: `${popped ? "none" : "all"}`, transform: `translate(-50%, -50%) scale(${popped ? 0 : 1})`, width: `${size.current}%`, position: 'absolute', top: `${topPosition}%`, left: `${left}%`}}>
         <Image height={400} style={{height: 'auto'}} alt="Bubble" draggable={false} className="bubble" src={BubbleSprite}/>
     </div>
 
