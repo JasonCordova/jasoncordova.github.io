@@ -62,9 +62,9 @@ const ExperiencePanel = () => {
 
                     <ul className="exp-desc">
 
-                        <li>Automated test cases using Gherkin, Selenium, and Cucumber, helping reduce test errors by 70%.</li>
-                        <li>Led onboarding sessions and trained new hires on AWS services and QA tools.</li>
-                        <li>Maintained data pipeline containing end-to-end user test cases, ensuring quality and reusability using Maven, JIRA, and Xray.</li>
+                        <li>Automated test cases using Java, Selenium, Serenity, Cucumber and Gherkin in an Agile environment.</li>
+                        <li>Reduced test case errors by 70% by triaging failures and debugging issues within a Java Spring Boot codebase.</li>
+                        <li>Optimized data pipeline supporting thousands of user test cases, improving scalability and reliability using Maven, JIRA, and Xray.</li>
 
                     </ul>
 
