@@ -20,6 +20,11 @@ export default function Home() {
   const fishTankRef = useRef();
   const fishVolumeRef = useRef(1);
 
+  const bubblePopVolumeStart = 0.75;
+  const bubblePopVolumeEnd = 1;
+  const bubblePopPitchStart = 0.5;
+  const bubblePopPitchEnd = 2;
+
   const [lastConfettiTime, setLastConfettiTime] = useState(0);
 
   const [time] = useState(() => {
@@ -76,6 +81,8 @@ export default function Home() {
 
     const handleBubblePop = () => {
       BubblePopAudio.current.currentTime = 0; // rewind
+      BubblePopAudio.current.volume = (bubblePopVolumeStart + Math.random() * (bubblePopVolumeEnd - bubblePopVolumeStart));
+      BubblePopAudio.current.playbackRate = (bubblePopPitchStart + Math.random() * (bubblePopPitchEnd - bubblePopPitchStart));
       BubblePopAudio.current.play();
     };
 
