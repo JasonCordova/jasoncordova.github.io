@@ -58,6 +58,10 @@ const Fish = forwardRef((props, ref) => {
         }
         lookAt(x, y);
 
+        // Send custom event listener to update Ham position:
+        const hamPositionEvent = new CustomEvent("hamPosition", { detail: { x, y } });
+        window.dispatchEvent(hamPositionEvent);
+
     }
 
     const stopMoving = () => {
