@@ -72,9 +72,8 @@ const Bubble = ({ top, left, onExit, onClick }) => {
 
 };
 
-const FishTank = () => {
+const FishTank = ({ fishTankRef }) => {
 
-    const fishTankRef = useRef(null);
     const bubbleCounter = useRef(0);
     const [bubbles, setBubbles] = useState([]);
 

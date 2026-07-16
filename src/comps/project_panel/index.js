@@ -3,7 +3,7 @@ import './index.css';
 import Project from '@/comps/project/project';
 import Link from 'next/link';
 
-const ProjectPanel = () => {
+const ProjectPanel = ({ProjectPanelRef}) => {
 
     const numberofProjects = 3;
 
@@ -14,7 +14,7 @@ const ProjectPanel = () => {
 
     return (
 
-        <div id="projects" className="body-panel">
+        <div id="projects" className="body-panel" ref={ProjectPanelRef}>
 
             <div className="content mw">
 

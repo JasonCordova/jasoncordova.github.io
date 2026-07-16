@@ -16,6 +16,9 @@ export default function Home() {
   const PartyBlowerAudio = useRef();
   const BubblePopAudio = useRef();
   const BubbleSwishAudio = useRef();
+  const ProjectPanelRef = useRef();
+  const fishTankRef = useRef();
+  const fishVolumeRef = useRef(1);
 
   const [lastConfettiTime, setLastConfettiTime] = useState(0);
 
@@ -77,9 +80,12 @@ export default function Home() {
     };
 
     const handleBubbleSwish = () => {
+
+      if (fishVolumeRef.current <= 0) return; // if fish tank is not visible, don't play sound
+
       BubbleSwishAudio.current.currentTime = 0; // rewind
-      BubbleSwishAudio.current.volume = 0.4 + Math.random() * 0.5; // random volume between 0.4 and 0.9
-      BubbleSwishAudio.current.playbackRate = 0.7 + Math.random() * 1; // random pitch between 0.7 and 1.7
+      BubbleSwishAudio.current.volume = (0.5 + Math.random() * 0.5) * fishVolumeRef.current; // random volume between 0.4 and 1
+      BubbleSwishAudio.current.playbackRate = 0.7 + Math.random() * 1.4; // random pitch between 0.7 and 1.7
       BubbleSwishAudio.current.play();
     };
 
@@ -92,6 +98,32 @@ export default function Home() {
     };
 
   }, [BubblePopAudio, BubbleSwishAudio]);
+
+  useEffect(() => {
+
+    const handleScroll = () => {
+
+      const rect = ProjectPanelRef.current.getBoundingClientRect();
+      const fishTankRect = fishTankRef.current.getBoundingClientRect();
+
+      const absoluteBottom = rect.bottom + window.scrollY;
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const diff = scrollPosition - absoluteBottom;
+
+      const visibilityPercentage = Math.min(1, Math.max(0, (diff / fishTankRect.height)));
+      fishVolumeRef.current = visibilityPercentage;
+
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+
+  }, []);
 
   return (
 
@@ -130,8 +162,8 @@ export default function Home() {
       </div>
 
       <ExperiencePanel></ExperiencePanel>
-      <ProjectPanel></ProjectPanel>
-      <FishTank></FishTank>
+      <ProjectPanel ProjectPanelRef={ProjectPanelRef}></ProjectPanel>
+      <FishTank fishTankRef={fishTankRef}></FishTank>
 
     </>
 
