@@ -81,7 +81,6 @@
 
 
 .bubble-holder {
-  width: 2%;
   aspect-ratio: 1/1;
   position: absolute;
   z-index: 1;
@@ -109,10 +108,6 @@
     cursor: none;
 }
 
-.fishtank:hover .ham {
-  opacity: 1;
-}
-
 .statue {
     position: absolute;
     bottom: 5%;
@@ -120,6 +115,7 @@
     transform: rotate(27deg);
     right: -8%;
     opacity: 0.6;
+    mask-image: linear-gradient(180deg, white 95%, transparent 100%);
 }
 
 .gradient {
@@ -140,11 +136,15 @@
   aspect-ratio: 1/1;
   width: max(10svh, 40px) !important;
   height: auto !important;
-  opacity: 0;
-  transition: opacity .2s ease-in-out;
+  transition: filter .2s ease-in-out, opacity .2s ease-in-out;
   z-index: 2;
   pointer-events: none;
   user-select: none;
+}
+
+.ham.hidden {
+  filter: blur(10px);
+  opacity: 0;
 }
 
 .coral-1 {
@@ -186,4 +186,50 @@
 .coral-1, .coral-2, .coral-3, .statue {
   pointer-events: none;
   user-select: none;
+  transition: filter .5s ease-out, opacity .5s ease-out;
+}
+
+@media (max-width: 1400px) {
+
+
+}
+
+/* Large devices (≤1200px) */
+@media (max-width: 1200px) {
+
+
+}
+
+/* Medium devices (≤992px) */
+@media (max-width: 992px) {
+
+  .fishtank {
+    min-height: max(80svh, 400px);
+  }
+
+}
+
+/* Small devices (≤768px) */
+@media (max-width: 768px) {
+
+  .coral-3 {
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+}
+
+/* Small devices (≤700px) */
+@media (max-width: 600px) {
+
+  .coral-2 {
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+}
+
+/* Extra small devices (≤576px) */
+@media (max-width: 576px) {
+
 }

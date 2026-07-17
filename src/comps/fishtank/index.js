@@ -12,7 +12,10 @@ const Bubble = ({ top, left, onExit, onClick }) => {
 
   const [topPosition, setTopPosition] = useState(top);
   const [popped, setPopped] = useState(false);
-  const size = useRef(Math.random() * (4 - 1.5) + 1.5);
+
+  const bubbleSizeStart = 4;
+  const bubbleSizeEnd = 10;
+  const size = useRef(Math.random() * (bubbleSizeEnd - bubbleSizeStart) + bubbleSizeStart);
   const speed = useRef(0.1 + Math.random() * 0.1); // Slightly randomized speed
   const shouldExit = useRef(false);
 
@@ -65,7 +68,7 @@ const Bubble = ({ top, left, onExit, onClick }) => {
 
   return (
 
-    <div onMouseEnter={handlePop} onClick={handlePop} className="bubble-holder" style={{ pointerEvents: `${popped ? "none" : "all"}`, transform: `translate(-50%, -50%) scale(${popped ? 0 : 1})`, width: `${size.current}%`, position: 'absolute', top: `${topPosition}%`, left: `${left}%`}}>
+    <div onMouseEnter={handlePop} onClick={handlePop} className="bubble-holder" style={{ pointerEvents: `${popped ? "none" : "all"}`, transform: `translate(-50%, -50%) scale(${popped ? 0 : 1})`, height: `${size.current}%`, position: 'absolute', top: `${topPosition}%`, left: `${left}%`}}>
         <Image height={400} style={{height: 'auto'}} alt="Bubble" draggable={false} className="bubble" src={BubbleSprite}/>
     </div>
 
