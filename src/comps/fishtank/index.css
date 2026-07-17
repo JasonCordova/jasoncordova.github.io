@@ -105,7 +105,6 @@
     user-select: none;
     touch-action: none;
     -ms-touch-action: none;
-    cursor: none;
 }
 
 .statue {
@@ -134,17 +133,18 @@
   top: 50%;
   transform: translate(-50%, -50%);
   aspect-ratio: 1/1;
-  width: max(10svh, 40px) !important;
-  height: auto !important;
-  transition: filter .2s ease-in-out, opacity .2s ease-in-out;
+  height: 10% !important;
+  width: auto !important;
+  transition: transform .25s ease-out, filter .25s ease-out, opacity .25s ease-out;
   z-index: 2;
   pointer-events: none;
   user-select: none;
 }
 
-.ham.hidden {
+.ham.disabled {
   filter: blur(10px);
   opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
 }
 
 .coral-1 {

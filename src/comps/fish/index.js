@@ -1,7 +1,7 @@
 import FishSprite from '../../assets/fish.webp';
 import TropicalFishSprite from '../../assets/tropical_fish.webp';
 import './index.css';
-import { useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
+import { useEffect, useState, useRef, forwardRef, useImperativeHandle } from 'react';
 import Image from 'next/image';
 
 const minSize = 12;
@@ -14,6 +14,12 @@ const minTransitionSpeed = 3; // Goes off seconds
 const minDelay = 30; // Goes off 100 ms
 const maxDelay = 80; // Goes off 100 ms
 
+// Frenzy speeds — much faster/shorter than normal wandering.
+const frenzyMinTransitionSpeed = 1; // seconds
+const frenzyMaxTransitionSpeed = 2; // seconds
+const frenzyMinDelay = 10; // Goes off 100 ms
+const frenzyMaxDelay = 15; // Goes off 100 ms
+
 const minBubbleDelay = 30; // Goes off 100 ms
 const maxBubbleDelay = 150; // Goes off 100 ms
 
@@ -25,7 +31,10 @@ const Fish = forwardRef((props, tankRef) => {
     const IntervalRef = useRef(null);
     const BubbleIntervalRef = useRef(null);
     const FocusState = useRef(false);
+    const FrenzyState = useRef(false);
     const FishMouth = useRef(null);
+
+    const [starred, setStarred] = useState(false);
 
     const position = useRef({
 
@@ -34,6 +43,10 @@ const Fish = forwardRef((props, tankRef) => {
         facingRight: true
 
     });
+
+    const setFrenzied = (value) => {
+        FrenzyState.current = value;
+    };
 
     const stopMoving = () => {
 
@@ -139,8 +152,15 @@ const Fish = forwardRef((props, tankRef) => {
             IntervalRef.current = null;
         }
 
-        var randomDelay = Math.round(Math.random() * (maxDelay - minDelay) + minDelay) * 100;
-        var randomTransition = Math.round(Math.random() * (maxTransitionSpeed - minTransitionSpeed) + minTransitionSpeed);
+        const isFrenzied = FrenzyState.current;
+
+        const currentMinDelay = isFrenzied ? frenzyMinDelay : minDelay;
+        const currentMaxDelay = isFrenzied ? frenzyMaxDelay : maxDelay;
+        const currentMinTransition = isFrenzied ? frenzyMinTransitionSpeed : minTransitionSpeed;
+        const currentMaxTransition = isFrenzied ? frenzyMaxTransitionSpeed : maxTransitionSpeed;
+
+        var randomDelay = Math.round(Math.random() * (currentMaxDelay - currentMinDelay) + currentMinDelay) * 100;
+        var randomTransition = Math.random() * (currentMaxTransition - currentMinTransition) + currentMinTransition;
         var randomX = Math.round(Math.random() * 76 + 12);
         var randomY = Math.round(Math.random() * 74 + 13);
 
@@ -182,7 +202,10 @@ const Fish = forwardRef((props, tankRef) => {
     // its own mousemove/mousedown/mouseleave/touchmove/touchend listeners.
     useImperativeHandle(props.controlRef, () => ({
         activate,
-        deactivate
+        deactivate,
+        getElement: () => FishElement.current,
+        setStarred,
+        setFrenzied
     }));
 
     useEffect(() => {
@@ -213,6 +236,10 @@ const Fish = forwardRef((props, tankRef) => {
             <div className="fish-rotator" ref={FishRotator}>
                 <div ref={FishMouth} className="fish-mouth"></div>
                 <Image width={1} style={{width: 'auto'}} alt="Fish" draggable={false} className="fish-img" src={props.type === "tropical" ? TropicalFishSprite : FishSprite}/>
+                <div
+                    className={`fish-star-overlay${starred ? " active" : ""}`}
+                    style={{ '--star-mask-src': `url(${(props.type === "tropical" ? TropicalFishSprite : FishSprite).src})` }}
+                />
             </div>
         </div>
 

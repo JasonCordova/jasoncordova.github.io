@@ -76,21 +76,24 @@ const FishTank = ({ fishTankRef }) => {
     const bubbleCounter = useRef(0);
     const hamRef = useRef(null);
     const [bubbles, setBubbles] = useState([]);
+    const [hoveringTank, setHoveringTank] = useState(false);
+    const [foodEaten, setFoodEaten] = useState(false);
 
     // One imperative ref per fish instance instead of DOM listeners per fish.
     const fishControlRefs = useRef([]);
     const fishCount = 4;
+    const eatenFishRef = useRef(null);
 
     // Cached tank bounding rect, recomputed lazily. Avoids a
     // getBoundingClientRect() call from every fish on every move.
     const tankRectRef = useRef(null);
+    const eatThresholdPixels = 60;
 
-    const getTankRect = () => {
-        if (!tankRectRef.current && fishTankRef.current) {
-            tankRectRef.current = fishTankRef.current.getBoundingClientRect();
-        }
-        return tankRectRef.current;
-    };
+    // How long (in seconds) after food is eaten before it can respawn.
+    const eatenRespawnDelaySeconds = 5;
+    const respawnTimeoutRef = useRef(null);
+    const biteAudioRef = useRef(null);
+    const biteAudioVolume = 0.5;
 
     useEffect(() => {
 
@@ -109,33 +112,122 @@ const FishTank = ({ fishTankRef }) => {
             if (e.type === "touchmove" && e.touches && e.touches.length > 0) {
                 const x = ((e.touches[0].clientX - tankBounding.left) / tankBounding.width) * 100;
                 const y = ((e.touches[0].clientY - tankBounding.top) / tankBounding.height) * 100;
-                return { x, y };
+                return { x, y, tankBounding };
             } else {
                 const x = ((e.clientX - tankBounding.left) / tankBounding.width) * 100;
                 const y = ((e.clientY - tankBounding.top) / tankBounding.height) * 100;
-                return { x, y };
+                return { x, y, tankBounding };
+            }
+
+        };
+
+        // Finds the closest fish (by pixel distance from the ham's center)
+        // and logs "EATEN!" if it's within EAT_THRESHOLD_PX.
+        const checkForEaten = (hamPixelX, hamPixelY) => {
+
+            // Already eaten and waiting to respawn — skip the distance
+            // check entirely, no point re-triggering while it's on cooldown.
+            if (respawnTimeoutRef.current) return;
+
+            let nearestDistance = Infinity;
+            let nearestFish = null;
+
+            fishControlRefs.current.forEach((fish) => {
+
+                const el = fish?.getElement?.();
+                if (!el) return;
+
+                const rect = el.getBoundingClientRect();
+                const fishCenterX = rect.left + rect.width / 2;
+                const fishCenterY = rect.top + rect.height / 2;
+
+                const distance = Math.hypot(fishCenterX - hamPixelX, fishCenterY - hamPixelY);
+
+                if (distance < nearestDistance) {
+                    nearestDistance = distance;
+                    nearestFish = fish;
+                }
+
+            });
+
+            if (nearestFish && nearestDistance <= eatThresholdPixels) {
+                
+                setFoodEaten(true);
+
+
+                // Play bite sound effect:
+                if (biteAudioRef.current) {
+                    biteAudioRef.current.currentTime = 0;
+                    biteAudioRef.current.volume = biteAudioVolume;
+                    biteAudioRef.current.play();
+                }
+
+                nearestFish.setStarred(true);
+                nearestFish.setFrenzied(true);
+                eatenFishRef.current = nearestFish;
+
+                // Release every fish from cursor-tracking immediately so they
+                // resume their own wandering instead of staying frozen mid-chase.
+                fishControlRefs.current.forEach(fish => fish?.deactivate());
+
+                respawnTimeoutRef.current = setTimeout(() => {
+                    setFoodEaten(false);
+                    eatenFishRef.current?.setStarred(false);
+                    eatenFishRef.current?.setFrenzied(false);
+                    eatenFishRef.current = null;
+                    respawnTimeoutRef.current = null;
+                }, eatenRespawnDelaySeconds * 1000);
+
             }
 
         };
 
         const handlePointerActive = (e) => {
 
-            const { x, y } = computeXY(e);
+            const { x, y, tankBounding } = computeXY(e);
 
-            // Single loop over all fish, no per-fish listener/rect work.
-            fishControlRefs.current.forEach(fish => fish?.activate(x, y));
+            // Skip re-activating fish while food is on cooldown — otherwise the
+            // very next mousemove immediately re-engages tracking, undoing the
+            // deactivate() call in checkForEaten.
+            if (!respawnTimeoutRef.current) {
+                fishControlRefs.current.forEach(fish => fish?.activate(x, y));
+            }
 
             // Directly update ham position — no CustomEvent round trip needed
             // now that this all lives in one place.
             if (hamRef.current) {
+                setHoveringTank(true);
                 hamRef.current.style.left = `${x}%`;
                 hamRef.current.style.top = `${y}%`;
+            }
+
+            // Convert the ham's percentage position back to viewport pixels
+            // so it's in the same coordinate space as getBoundingClientRect().
+            const hamPixelX = tankBounding.left + (x / 100) * tankBounding.width;
+            const hamPixelY = tankBounding.top + (y / 100) * tankBounding.height;
+
+            checkForEaten(hamPixelX, hamPixelY);
+
+            // Touch doesn't fire mouseenter/mouseover as the finger drags across
+            // elements, so bubbles never see their hover-pop trigger on mobile.
+            // Manually hit-test what's under the touch point instead.
+            if (e.type === "touchmove" && e.touches && e.touches.length > 0) {
+
+              const touch = e.touches[0];
+              const target = document.elementFromPoint(touch.clientX, touch.clientY);
+              const bubbleEl = target?.closest(".bubble-holder");
+
+              if (bubbleEl) {
+                bubbleEl.click(); // reuses the existing onClick pop logic already wired up
+              }
+
             }
 
         };
 
         const handlePointerLeave = () => {
             fishControlRefs.current.forEach(fish => fish?.deactivate());
+            setHoveringTank(false);
         };
 
         tankEl.addEventListener("mousedown", handlePointerActive);
@@ -183,9 +275,11 @@ const FishTank = ({ fishTankRef }) => {
 
     return (
 
-            <div ref={fishTankRef} className="fishtank project-bg-holder" onClick={handleClick}>
+            <div ref={fishTankRef} className="fishtank project-bg-holder" style={{cursor: (hoveringTank && !foodEaten) ? "none" : "auto"}} onClick={handleClick}>
 
-                <Image ref={hamRef} alt="Ham" draggable={false} className='ham' src={Ham}/>
+                <audio src="/bite.wav" ref={biteAudioRef}></audio>
+
+                <Image ref={hamRef} alt="Ham" draggable={false} className={`ham${(hoveringTank && !foodEaten) ? "" : " disabled"}`} src={Ham}/>
 
                 {Array.from({ length: fishCount }).map((_, i) => (
                     <Fish
