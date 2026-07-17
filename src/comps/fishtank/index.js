@@ -6,7 +6,7 @@ import Ham from '../../assets/ham.webp';
 import Image from 'next/image';
 import './index.css';
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 
 const Bubble = ({ top, left, onExit, onClick }) => {
 
@@ -16,7 +16,7 @@ const Bubble = ({ top, left, onExit, onClick }) => {
   const bubbleSizeStart = 4;
   const bubbleSizeEnd = 10;
   const size = useRef(Math.random() * (bubbleSizeEnd - bubbleSizeStart) + bubbleSizeStart);
-  const speed = useRef(0.1 + Math.random() * 0.1); // Slightly randomized speed
+  const speed = useRef(0.1 + Math.random() * 0.1);
   const shouldExit = useRef(false);
 
   useEffect(() => {
@@ -34,16 +34,13 @@ const Bubble = ({ top, left, onExit, onClick }) => {
 
         // Exit once it's fully scrolled past the top, no DOM read needed
         if (next < -size.current) {
-
           shouldExit.current = true;
           onExit();
-
           return next;
-
         }
 
         return next;
-        
+
       });
 
       if (!shouldExit.current) {
@@ -60,10 +57,8 @@ const Bubble = ({ top, left, onExit, onClick }) => {
   }, [onExit]);
 
   const handlePop = () => {
-
     setPopped(true);
     onClick();
-
   }
 
   return (
@@ -82,56 +77,108 @@ const FishTank = ({ fishTankRef }) => {
     const hamRef = useRef(null);
     const [bubbles, setBubbles] = useState([]);
 
+    // One imperative ref per fish instance instead of DOM listeners per fish.
+    const fishControlRefs = useRef([]);
+    const fishCount = 4;
+
+    // Cached tank bounding rect, recomputed lazily. Avoids a
+    // getBoundingClientRect() call from every fish on every move.
+    const tankRectRef = useRef(null);
+
+    const getTankRect = () => {
+        if (!tankRectRef.current && fishTankRef.current) {
+            tankRectRef.current = fishTankRef.current.getBoundingClientRect();
+        }
+        return tankRectRef.current;
+    };
+
     useEffect(() => {
 
-      const updateHamPosition = (e) => {
+        const tankEl = fishTankRef.current;
+        if (!tankEl) return;
 
-        const x = e.detail.x;
-        const y = e.detail.y;
+        // Invalidate the cached rect on resize/scroll so positions stay accurate.
+        const invalidateRect = () => { tankRectRef.current = null; };
+        window.addEventListener("resize", invalidateRect);
 
-        if (hamRef.current) {
-          hamRef.current.style.left = `${x}%`;
-          hamRef.current.style.top = `${y}%`;
+        const computeXY = (e) => {
+
+            const tankBounding = fishTankRef.current.getBoundingClientRect();
+            tankRectRef.current = tankBounding;
+
+            if (e.type === "touchmove" && e.touches && e.touches.length > 0) {
+                const x = ((e.touches[0].clientX - tankBounding.left) / tankBounding.width) * 100;
+                const y = ((e.touches[0].clientY - tankBounding.top) / tankBounding.height) * 100;
+                return { x, y };
+            } else {
+                const x = ((e.clientX - tankBounding.left) / tankBounding.width) * 100;
+                const y = ((e.clientY - tankBounding.top) / tankBounding.height) * 100;
+                return { x, y };
+            }
+
+        };
+
+        const handlePointerActive = (e) => {
+
+            const { x, y } = computeXY(e);
+
+            // Single loop over all fish, no per-fish listener/rect work.
+            fishControlRefs.current.forEach(fish => fish?.activate(x, y));
+
+            // Directly update ham position — no CustomEvent round trip needed
+            // now that this all lives in one place.
+            if (hamRef.current) {
+                hamRef.current.style.left = `${x}%`;
+                hamRef.current.style.top = `${y}%`;
+            }
+
+        };
+
+        const handlePointerLeave = () => {
+            fishControlRefs.current.forEach(fish => fish?.deactivate());
+        };
+
+        tankEl.addEventListener("mousedown", handlePointerActive);
+        tankEl.addEventListener("mousemove", handlePointerActive);
+        tankEl.addEventListener("mouseleave", handlePointerLeave);
+        tankEl.addEventListener("touchend", handlePointerLeave);
+        tankEl.addEventListener("touchmove", handlePointerActive);
+
+        return () => {
+            window.removeEventListener("resize", invalidateRect);
+            tankEl.removeEventListener("mousedown", handlePointerActive);
+            tankEl.removeEventListener("mousemove", handlePointerActive);
+            tankEl.removeEventListener("mouseleave", handlePointerLeave);
+            tankEl.removeEventListener("touchend", handlePointerLeave);
+            tankEl.removeEventListener("touchmove", handlePointerActive);
         }
-        
-      }
 
-      window.addEventListener("hamPosition", updateHamPosition);
-
-      return () => {
-        window.removeEventListener("hamPosition", updateHamPosition);
-      }
-
-    }, []);
+    }, [fishTankRef]);
 
     const handleBubblePop = (id) => {
 
-      // Pass new custom event o play new bubble pop audio:
-      const bubblePopEvent = new CustomEvent("bubblePop");
-      window.dispatchEvent(bubblePopEvent);
+        const bubblePopEvent = new CustomEvent("bubblePop");
+        window.dispatchEvent(bubblePopEvent);
 
-      // Call on handleBubbleExit to remove bubble after the transition delay:
-      setTimeout(() => {
-        handleBubbleExit(id);
-      }, 200);
+        setTimeout(() => {
+            handleBubbleExit(id);
+        }, 200);
 
     }
 
-    const handleBubbleExit = (id) => {
+    const handleBubbleExit = useCallback((id) => {
         setBubbles(prev => prev.filter(bubble => bubble.id !== id));
-    };
+    }, []);
 
-    const createBubble = (x, y) => {
+    const createBubble = useCallback((x, y) => {
         setBubbles(prev => [
             ...prev,
             { id: `${bubbleCounter.current++}`, x, y}
         ]);
-    };
+    }, []);
 
     const handleClick = (e) => {
-
-      // console.log(e.clientX);
-
+        // console.log(e.clientX);
     }
 
     return (
@@ -140,10 +187,15 @@ const FishTank = ({ fishTankRef }) => {
 
                 <Image ref={hamRef} alt="Ham" draggable={false} className='ham' src={Ham}/>
 
-                <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
-                <Fish ref={fishTankRef} type={"tropical"} onBlowBubble={createBubble}></Fish>
-                <Fish ref={fishTankRef} type={""} onBlowBubble={createBubble}></Fish>
-                <Fish ref={fishTankRef} type={""} onBlowBubble={createBubble}></Fish>
+                {Array.from({ length: fishCount }).map((_, i) => (
+                    <Fish
+                        key={i}
+                        ref={fishTankRef}
+                        controlRef={(el) => { fishControlRefs.current[i] = el; }}
+                        type={i < 2 ? "tropical" : ""}
+                        onBlowBubble={createBubble}
+                    />
+                ))}
 
                 {bubbles.map(bubble => (
                     <Bubble
