@@ -94,6 +94,8 @@ const FishTank = ({ fishTankRef }) => {
     const respawnTimeoutRef = useRef(null);
     const biteAudioRef = useRef(null);
     const biteAudioVolume = 0.5;
+    const starAudioRef = useRef(null);
+    const starAudioVolume = 0.5;
 
     useEffect(() => {
 
@@ -154,7 +156,6 @@ const FishTank = ({ fishTankRef }) => {
                 
                 setFoodEaten(true);
 
-
                 // Play bite sound effect:
                 if (biteAudioRef.current) {
                     biteAudioRef.current.currentTime = 0;
@@ -166,16 +167,33 @@ const FishTank = ({ fishTankRef }) => {
                 nearestFish.setFrenzied(true);
                 eatenFishRef.current = nearestFish;
 
+                // Start star sound on loop while starred
+                if (starAudioRef.current) {
+                    starAudioRef.current.currentTime = 0;
+                    starAudioRef.current.volume = starAudioVolume;
+                    starAudioRef.current.loop = true;
+                    starAudioRef.current.play();
+                }
+
                 // Release every fish from cursor-tracking immediately so they
                 // resume their own wandering instead of staying frozen mid-chase.
                 fishControlRefs.current.forEach(fish => fish?.deactivate());
 
                 respawnTimeoutRef.current = setTimeout(() => {
+
                     setFoodEaten(false);
                     eatenFishRef.current?.setStarred(false);
                     eatenFishRef.current?.setFrenzied(false);
                     eatenFishRef.current = null;
                     respawnTimeoutRef.current = null;
+
+                    // Stop star sound and reset it
+                    if (starAudioRef.current) {
+                        starAudioRef.current.pause();
+                        starAudioRef.current.currentTime = 0;
+                        starAudioRef.current.loop = false;
+                    }
+
                 }, eatenRespawnDelaySeconds * 1000);
 
             }
@@ -275,9 +293,10 @@ const FishTank = ({ fishTankRef }) => {
 
     return (
 
-            <div ref={fishTankRef} className="fishtank project-bg-holder" style={{cursor: (hoveringTank && !foodEaten) ? "none" : "auto"}} onClick={handleClick}>
+            <div ref={fishTankRef} className="fishtank" style={{cursor: (hoveringTank && !foodEaten) ? "none" : "auto"}} onClick={handleClick}>
 
                 <audio src="/bite.wav" ref={biteAudioRef}></audio>
+                <audio src="/star_power.wav" ref={starAudioRef}></audio>
 
                 <Image ref={hamRef} alt="Ham" draggable={false} className={`ham${(hoveringTank && !foodEaten) ? "" : " disabled"}`} src={Ham}/>
 

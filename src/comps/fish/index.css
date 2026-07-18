@@ -107,6 +107,10 @@
     transition: transform 1s ease;
 }
 
+.fish-rotator.starred .fish-img {
+  transition: transform .5s linear !important;
+}
+
 .fish-mouth {
   position: absolute;
   top: calc(50% - 0px);

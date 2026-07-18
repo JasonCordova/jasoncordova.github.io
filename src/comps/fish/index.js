@@ -15,10 +15,10 @@ const minDelay = 30; // Goes off 100 ms
 const maxDelay = 80; // Goes off 100 ms
 
 // Frenzy speeds — much faster/shorter than normal wandering.
-const frenzyMinTransitionSpeed = 1; // seconds
-const frenzyMaxTransitionSpeed = 2; // seconds
-const frenzyMinDelay = 10; // Goes off 100 ms
-const frenzyMaxDelay = 15; // Goes off 100 ms
+const frenzyMinTransitionSpeed = 0.7; // seconds
+const frenzyMaxTransitionSpeed = 0.7; // seconds
+const frenzyMinDelay = 7; // Goes off 100 ms - for rotation
+const frenzyMaxDelay = 7; // Goes off 100 ms - for rotation
 
 const minBubbleDelay = 30; // Goes off 100 ms
 const maxBubbleDelay = 150; // Goes off 100 ms
@@ -233,7 +233,7 @@ const Fish = forwardRef((props, tankRef) => {
     return (
 
         <div className="fish" ref={FishElement} onClick={handleFishClick}>
-            <div className="fish-rotator" ref={FishRotator}>
+            <div className={`fish-rotator${starred ? " starred" : ""}`} ref={FishRotator}>
                 <div ref={FishMouth} className="fish-mouth"></div>
                 <Image width={1} style={{width: 'auto'}} alt="Fish" draggable={false} className="fish-img" src={props.type === "tropical" ? TropicalFishSprite : FishSprite}/>
                 <div

@@ -63,7 +63,7 @@ a {color: inherit; text-decoration: none;}
     justify-content: flex-end;
     padding: var(--body-padding);
     background-color: var(--landing);
-    min-height: max(100svh, 550px);
+    min-height: max(100dvh, 550px);
     position: relative;
 }
 

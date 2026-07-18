@@ -100,11 +100,13 @@
     position: sticky;
     bottom: 0px;
     overflow: hidden;
-    min-height: max(50svh, 400px);
-    max-height: 80svh;
+    min-height: max(50dvh, 400px);
+    max-height: 80dvh;
     user-select: none;
     touch-action: none;
     -ms-touch-action: none;
+    width: 100%;
+    aspect-ratio: 16/9;
 }
 
 .statue {
@@ -204,7 +206,7 @@
 @media (max-width: 992px) {
 
   .fishtank {
-    min-height: max(80svh, 400px);
+    min-height: max(80dvh, 400px);
   }
 
 }
