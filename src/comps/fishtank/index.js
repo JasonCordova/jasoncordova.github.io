@@ -10,8 +10,9 @@ import { useRef, useState, useEffect, useCallback } from 'react';
 
 const Bubble = ({ id, top, left, onExit, onClick }) => {
 
-  const [topPosition, setTopPosition] = useState(top);
   const [popped, setPopped] = useState(false);
+  const bubbleRef = useRef(null);
+  const topPositionRef = useRef(top);
 
   const bubbleSizeStart = 4;
   const bubbleSizeEnd = 8;
@@ -28,24 +29,21 @@ const Bubble = ({ id, top, left, onExit, onClick }) => {
 
       if (!isMounted || shouldExit.current) return;
 
-      setTopPosition(prevTop => {
+      const next = topPositionRef.current - speed.current;
+      topPositionRef.current = next;
 
-        const next = prevTop - speed.current;
-
-        // Exit once it's fully scrolled past the top, no DOM read needed
-        if (next < -size.current) {
-          shouldExit.current = true;
-          onExit(id);
-          return next;
-        }
-
-        return next;
-
-      });
-
-      if (!shouldExit.current) {
-        animationFrameId = requestAnimationFrame(animate);
+      if (next < -size.current) {
+        shouldExit.current = true;
+        onExit(id);
+        return;
       }
+
+      // Direct DOM write — no React re-render per frame
+      if (bubbleRef.current) {
+        bubbleRef.current.style.top = `${next}%`;
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
     };
 
     animationFrameId = requestAnimationFrame(animate);
@@ -54,7 +52,7 @@ const Bubble = ({ id, top, left, onExit, onClick }) => {
       isMounted = false;
       cancelAnimationFrame(animationFrameId);
     };
-  }, [onExit]);
+  }, [onExit, id]);
 
   const handlePop = () => {
     setPopped(true);
@@ -63,7 +61,7 @@ const Bubble = ({ id, top, left, onExit, onClick }) => {
 
   return (
 
-    <div onMouseEnter={handlePop} onClick={handlePop} className="bubble-holder" style={{ pointerEvents: `${popped ? "none" : "all"}`, transform: `translate(-50%, -50%) scale(${popped ? 0 : 1})`, height: `${size.current}%`, position: 'absolute', top: `${topPosition}%`, left: `${left}%`}}>
+    <div ref={bubbleRef} onMouseEnter={handlePop} onClick={handlePop} className="bubble-holder" style={{ pointerEvents: `${popped ? "none" : "all"}`, transform: `translate(-50%, -50%) scale(${popped ? 0 : 1})`, height: `${size.current}%`, position: 'absolute', top: `${top}%`, left: `${left}%`}}>
         <Image height={400} style={{height: 'auto'}} alt="Bubble" draggable={false} className="bubble" src={BubbleSprite}/>
     </div>
 
@@ -317,10 +315,11 @@ const FishTank = ({ fishTankRef }) => {
                 {bubbles.map(bubble => (
                     <Bubble
                         key={bubble.id}
+                        id={bubble.id}
                         top={bubble.y}
                         left={bubble.x}
-                        onClick={() => handleBubblePop(bubble.id)}
-                        onExit={() => handleBubbleExit(bubble.id)}
+                        onClick={handleBubblePop}
+                        onExit={handleBubbleExit}
                     />
                 ))}
 
