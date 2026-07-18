@@ -51,7 +51,11 @@ const Fish = forwardRef((props, tankRef) => {
     };
 
     // const getRandomSize = () => Math.round(Math.random() * (maxSize - minSize) + minSize);
-    const getRandomSize = () => minSize;
+    const getRandomSize = () => {
+        const steps = Math.floor((maxSize - minSize) / growthIncrement);
+        const randomStep = Math.floor(Math.random() * (steps + 1));
+        return minSize + randomStep * growthIncrement;
+    };
 
     const grow = () => {
 
