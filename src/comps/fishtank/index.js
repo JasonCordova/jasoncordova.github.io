@@ -8,13 +8,13 @@ import './index.css';
 
 import { useRef, useState, useEffect, useCallback } from 'react';
 
-const Bubble = ({ top, left, onExit, onClick }) => {
+const Bubble = ({ id, top, left, onExit, onClick }) => {
 
   const [topPosition, setTopPosition] = useState(top);
   const [popped, setPopped] = useState(false);
 
   const bubbleSizeStart = 4;
-  const bubbleSizeEnd = 10;
+  const bubbleSizeEnd = 8;
   const size = useRef(Math.random() * (bubbleSizeEnd - bubbleSizeStart) + bubbleSizeStart);
   const speed = useRef(0.1 + Math.random() * 0.1);
   const shouldExit = useRef(false);
@@ -35,7 +35,7 @@ const Bubble = ({ top, left, onExit, onClick }) => {
         // Exit once it's fully scrolled past the top, no DOM read needed
         if (next < -size.current) {
           shouldExit.current = true;
-          onExit();
+          onExit(id);
           return next;
         }
 
@@ -58,7 +58,7 @@ const Bubble = ({ top, left, onExit, onClick }) => {
 
   const handlePop = () => {
     setPopped(true);
-    onClick();
+    onClick(id);
   }
 
   return (
@@ -74,7 +74,7 @@ const Bubble = ({ top, left, onExit, onClick }) => {
 const FishTank = ({ fishTankRef }) => {
 
     const bubbleCounter = useRef(0);
-    const hamRef = useRef(null);
+    const cursorRef = useRef(null);
     const [bubbles, setBubbles] = useState([]);
     const [hoveringTank, setHoveringTank] = useState(false);
     const [foodEaten, setFoodEaten] = useState(false);
@@ -165,6 +165,7 @@ const FishTank = ({ fishTankRef }) => {
 
                 nearestFish.setStarred(true);
                 nearestFish.setFrenzied(true);
+                nearestFish.grow();
                 eatenFishRef.current = nearestFish;
 
                 // Start star sound on loop while starred
@@ -213,10 +214,10 @@ const FishTank = ({ fishTankRef }) => {
 
             // Directly update ham position — no CustomEvent round trip needed
             // now that this all lives in one place.
-            if (hamRef.current) {
+            if (cursorRef.current) {
                 setHoveringTank(true);
-                hamRef.current.style.left = `${x}%`;
-                hamRef.current.style.top = `${y}%`;
+                cursorRef.current.style.left = `${x}%`;
+                cursorRef.current.style.top = `${y}%`;
             }
 
             // Convert the ham's percentage position back to viewport pixels
@@ -265,7 +266,7 @@ const FishTank = ({ fishTankRef }) => {
 
     }, [fishTankRef]);
 
-    const handleBubblePop = (id) => {
+    const handleBubblePop = useCallback((id) => {
 
         const bubblePopEvent = new CustomEvent("bubblePop");
         window.dispatchEvent(bubblePopEvent);
@@ -274,7 +275,7 @@ const FishTank = ({ fishTankRef }) => {
             handleBubbleExit(id);
         }, 200);
 
-    }
+    }, []);
 
     const handleBubbleExit = useCallback((id) => {
         setBubbles(prev => prev.filter(bubble => bubble.id !== id));
@@ -293,12 +294,15 @@ const FishTank = ({ fishTankRef }) => {
 
     return (
 
-            <div ref={fishTankRef} className="fishtank" style={{cursor: (hoveringTank && !foodEaten) ? "none" : "auto"}} onClick={handleClick}>
+            <div ref={fishTankRef} className="fishtank" onClick={handleClick}>
 
                 <audio src="/bite.wav" ref={biteAudioRef}></audio>
                 <audio src="/star_power.wav" ref={starAudioRef}></audio>
 
-                <Image ref={hamRef} alt="Ham" draggable={false} className={`ham${(hoveringTank && !foodEaten) ? "" : " disabled"}`} src={Ham}/>
+                <div ref={cursorRef} alt="Ham" draggable={false} className={`cursor${(hoveringTank) ? "" : " disabled"}`}>
+                    <div className={`empty-cursor${!foodEaten ? " disabled" : ""}`}></div>
+                    <Image alt="Ham" draggable={false} className={`ham${!foodEaten ? "" : " disabled"}`} src={Ham}/>
+                </div>
 
                 {Array.from({ length: fishCount }).map((_, i) => (
                     <Fish

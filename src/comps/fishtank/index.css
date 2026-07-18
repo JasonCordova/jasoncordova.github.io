@@ -107,6 +107,7 @@
     -ms-touch-action: none;
     width: 100%;
     aspect-ratio: 16/9;
+    cursor: none;
 }
 
 .statue {
@@ -129,21 +130,51 @@
     z-index: 1;
 }
 
+.cursor {
+  position: absolute;
+  height: 10% !important;
+  width: auto !important;
+  aspect-ratio: 1/1;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  pointer-events: none;
+  transition: transform .25s ease-out, filter .25s ease-out, opacity .25s ease-out;
+  z-index: 3;
+}
+
+.cursor.disabled {
+  filter: blur(10px);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.empty-cursor {
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+  border-radius: 100%;
+  z-index: 0;
+  height: 75% !important;
+  width: 75% !important;
+}
+
 .ham {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.empty-cursor, .ham {
+  transition: transform 0.25s ease-out, filter 0.25s ease-out, opacity 0.25s ease-out;
+  pointer-events: none;
+  user-select: none;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   aspect-ratio: 1/1;
-  height: 10% !important;
-  width: auto !important;
-  transition: transform .25s ease-out, filter .25s ease-out, opacity .25s ease-out;
-  z-index: 2;
   pointer-events: none;
   user-select: none;
 }
 
-.ham.disabled {
+.empty-cursor.disabled, .ham.disabled {
   filter: blur(10px);
   opacity: 0;
   transform: translate(-50%, -50%) scale(0);

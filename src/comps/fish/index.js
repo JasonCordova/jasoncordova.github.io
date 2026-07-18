@@ -4,9 +4,10 @@ import './index.css';
 import { useEffect, useState, useRef, forwardRef, useImperativeHandle } from 'react';
 import Image from 'next/image';
 
-const minSize = 12;
+const minSize = 10;
 const maxSize = 20;
 const maxDegree = 40;
+const growthIncrement = 2.5;
 
 const maxTransitionSpeed = 8; // Goes off seconds
 const minTransitionSpeed = 3; // Goes off seconds
@@ -33,6 +34,7 @@ const Fish = forwardRef((props, tankRef) => {
     const FocusState = useRef(false);
     const FrenzyState = useRef(false);
     const FishMouth = useRef(null);
+    const CurrentSizeRef = useRef(null);
 
     const [starred, setStarred] = useState(false);
 
@@ -47,6 +49,20 @@ const Fish = forwardRef((props, tankRef) => {
     const setFrenzied = (value) => {
         FrenzyState.current = value;
     };
+
+    // const getRandomSize = () => Math.round(Math.random() * (maxSize - minSize) + minSize);
+    const getRandomSize = () => minSize;
+
+    const grow = () => {
+
+        let nextSize = (CurrentSizeRef.current ?? minSize) + growthIncrement;
+
+        if (nextSize > maxSize) nextSize = minSize;
+
+        CurrentSizeRef.current = nextSize;
+        FishElement.current.style.height = `${nextSize}%`;
+
+    }
 
     const stopMoving = () => {
 
@@ -185,7 +201,7 @@ const Fish = forwardRef((props, tankRef) => {
 
         }
 
-        FishElement.current.style.transition = `left ${randomTransition}s ease-in-out, top ${randomTransition}s ease-in-out`;
+        FishElement.current.style.transition = `left ${randomTransition}s ease-in-out, top ${randomTransition}s ease-in-out, height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)`;
         FishElement.current.style.left = `${randomX}%`;
         FishElement.current.style.top = `${randomY}%`;
 
@@ -205,12 +221,14 @@ const Fish = forwardRef((props, tankRef) => {
         deactivate,
         getElement: () => FishElement.current,
         setStarred,
-        setFrenzied
+        setFrenzied,
+        grow
     }));
 
     useEffect(() => {
 
-        let randomSize = Math.round(Math.random() * (maxSize - minSize) + minSize);
+        let randomSize = getRandomSize();
+        CurrentSizeRef.current = randomSize;
         FishElement.current.style.height = `${randomSize}%`;
 
         const startX = Math.random() * 76 + 12;
