@@ -202,7 +202,7 @@ a {color: inherit; text-decoration: none;}
 
 .short-desc {
   font-size: 1.5em;
-  max-width: 19em;
+  max-width: 23em;
   line-height: 1.25em;
   text-align: right;
 }
@@ -433,7 +433,7 @@ a {color: inherit; text-decoration: none;}
 }
 
 /* Small devices (≤700px) */
-@media (max-width: 700px) {
+@media (max-width: 720px) {
   /* styles for ≤700px */
 
   .large {font-size: 3em;}

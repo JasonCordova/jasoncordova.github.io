@@ -36,7 +36,7 @@
 
 .tab-list {
     width: 100%;
-    max-width: 360px;
+    max-width: 480px;
     border-radius: 3em;
     font-weight: 500;
     background-color: #E8E8ED;
@@ -66,7 +66,7 @@
 }
 
 .tab-cell {
-    width: 50%; 
+    width: 33.333%; 
     background-color: #272729;
     border-radius: 3em; 
     position: absolute;
@@ -76,8 +76,16 @@
     transition: left .2s ease-out;
 }
 
-.tab-cell.active {
-    left: 50%;
+.experience-tab.certifications .tab-cell {
+    left: 66.666%;
+}
+
+.experience-tab.education .tab-cell {
+    left: 33.333%;
+}
+
+.experience-tab.work .tab-cell {
+    left: 0%;
 }
 
 .exp-img {
@@ -94,10 +102,19 @@
     margin-top: 1.5em;
 }
 
+.badge-img {
+    aspect-ratio: 173/200;
+    width: 128px;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .exp-holder {
     display: flex;
     flex-direction: row;
     margin-top: 3em;
+    width: 100%;
     gap: 2em;
     flex-wrap: wrap;
     justify-content: center;
@@ -112,6 +129,7 @@
     max-width: 400px;
     padding: 2em;
     border-radius: 1em;
+    box-sizing: border-box;
 }
 
 .hidden {

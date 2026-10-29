@@ -14,11 +14,12 @@ const ExperiencePanel = () => {
 
             <div className="tab-list fade-in">
 
-                <div className="experience-tab">
+                <div className={`experience-tab ${tab}`}>
 
-                    <div className={`tab-cell${tab === "education" ? " active" : ""}`}></div>
+                    <div className={`tab-cell`}></div>
                     <div className={`tab-option${tab === "work" ? " active" : ""}`} onClick={() => {setTab("work");}}>Work</div>
                     <div className={`tab-option${tab === "education" ? " active" : ""}`} onClick={() => {setTab("education");}}>Education</div>
+                    <div className={`tab-option${tab === "certifications" ? " active" : ""}`} onClick={() => {setTab("certifications");}}>Certifications</div>
 
                 </div>
 
@@ -34,7 +35,7 @@ const ExperiencePanel = () => {
 
                         <div className="exp-company">EarthCam</div>
                         <div className="exp-title">Junior Developer</div>
-                        <div className="exp-date">Oct 2025 - Present</div>
+                        <div className="exp-date">Oct 2025 - Oct 2026</div>
 
                     </div>
 
@@ -79,7 +80,7 @@ const ExperiencePanel = () => {
 
                         <div className="exp-company">Harmon Face Values</div>
                         <div className="exp-title">Supply Chain Analyst & Engineer</div>
-                        <div className="exp-date">Jun 2022 - July 2022</div>
+                        <div className="exp-date">Jun 2022 - Aug 2022</div>
 
                         <ul className="exp-desc">
 
@@ -93,6 +94,38 @@ const ExperiencePanel = () => {
 
                 </div>
 
+
+                <div className={`exp-cell${tab === "certifications" ? "" : " hidden"}`}>
+
+                    <Image width={1} height={1} src="/aws.webp" className="exp-img" alt="Amazon Web Services Logo"></Image>
+
+                    <div className="exp-info">
+
+                        <div className="exp-company">Amazon Web Services</div>
+                        <div className="exp-title">Certified Solutions Architect Associate</div>
+                        <div className="exp-date">October 2026</div>
+
+                        <Image src="/aws_solutions_architect.webp" className="badge-img" alt="AWS Solutions Architect Logo"></Image>
+
+                    </div>
+
+                </div>
+
+                <div className={`exp-cell${tab === "certifications" ? "" : " hidden"}`}>
+
+                    <Image width={1} height={1} src="/aws.webp" className="exp-img" alt="Amazon Web Services Logo"></Image>
+
+                    <div className="exp-info">
+
+                        <div className="exp-company">Amazon Web Services</div>
+                        <div className="exp-title">Certified Cloud Practitioner</div>
+                        <div className="exp-date">July 2026</div>
+
+                        <Image src="/aws_certified_practitioner.webp" className="badge-img" alt="AWS Cloud Practitioner Logo"></Image>
+
+                    </div>
+
+                </div>
 
                 <div className={`exp-cell${tab === "education" ? "" : " hidden"}`}>
 

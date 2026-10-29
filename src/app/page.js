@@ -176,7 +176,7 @@ export default function Home() {
               
           </div>
 
-          <div className="short-desc fade-in">Backend Software Developer & QA from New Jersey. <span className="njit" onClick={() => {triggerConfetti();}}>Recent @NJIT graduate.</span></div>
+          <div className="short-desc fade-in">Software engineer focused in fullstack development and cloud systems. <span className="njit" onClick={() => {triggerConfetti();}}>Recent @NJIT graduate.</span></div>
 
         </div>
 
